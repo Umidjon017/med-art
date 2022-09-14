@@ -13,18 +13,14 @@
         </li>
 
         {{-- @can('product-list') --}}
-          {{-- <li class="dropdown {{ request()->is('admin/product-categories/*') ? 'active' : ''  }}">
-            <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Mahsulot kategoriyasi") }}</span></a>
+          <li class="dropdown {{ request()->is('admin/about-us/*') ? 'active' : ''  }}">
+            <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Biz haqimizda") }}</span></a>
               <ul class="dropdown-menu">
-                <li class="{{ request()->is('admin/product-categories/table*') ? 'active' : ''  }}">
-                    <a href="{{ route('admin.product-categories.table.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Mahsulot kategoriyasi") }}</span></a>
-                </li>
-
-                <li class="{{ request()->is('admin/product-categories/telephones*') ? 'active' : ''  }}">
-                    <a href="{{ route('admin.product-categories.telephones.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Telefon kategoriyasi") }}</span></a>
+                <li class="{{ request()->is('admin/about-us*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.about-us.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Biz haqimizda") }}</span></a>
                 </li>
               </ul>
-          </li> --}}
+          </li>
         {{-- @endcan --}}
 
         {{-- @can('product-list') --}}
