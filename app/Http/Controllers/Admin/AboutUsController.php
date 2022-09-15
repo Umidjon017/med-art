@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreAboutUsRequest;
 use App\Http\Requests\Admin\UpdateAboutUsRequest;
+use Illuminate\Support\Facades\File;
 
 class AboutUsController extends Controller
 {
@@ -16,7 +17,8 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        return view('admin.about-us.index');
+        $items = AboutUs::all();
+        return view('admin.about-us.index', compact('items'));
     }
 
     /**
@@ -38,20 +40,22 @@ class AboutUsController extends Controller
     public function store(StoreAboutUsRequest $request)
     {
         $data = $request->all();
-
         if($request->hasFile('header_image'))
         {
-            $files = $request->file('header_image');
+            $files = $request->header_image;
             $destination = public_path('admin/images/about-us/');
-            $image_name=time().'_'.$files->getClientOriginalName();
-            $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/about-us/".$image_name;
+            if (!file_exists($destination))
+            {
+                mkdir($destination, 0777, true);
+            }
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);
+            $url = "http://localhost:8000/admin/images/about-us/".$image_name;
             $data['header_image'] = $url;
         }
-
         $aboutus = AboutUs::create($data);
 
-        return redirect()->route('admin.about-us.index')->withSuccess("Rasm qo'shildi");
+        return redirect()->route('admin.about-us.index')->withSuccess("Uy rasmi qo'shildi");
     }
 
     /**
@@ -83,9 +87,23 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAboutUsRequest $request, AboutUs $aboutUs)
+    public function update(UpdateAboutUsRequest $request, $id)
     {
-        //
+        $model = AboutUs::findOrFail($id);
+        $data = $request->all();
+        $destination = public_path('admin/images/about-us/');
+        if($request->file('header_image') !== null)
+        {
+            $model->deleteImage();
+            $files = $request->file('header_image');
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);            
+            $url = "http://localhost:8000/admin/images/about-us/".$image_name;
+            $data['header_image'] = $url;
+        }
+        $model->update($data);
+        
+        return redirect()->route('admin.about-us.index')->withSuccess('Uy rasmi tahrirlandi!');
     }
 
     /**
@@ -94,8 +112,11 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AboutUs $aboutUs)
+    public function destroy($id)
     {
-        //
+        $model = AboutUs::findOrFail($id);
+        $model->delete();
+
+        return redirect()->back()->withSuccess("Uy rasmi o'chirildi!");
     }
 }

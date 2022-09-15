@@ -24,7 +24,7 @@ class StoreAboutUsRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|mimes:png,jpg,gif,svg',
+            'header_image' => 'required|image|mimes:png,jpg,gif,svg',
         ];
     }
 }

@@ -24,7 +24,7 @@ class UpdateAboutUsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'header_image' => 'required|image|mimes:png,jpg,gif,svg',
         ];
     }
 }

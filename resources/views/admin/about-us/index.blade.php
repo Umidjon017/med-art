@@ -5,7 +5,7 @@
           <div class="card">
             {{-- @can('home-create') --}}
                 <div class="card-header d-flex justify-content-between">
-                    <h5 align="center">Bosh menyu ma'lumotlar jadvali</h5>
+                    <h5 align="center">{{ __("Uy rasmilari jadvali") }}</h5>
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addHomeImmage">{{ __("Qo'shish") }}</button>
                 </div>
@@ -18,62 +18,52 @@
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                                 <span>&times;</span>
                             </button>
-                            <h5><i class="icon fas fa-check"></i></h5>
-                            {{session('success')}}
+                            <h5>
+                                <i class="icon fas fa-check"></i>
+                                {{session('success')}}
+                            </h5>
                         </div>
                     </div>
                 @endif
                 @if (Session::has('warning'))
                     <div class="alert alert-danger alert-dismissible show fade">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> <span>&times;</span> </button>
-                        <h5><i class="icon fas fa-ban"></i> </h5>
-                        {{session('warning')}}
+                        <h5>
+                            <i class="icon fas fa-ban"></i>
+                            {{session('warning')}}
+                        </h5>
                     </div>
                 @endif
               <div class="table-responsive">
                 <table class="table table-bordered table-striped" id="table-1">
                   <thead>
                     <tr>
-                        <th class="text-center"> # </th>
-                        <th>Sarlovha(UZ)</th>
-                        <th>Tavsif(UZ)</th>
+                        <th class="w-25"> # </th>
                         <th>Rasmi</th>
-                        <th>Amallar</th>
+                        <th class="w-25">Amallar</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {{-- @foreach ($items as $item) --}}
+                    @foreach ($items as $item)
                     <tr class="odd">
-                        <td></td>
-                        <td ><td>
-                        <td class="d-inline-block text-truncate" style="max-width: 400px;"><td>
-    
-                        <td class=""><img src="/admin/images/about-us/" width="100px" alt="" srcset=""></td>
-    
-                        <td class="d-flex justify-content-center ">
-                            {{-- <a class="btn btn-primary" href="{{route('admin.homes.show', $item->id)}}">
-                                <i class="fas fa-eye"></i>
-                            </a> --}}
-                            {{-- @can('home-edit')
-                                <a class="btn btn-warning" href="{{route('admin.homes.edit', $item->id)}}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                            @endcan --}}
-    
+                        <td>{{$loop->iteration}}</td>
+                        <td><img src="{{ $item->header_image }}" width="100px" alt="" srcset=""></td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editHomeImage{{$item->id}}"><i class="fas fa-edit"></i></button>
                             {{-- @can('home-delete') --}}
-    
-                                {{-- <form action="{{route('admin.homes.destroy', $item->id)}}" method="POST">
-    
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form> --}}
+                            <form action="{{route('admin.about-us.destroy', $item->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
                             {{-- @endcan --}}
                         </td>
                     </tr>
-                   {{-- @endforeach --}}
+                    @include('admin.about-us.edit')
+
+                   @endforeach
 
                    @include('admin.about-us.create')
                   </tbody>
