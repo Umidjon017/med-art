@@ -36,6 +36,12 @@
                 <li class="{{ request()->is('admin/our-service/home-image*') ? 'active' : ''  }}">
                     <a href="{{ route('admin.our-service.header_image.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Uy rasmi") }}</span></a>
                 </li>
+                <li class="{{ request()->is('admin/our-service/departments*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.our-service.departments.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Bo'limlar") }}</span></a>
+                </li>
+                <li class="{{ request()->is('admin/our-service/faqs*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.our-service.faqs.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("TSS") }}</span></a>
+                </li>
               </ul>
           </li>
         {{-- @endcan --}}
