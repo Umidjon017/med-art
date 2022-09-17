@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\About\AboutUsController;
 use App\Http\Controllers\Admin\About\AboutusFaqController;
 use App\Http\Controllers\Admin\About\AboutusContentController;
+use App\Http\Controllers\Admin\OurService\OurServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,11 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
         Route::resource('home-image', AboutUsController::class);
         Route::resource('contents', AboutusContentController::class);
         Route::resource('faqs', AboutusFaqController::class);
+    });
+
+    // Our Service
+    Route::prefix('our-service')->name('our-service.')->group(function() {
+        Route::resource('header_image', OurServiceController::class);
     });
 });
 

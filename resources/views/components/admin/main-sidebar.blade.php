@@ -28,6 +28,17 @@
               </ul>
           </li>
         {{-- @endcan --}}
+        
+        {{-- @can('product-list') --}}
+          <li class="dropdown {{ request()->is('admin/our-service/*') ? 'active' : ''  }}">
+            <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Bizning xizmatlar") }}</span></a>
+              <ul class="dropdown-menu">
+                <li class="{{ request()->is('admin/our-service/home-image*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.our-service.header_image.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Uy rasmi") }}</span></a>
+                </li>
+              </ul>
+          </li>
+        {{-- @endcan --}}
 
         {{-- @can('product-list') --}}
           {{-- <li class="dropdown {{ request()->is('admin/product-telephones*') ? 'active' : ''  }}">

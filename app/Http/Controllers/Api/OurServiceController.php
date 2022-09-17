@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Models\Admin\About\AboutUs;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Admin\About\AboutUsResource;
+use App\Models\Admin\OurService\OurService;
+use App\Http\Resources\Admin\OurService\OurServiceResource;
 
-class AboutUsController extends Controller
+class OurServiceController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -17,8 +17,8 @@ class AboutUsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $aboutus = AboutUs::all();
-        
-        return AboutUsResource::collection($aboutus);
+        $services = OurService::all();
+
+        return OurServiceResource::collection($services);
     }
 }
