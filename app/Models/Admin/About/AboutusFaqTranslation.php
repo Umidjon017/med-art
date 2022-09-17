@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin\About;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class AboutusContentTranslation extends Model
+class AboutusFaqTranslation extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
+        'question',
+        'answer',
     ];
 
     public $timestamps = false;

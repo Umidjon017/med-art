@@ -8,7 +8,7 @@
                 color: #fff !important;
             }
         </style>
-        <link rel="stylesheet" href="/assets/bundles/summernote/summernote-bs4.css">
+        <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
     @endsection
 
     @section('content')

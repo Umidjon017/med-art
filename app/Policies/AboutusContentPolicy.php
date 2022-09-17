@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\AboutusContent;
 use App\Models\User;
+use App\Models\Admin\About\AboutusContent;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AboutusContentPolicy

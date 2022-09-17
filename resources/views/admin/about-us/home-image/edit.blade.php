@@ -17,7 +17,7 @@
                     <div id="image-preview" class="image-preview">
                         <label for="image-upload" id="image-label">{{ __("Rasm") }}</label>
                         <input type="file" name="header_image" id="image-upload" />
-                        @error('image')
+                        @error('header_image')
                             <div class="alert alert-danger">
                                 {{ $message }}
                             </div>

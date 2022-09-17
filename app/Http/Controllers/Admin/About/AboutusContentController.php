@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\About;
 
-use App\Models\AboutusContent;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\About\AboutusContent;
 use App\Http\Requests\Admin\About\StoreAboutusContentRequest;
 use App\Http\Requests\Admin\About\UpdateAboutusContentRequest;
 

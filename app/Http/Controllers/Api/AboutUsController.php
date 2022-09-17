@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\AboutUs;
+use App\Models\Admin\About\AboutUs;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\AboutUsResource;
+use App\Http\Resources\Admin\About\AboutUsResource;
 
 use function PHPUnit\Framework\returnCallback;
 

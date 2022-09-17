@@ -1,7 +1,7 @@
 <x-admin-layout>
 
 @section('css')
-        <link rel="stylesheet" href="/assets/bundles/summernote/summernote-bs4.css">
+        <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
     <style>
         .bg-aqua-active{
             background-color: #6777ef;

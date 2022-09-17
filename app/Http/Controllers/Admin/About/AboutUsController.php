@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\About;
 
-use App\Models\AboutUs;
+use App\Models\Admin\About\AboutUs;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\About\StoreAboutUsRequest;
 use App\Http\Requests\Admin\About\UpdateAboutUsRequest;

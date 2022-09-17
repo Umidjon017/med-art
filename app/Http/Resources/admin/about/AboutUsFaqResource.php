@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Admin\About;
 
-use App\Models\AboutusContent;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AboutUsResource extends JsonResource
+class AboutUsFaqResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +14,12 @@ class AboutUsResource extends JsonResource
      */
     public function toArray($request)
     {
-        $content = AboutusContent::all();
         return [
             'id' => $this->id,
-            'header_image' => $this->header_image,
-            'aboutus_content' => AboutUsContentResource::collection($content),
+            'question_uz' => $this->translate('uz')->question,
+            'question_ru' => $this->translate('ru')->question,
+            'answer_uz' => $this->translate('uz')->answer,
+            'answer_ru' => $this->translate('ru')->answer,
         ];
     }
 }

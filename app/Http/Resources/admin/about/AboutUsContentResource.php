@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Admin\About;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,8 +21,6 @@ class AboutUsContentResource extends JsonResource
             'title_ru' => $this->translate('ru')->description,
             'description_uz' => $this->translate('uz')->title,
             'description_ru' => $this->translate('ru')->description,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }

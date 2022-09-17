@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Admin\About\AboutusFaq;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use App\Models\Admin\About\AboutusContentTranslation;
 
-class AboutusContentTranslationPolicy
+class AboutusFaqPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class AboutusContentTranslationPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AboutusContentTranslation  $aboutusContentTranslation
+     * @param  \App\Models\AboutusFaq  $aboutusFaq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, AboutusContentTranslation $aboutusContentTranslation)
+    public function view(User $user, AboutusFaq $aboutusFaq)
     {
         //
     }
@@ -48,10 +48,10 @@ class AboutusContentTranslationPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AboutusContentTranslation  $aboutusContentTranslation
+     * @param  \App\Models\AboutusFaq  $aboutusFaq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, AboutusContentTranslation $aboutusContentTranslation)
+    public function update(User $user, AboutusFaq $aboutusFaq)
     {
         //
     }
@@ -60,10 +60,10 @@ class AboutusContentTranslationPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AboutusContentTranslation  $aboutusContentTranslation
+     * @param  \App\Models\AboutusFaq  $aboutusFaq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, AboutusContentTranslation $aboutusContentTranslation)
+    public function delete(User $user, AboutusFaq $aboutusFaq)
     {
         //
     }
@@ -72,10 +72,10 @@ class AboutusContentTranslationPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AboutusContentTranslation  $aboutusContentTranslation
+     * @param  \App\Models\AboutusFaq  $aboutusFaq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, AboutusContentTranslation $aboutusContentTranslation)
+    public function restore(User $user, AboutusFaq $aboutusFaq)
     {
         //
     }
@@ -84,10 +84,10 @@ class AboutusContentTranslationPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AboutusContentTranslation  $aboutusContentTranslation
+     * @param  \App\Models\AboutusFaq  $aboutusFaq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, AboutusContentTranslation $aboutusContentTranslation)
+    public function forceDelete(User $user, AboutusFaq $aboutusFaq)
     {
         //
     }

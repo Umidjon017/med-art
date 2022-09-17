@@ -22,6 +22,9 @@
                 <li class="{{ request()->is('admin/about-us/contents*') ? 'active' : ''  }}">
                     <a href="{{ route('admin.about-us.contents.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Contentlar") }}</span></a>
                 </li>
+                <li class="{{ request()->is('admin/about-us/faqs*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.about-us.faqs.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("TSS") }}</span></a>
+                </li>
               </ul>
           </li>
         {{-- @endcan --}}
