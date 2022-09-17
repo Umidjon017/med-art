@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('aboutus_contents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('aboutus_id')->constrained('about_us')->onDelete('cascade')->onUpdate('cascade');            
             $table->string('image');
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
             $table->timestamps();
         });
     }

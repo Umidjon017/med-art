@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\AboutusContentController;
-use App\Http\Controllers\Admin\AboutUsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\AboutusContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +16,17 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [AdminController::class, 'welcome'])->name('welcome');
+Route::get('/', [AdminController::class, 'welcome'])->middleware('auth')->name('welcome');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'] )->name('dashboard');
-    Route::resource('about-us', AboutUsController::class);
-    Route::resource('aboutus-contents', AboutusContentController::class);
+
+    // About Us
+    Route::prefix('about-us')->name('about-us.')->group(function() {
+        Route::resource('home-image', AboutUsController::class);
+        Route::resource('contents', AboutusContentController::class);
+    });
 });
 
 require __DIR__.'/auth.php';

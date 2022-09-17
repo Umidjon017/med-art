@@ -2,8 +2,8 @@
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
         <a href="{{route('admin.dashboard')}}">
-          <img alt="image" src="/assets/img/logo.png" class="header-logo" />
-          <span class="logo-name">{{ __("Mobile Store") }}</span>
+          <img alt="image" src="{{ asset("/assets/img/logo.png") }}" class="header-logo" />
+          <span class="logo-name">{{ __("Med Art") }}</span>
         </a>
       </div>
       <ul class="sidebar-menu">
@@ -16,8 +16,11 @@
           <li class="dropdown {{ request()->is('admin/about-us/*') ? 'active' : ''  }}">
             <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Biz haqimizda") }}</span></a>
               <ul class="dropdown-menu">
-                <li class="{{ request()->is('admin/about-us*') ? 'active' : ''  }}">
-                    <a href="{{ route('admin.about-us.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Biz haqimizda") }}</span></a>
+                <li class="{{ request()->is('admin/about-us/home-image*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.about-us.home-image.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Uy rasmi") }}</span></a>
+                </li>
+                <li class="{{ request()->is('admin/about-us/contents*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.about-us.contents.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Contentlar") }}</span></a>
                 </li>
               </ul>
           </li>

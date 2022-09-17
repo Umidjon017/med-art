@@ -38,7 +38,6 @@
                 <table class="table table-bordered table-striped" id="table-1">
                   <thead>
                     <tr>
-                        <th class="w-25"> # </th>
                         <th>Rasmi</th>
                         <th class="w-25">Amallar</th>
                     </tr>
@@ -46,12 +45,11 @@
                   <tbody>
                     @foreach ($items as $item)
                     <tr class="odd">
-                        <td>{{$loop->iteration}}</td>
-                        <td><img src="{{ $item->header_image }}" width="100px" alt="" srcset=""></td>
+                        <td><img src="{{ $item->header_image }}" width="400rem" alt="" srcset=""></td>
                         <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editHomeImage{{$item->id}}"><i class="fas fa-edit"></i></button>
                             {{-- @can('home-delete') --}}
-                            <form action="{{route('admin.about-us.destroy', $item->id)}}" method="POST">
+                            <form action="{{route('admin.about-us.home-image.destroy', $item->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
@@ -61,11 +59,11 @@
                             {{-- @endcan --}}
                         </td>
                     </tr>
-                    @include('admin.about-us.edit')
+                    @include('admin.about-us.home-image.edit')
 
                    @endforeach
 
-                   @include('admin.about-us.create')
+                   @include('admin.about-us.home-image.create')
                   </tbody>
                 </table>
               </div>

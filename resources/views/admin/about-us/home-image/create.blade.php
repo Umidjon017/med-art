@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('admin.about-us.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.about-us.home-image.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -16,6 +16,11 @@
                         <div id="image-preview" class="image-preview">
                             <label for="image-upload" id="image-label"> {{ __("Rasm") }} </label>
                             <input type="file" name="header_image" id="image-upload" />
+                            @error('image')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
 

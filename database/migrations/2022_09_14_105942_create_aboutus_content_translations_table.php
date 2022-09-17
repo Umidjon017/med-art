@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('aboutus_content_translations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('aboutus_content_id')->constrained('aboutus_contents')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('locale')->index();
+            $table->string('locale');
             $table->string('title');
             $table->text('description');
             $table->unique(['aboutus_content_id', 'locale']);
-            $table->timestamps();
         });
     }
 

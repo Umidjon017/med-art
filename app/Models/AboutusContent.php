@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Astrotomic\Translatable\Translatable;
 
 class AboutusContent extends Model implements TranslatableContract
 {
-    use HasFactory;
-    use Translatable;
+    use HasFactory, Translatable;
 
     public $translatedAttributes = [
         'title',
@@ -19,12 +18,31 @@ class AboutusContent extends Model implements TranslatableContract
     ];
 
     protected $fillable = [
-        'aboutus_id',
         'image',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
 
-    public function aboutUs(): BelongsTo
+    const IMAGE_PATH = 'admin/images/about-us/contents/';
+
+    public static function isPhotoDirectoryExists(): bool
     {
-        return $this->belongsTo(AboutUs::class, 'aboutus_id');
+        if (!File::exists(self::IMAGE_PATH))
+        {
+            File::makeDirectory(self::IMAGE_PATH, 0777, true);
+        }
+        return true;
+    }
+
+    public function deleteImage(): bool
+    {
+        // http://localhost:8000/admin/images/about-us/contents/ == 53
+        $expl = substr($this->image, 53);
+        if (File::exists(self::IMAGE_PATH.$expl))
+        {
+            File::delete(self::IMAGE_PATH.$expl);
+        }
+        return true;
     }
 }

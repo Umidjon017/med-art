@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="footer-left">
-        <a href="/" target="_blank">Skerio.uz</a></a>
+        <a href="{{ route('admin.dashboard') }}" target="_blank">Med Art</a></a>
     </div>
     
     <div class="footer-right">
