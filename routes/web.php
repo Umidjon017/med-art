@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Doctor\DoctorController;
 use App\Http\Controllers\Admin\About\AboutUsController;
 use App\Http\Controllers\Admin\About\AboutusFaqController;
 use App\Http\Controllers\Admin\About\AboutusContentController;
@@ -38,6 +39,11 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
         Route::resource('header_image', OurServiceController::class);
         Route::resource('departments', OurServiceDepartmentController::class);
         Route::resource('faqs', OurServiceFaqController::class);
+    });
+
+    // Doctors
+    Route::prefix('doctors')->name('doctors.')->group(function() {
+        Route::resource('home-image', DoctorController::class);
     });
 });
 
