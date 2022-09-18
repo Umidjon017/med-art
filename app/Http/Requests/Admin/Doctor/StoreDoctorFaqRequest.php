@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin\Doctor;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDoctorInfoTranslationRequest extends FormRequest
+class StoreDoctorFaqRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreDoctorInfoTranslationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
