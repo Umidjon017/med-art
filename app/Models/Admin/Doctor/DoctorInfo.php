@@ -2,10 +2,12 @@
 
 namespace App\Models\Admin\Doctor;
 
+use App\Models\Admin\Operation\Operation;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
 class DoctorInfo extends Model implements TranslatableContract
@@ -55,5 +57,10 @@ class DoctorInfo extends Model implements TranslatableContract
             File::delete(self::IMAGE_PATH.$expl);
         }
         return true;
+    }
+
+    public function operations(): BelongsToMany
+    {
+        return $this->belongsToMany(Operation::class, 'doctor_operation', 'doctor_id', 'operation_id');
     }
 }
