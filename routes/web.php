@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\About\AboutusFaqController;
 use App\Http\Controllers\Admin\About\AboutusContentController;
 use App\Http\Controllers\Admin\Doctor\DoctorFaqController;
 use App\Http\Controllers\Admin\Doctor\DoctorInfoController;
+use App\Http\Controllers\Admin\Operation\OperationController;
 use App\Http\Controllers\Admin\OurService\OurServiceController;
 use App\Http\Controllers\Admin\OurService\OurServiceFaqController;
 use App\Http\Controllers\Admin\OurService\OurServiceDepartmentController;
@@ -49,6 +50,9 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
         Route::resource('doctor-infos', DoctorInfoController::class);
         Route::resource('faqs', DoctorFaqController::class);
     });
+
+    // Operations
+    Route::resource('operations', OperationController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -12,7 +12,7 @@
           <a href="{{ Route('admin.dashboard') }}" class="nav-link"><i data-feather="monitor"></i><span>{{ __("Dashboard") }}</span></a>
         </li>
 
-        {{-- @can('product-list') --}}
+        {{-- @can('about-us') --}}
           <li class="dropdown {{ request()->is('admin/about-us/*') ? 'active' : ''  }}">
             <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Biz haqimizda") }}</span></a>
               <ul class="dropdown-menu">
@@ -29,7 +29,7 @@
           </li>
         {{-- @endcan --}}
         
-        {{-- @can('product-list') --}}
+        {{-- @can('our-service') --}}
           <li class="dropdown {{ request()->is('admin/our-service/*') ? 'active' : ''  }}">
             <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Bizning xizmatlar") }}</span></a>
               <ul class="dropdown-menu">
@@ -45,6 +45,27 @@
               </ul>
           </li>
         {{-- @endcan --}}
+        
+        {{-- @can('doctors') --}}
+          <li class="dropdown {{ request()->is('admin/doctors/*') ? 'active' : ''  }}">
+            <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Shifokorlar") }}</span></a>
+              <ul class="dropdown-menu">
+                <li class="{{ request()->is('admin/doctors/home-image*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.doctors.home-image.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Uy rasmi") }}</span></a>
+                </li>
+                <li class="{{ request()->is('admin/doctors/doctor-info*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.doctors.doctor-infos.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Shifokor ma'lumotlari") }}</span></a>
+                </li>
+                <li class="{{ request()->is('admin/doctors/faqs*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.doctors.faqs.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("TSS") }}</span></a>
+                </li>
+              </ul>
+          </li>
+        {{-- @endcan --}}
+
+        <li class="dropdown {{ request()->is('admin/operations*') ? 'active' : ''  }}">
+          <a href="{{ route('admin.operations.index') }}" class="nav-link"><i data-feather="monitor"></i><span>{{ __("Operatsiyalar") }}</span></a>
+        </li>
 
         {{-- @can('product-list') --}}
           {{-- <li class="dropdown {{ request()->is('admin/product-telephones*') ? 'active' : ''  }}">
