@@ -44,7 +44,7 @@
                                             <label for="image-upload" id="image-label">Rasm</label>
                                             <input type="file" name="image" id="image-upload" />
                                         </div>
-                                        @error('header_image')
+                                        @error('image')
                                             <div class="alert alert-danger">
                                                 {{ $message }}
                                             </div>

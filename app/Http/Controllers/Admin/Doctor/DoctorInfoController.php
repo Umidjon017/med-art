@@ -16,7 +16,9 @@ class DoctorInfoController extends Controller
      */
     public function index()
     {
-        //
+        $items = DoctorInfo::all();
+
+        return view('admin.doctors.doctor-infos.index', compact('items'));
     }
 
     /**
@@ -26,7 +28,7 @@ class DoctorInfoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.doctors.doctor-infos.create');
     }
 
     /**
@@ -37,7 +39,20 @@ class DoctorInfoController extends Controller
      */
     public function store(StoreDoctorInfoRequest $request)
     {
-        //
+        $data = $request->all();
+        if($request->hasFile('image'))
+        {
+            $files = $request->image;
+            $destination = public_path('admin/images/doctors/doctor-infos/');
+            DoctorInfo::isPhotoDirectoryExists();
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);
+            $url = "http://localhost:8000/admin/images/doctors/doctor-infos/".$image_name;
+            $data['image'] = $url;
+        }
+        $doctors = DoctorInfo::create($data);
+
+        return redirect()->route('admin.doctors.doctor-infos.index')->withSuccess("Ma'lumot qo'shildi");
     }
 
     /**

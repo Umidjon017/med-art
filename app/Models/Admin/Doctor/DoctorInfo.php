@@ -2,9 +2,9 @@
 
 namespace App\Models\Admin\Doctor;
 
-use App\Models\Admin\Operation\Operation;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\Operation\Operation;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -51,7 +51,7 @@ class DoctorInfo extends Model implements TranslatableContract
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/doctors/doctor-infos/ == 56
-        $expl = substr($this->header_image, 56);
+        $expl = substr($this->image, 56);
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);
