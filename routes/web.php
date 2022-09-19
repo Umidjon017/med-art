@@ -39,7 +39,7 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
 
     // Our Service
     Route::prefix('our-service')->name('our-service.')->group(function() {
-        Route::resource('header_image', OurServiceController::class);
+        Route::resource('home-image', OurServiceController::class);
         Route::resource('departments', OurServiceDepartmentController::class);
         Route::resource('faqs', OurServiceFaqController::class);
     });

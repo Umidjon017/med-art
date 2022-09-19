@@ -52,7 +52,7 @@ class OurServiceController extends Controller
         }
         $aboutus = OurService::create($data);
 
-        return redirect()->route('admin.our-service.header_image.index')->withSuccess("Uy rasmi qo'shildi");
+        return redirect()->route('admin.our-service.home-image.index')->withSuccess("Uy rasmi qo'shildi");
     }
 
     /**
@@ -100,7 +100,7 @@ class OurServiceController extends Controller
         }
         $model->update($data);
         
-        return redirect()->route('admin.our-service.header_image.index')->withSuccess('Uy rasmi tahrirlandi!');
+        return redirect()->route('admin.our-service.home-image.index')->withSuccess('Uy rasmi tahrirlandi!');
     }
 
     /**

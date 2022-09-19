@@ -49,7 +49,7 @@
                         <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editHomeImage{{$item->id}}"><i class="fas fa-edit"></i></button>
                             {{-- @can('home-delete') --}}
-                            <form action="{{route('admin.our-service.header_image.destroy', $item->id)}}" method="POST">
+                            <form action="{{route('admin.our-service.home-image.destroy', $item->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">

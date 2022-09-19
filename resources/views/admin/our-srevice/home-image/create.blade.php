@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('admin.our-service.header_image.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.our-service.home-image.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
