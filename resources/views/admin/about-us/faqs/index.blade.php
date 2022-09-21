@@ -62,8 +62,8 @@
                     @foreach ($faqs as $faq)
                     <tr class="odd">
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $faq->translate('uz')->question }}</td>
-                        <td>{{ $faq->translate('uz')->answer }}</td>
+                        <td>{{ strip_tags($faq->translate('uz')->question) }}</td>
+                        <td>{{ strip_tags($faq->translate('uz')->answer) }}</td>
                         <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editFAQs{{$faq->id}}"><i class="fas fa-edit"></i></button>
                             {{-- @can('home-delete') --}}

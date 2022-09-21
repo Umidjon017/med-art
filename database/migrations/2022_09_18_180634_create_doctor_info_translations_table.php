@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('doctor_info_translations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('doctor_id')->constrained('doctor_infos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('doctor_info_id')->nullable()->constrained('doctor_infos')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
             $table->string('full_name');
             $table->text('biography');
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('edu_phd')->nullable();
             $table->string('edu_asperanture')->nullable();
             $table->string('edu_addition')->nullable();
-            $table->unique(['doctor_id', 'locale']);
+            $table->unique(['doctor_info_id', 'locale']);
         });
     }
 

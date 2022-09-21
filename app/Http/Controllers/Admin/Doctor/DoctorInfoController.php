@@ -34,7 +34,7 @@ class DoctorInfoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDoctorInfoRequest  $request
+     * @param  \App\Http\Requests\Admin\Doctor\StoreDoctorInfoRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreDoctorInfoRequest $request)
@@ -61,9 +61,11 @@ class DoctorInfoController extends Controller
      * @param  \App\Models\Admin\Doctor\DoctorInfo  $doctorInfo
      * @return \Illuminate\Http\Response
      */
-    public function show(DoctorInfo $doctorInfo)
+    public function show($id)
     {
-        //
+        $item = DoctorInfo::findOrFail($id);
+
+        return view('admin.doctors.doctor-infos.show', compact('item'));
     }
 
     /**
@@ -72,21 +74,37 @@ class DoctorInfoController extends Controller
      * @param  \App\Models\Admin\Doctor\DoctorInfo  $doctorInfo
      * @return \Illuminate\Http\Response
      */
-    public function edit(DoctorInfo $doctorInfo)
+    public function edit($id)
     {
-        //
+        $doctors = DoctorInfo::findOrFail($id);
+
+        return view('admin.doctors.doctor-infos.edit', compact('doctors'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDoctorInfoRequest  $request
+     * @param  \App\Http\Requests\Admin\Doctor\UpdateDoctorInfoRequest  $request
      * @param  \App\Models\Admin\Doctor\DoctorInfo  $doctorInfo
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDoctorInfoRequest $request, DoctorInfo $doctorInfo)
+    public function update(UpdateDoctorInfoRequest $request, $id)
     {
-        //
+        $model = DoctorInfo::findOrFail($id);
+        $data = $request->all();
+        $destination = public_path('admin/images/doctors/doctor-infos/');
+        if($request->file('image') !== null)
+        {
+            $model->deleteImage();
+            $files = $request->file('image');
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);            
+            $url = "http://localhost:8000/admin/images/doctors/doctor-infos/".$image_name;
+            $data['image'] = $url;
+        }
+        $model->update($data);
+
+        return redirect()->route('admin.doctors.doctor-infos.index')->withSuccess("Ma'lumot tahrirlandi!");
     }
 
     /**
@@ -95,8 +113,12 @@ class DoctorInfoController extends Controller
      * @param  \App\Models\Admin\Doctor\DoctorInfo  $doctorInfo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DoctorInfo $doctorInfo)
+    public function destroy($id)
     {
-        //
+        $model = DoctorInfo::findOrFail($id);
+        $model->delete();
+        $model->deleteImage();
+
+        return redirect()->back()->withSuccess("Ma'lumot o'chirildi!");
     }
 }

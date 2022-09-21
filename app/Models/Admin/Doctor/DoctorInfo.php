@@ -14,6 +14,8 @@ class DoctorInfo extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
+    protected $table = 'doctor_infos';
+
     public $translatedAttributes = [
         'full_name',
         'biography',

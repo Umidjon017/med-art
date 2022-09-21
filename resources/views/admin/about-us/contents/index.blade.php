@@ -55,8 +55,8 @@
                                 @foreach ($items as $item)
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
-                                    <td >{!! $item->translate('uz')->title !!}</td>
-                                    <td >{!! $item->translate('uz')->description !!}</td>
+                                    <td >{{ $item->translate('uz')->title }}</td>
+                                    <td >{{ $item->translate('uz')->description }}</td>
 
                                     <td class=""><img src="{{ $item->image }}" width="200rem" alt="" srcset=""></td>
 

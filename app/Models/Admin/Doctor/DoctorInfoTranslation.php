@@ -9,6 +9,8 @@ class DoctorInfoTranslation extends Model
 {
     use HasFactory;
 
+    protected $table = 'doctor_info_translations';
+
     protected $fillable = [
         'full_name',
         'biography',

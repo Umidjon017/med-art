@@ -16,7 +16,8 @@ class DoctorFaqController extends Controller
      */
     public function index()
     {
-        //
+        $faqs = DoctorFaq::all();
+        return view('admin.doctors.faqs.index', compact('faqs'));
     }
 
     /**
@@ -37,7 +38,10 @@ class DoctorFaqController extends Controller
      */
     public function store(StoreDoctorFaqRequest $request)
     {
-        //
+        $data = $request->all();
+        $aboutUsFaqs = DoctorFaq::create($data);
+
+        return redirect()->route('admin.doctors.faqs.index')->withSuccess("Ma'lumot qo'shildi!");
     }
 
     /**
@@ -69,9 +73,13 @@ class DoctorFaqController extends Controller
      * @param  \App\Models\Admin\Doctor\DoctorFaq  $doctorFaq
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDoctorFaqRequest $request, DoctorFaq $doctorFaq)
+    public function update(UpdateDoctorFaqRequest $request, $id)
     {
-        //
+        $model = DoctorFaq::findOrFail($id);
+        $data = $request->all();
+        $model->update($data);
+
+        return redirect()->route('admin.doctors.faqs.index')->withSuccess("Ma'lumot tahrirlandi!");
     }
 
     /**
@@ -80,8 +88,11 @@ class DoctorFaqController extends Controller
      * @param  \App\Models\Admin\Doctor\DoctorFaq  $doctorFaq
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DoctorFaq $doctorFaq)
+    public function destroy($id)
     {
-        //
+        $model = DoctorFaq::findOrFail($id);
+        $model->delete();
+
+        return redirect()->back()->withSuccess("Ma'lumot o'chirildi!");
     }
 }

@@ -37,7 +37,7 @@
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="col-sm-6 col-md-5 col-lg-5">
                                     <div class="form-group">
                                         <label class="">Rasm</label>
                                         <div id="image-preview" class="image-preview">
@@ -52,10 +52,11 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6 col-md-8 col-lg-8">
+                                <div class="col-sm-6 col-md-7 col-lg-7">
+                                    {{-- Uz form --}}
                                     <div id="uz-form">
                                         <div class="form-group ">
-                                            <label >Ismi, sharifi (UZ)</label>
+                                            <label>Ismi, sharifi (UZ)</label>
                                             <input type="text" class="form-control" placeholder="To'liq ismingizni kiriting" name="uz[full_name]" value="{{ old('uz.full_name') }}">
                                             @error('uz.full_name')
                                                 <div class="alert alert-danger">
@@ -84,57 +85,65 @@
                                             @enderror
                                         </div>
                                         
-                                        <div class="form-group ">
-                                            <label> Bakalavr ta'lim (UZ)</label>
-                                            <input type="text" class="form-control" placeholder="Bakalavr ta'limini kiriting" name="uz[edu_bachelor]" value="{{ old('uz.edu_bachelor') }}">
-                                            @error('uz.edu_bachelor')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                        {{-- Ta'lim --}}
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label> Bakalavr ta'lim (UZ)</label>
+                                                    <input type="text" class="form-control" placeholder="Bakalavr ta'limini kiriting" name="uz[edu_bachelor]" value="{{ old('uz.edu_bachelor') }}">
+                                                    @error('uz.edu_bachelor')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label> Magister ta'lim (UZ)</label>
-                                            <input type="text" class="form-control" placeholder="Magister ta'limini kiriting" name="uz[edu_master]" value="{{ old('uz.edu_master') }}">
-                                            @error('uz.edu_master')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                                
+                                                <div class="form-group ">
+                                                    <label> Magister ta'lim (UZ)</label>
+                                                    <input type="text" class="form-control" placeholder="Magister ta'limini kiriting" name="uz[edu_master]" value="{{ old('uz.edu_master') }}">
+                                                    @error('uz.edu_master')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label> PHD ta'lim (UZ)</label>
-                                            <input type="text" class="form-control" placeholder="PHD ta'limini kiriting" name="uz[edu_phd]" value="{{ old('uz.edu_phd') }}">
-                                            @error('uz.edu_phd')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+
+                                                <div class="form-group ">
+                                                    <label> PHD ta'lim (UZ)</label>
+                                                    <input type="text" class="form-control" placeholder="PHD ta'limini kiriting" name="uz[edu_phd]" value="{{ old('uz.edu_phd') }}">
+                                                    @error('uz.edu_phd')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label> Asperantura ta'lim (UZ)</label>
-                                            <input type="text" class="form-control" placeholder="Asperantura ta'limini kiriting" name="uz[edu_asperanture]" value="{{ old('uz.edu_asperanture') }}">
-                                            @error('uz.edu_asperanture')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-6 col-lg-6">                                                
+                                                <div class="form-group ">
+                                                    <label> Asperantura ta'lim (UZ)</label>
+                                                    <input type="text" class="form-control" placeholder="Asperantura ta'limini kiriting" name="uz[edu_asperanture]" value="{{ old('uz.edu_asperanture') }}">
+                                                    @error('uz.edu_asperanture')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label> Qo'shimcha ta'lim (UZ)</label>
-                                            <input type="text" class="form-control" placeholder="Qo'shimcha ta'limini kiriting" name="uz[edu_addition]" value="{{ old('uz.edu_addition') }}">
-                                            @error('uz.edu_addition')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                                
+                                                <div class="form-group ">
+                                                    <label> Qo'shimcha ta'lim (UZ)</label>
+                                                    <input type="text" class="form-control" placeholder="Qo'shimcha ta'limini kiriting" name="uz[edu_addition]" value="{{ old('uz.edu_addition') }}">
+                                                    @error('uz.edu_addition')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
+                                            </div>
                                         </div>
                                     </div>
             
+                                    {{-- Ru form --}}
                                     <div id="ru-form" class="d-none">
                                         <div class="form-group ">
                                             <label >Ismi, sharifi (RU)</label>
@@ -166,55 +175,144 @@
                                             @enderror
                                         </div>
                                         
-                                        <div class="form-group ">
-                                            <label> Bakalavr ta'lim (RU)</label>
-                                            <input type="text" class="form-control" placeholder="Bakalavr ta'limini kiriting" name="ru[edu_bachelor]" value="{{ old('ru.edu_bachelor') }}">
-                                            @error('ru.edu_bachelor')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                        {{-- Ta'lim --}}
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group ">
+                                                    <label> Bakalavr ta'lim (RU)</label>
+                                                    <input type="text" class="form-control" placeholder="Bakalavr ta'limini kiriting" name="ru[edu_bachelor]" value="{{ old('ru.edu_bachelor') }}">
+                                                    @error('ru.edu_bachelor')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label> Magister ta'lim (RU)</label>
-                                            <input type="text" class="form-control" placeholder="Magister ta'limini kiriting" name="ru[edu_master]" value="{{ old('ru.edu_master') }}">
-                                            @error('ru.edu_master')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                                
+                                                <div class="form-group ">
+                                                    <label> Magister ta'lim (RU)</label>
+                                                    <input type="text" class="form-control" placeholder="Magister ta'limini kiriting" name="ru[edu_master]" value="{{ old('ru.edu_master') }}">
+                                                    @error('ru.edu_master')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label> PHD ta'lim (RU)</label>
-                                            <input type="text" class="form-control" placeholder="PHD ta'limini kiriting" name="ru[edu_phd]" value="{{ old('ru.edu_phd') }}">
-                                            @error('ru.edu_phd')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                                
+                                                <div class="form-group ">
+                                                    <label> PHD ta'lim (RU)</label>
+                                                    <input type="text" class="form-control" placeholder="PHD ta'limini kiriting" name="ru[edu_phd]" value="{{ old('ru.edu_phd') }}">
+                                                    @error('ru.edu_phd')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label> Asperantura ta'lim (RU)</label>
-                                            <input type="text" class="form-control" placeholder="Asperantura ta'limini kiriting" name="ru[edu_asperanture]" value="{{ old('ru.edu_asperanture') }}">
-                                            @error('ru.edu_asperanture')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group ">
+                                                    <label> Asperantura ta'lim (RU)</label>
+                                                    <input type="text" class="form-control" placeholder="Asperantura ta'limini kiriting" name="ru[edu_asperanture]" value="{{ old('ru.edu_asperanture') }}">
+                                                    @error('ru.edu_asperanture')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label> Qo'shimcha ta'lim (RU)</label>
-                                            <input type="text" class="form-control" placeholder="Qo'shimcha ta'limini kiriting" name="ru[edu_addition]" value="{{ old('ru.edu_addition') }}">
-                                            @error('ru.edu_addition')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
+                                                
+                                                <div class="form-group ">
+                                                    <label> Qo'shimcha ta'lim (RU)</label>
+                                                    <input type="text" class="form-control" placeholder="Qo'shimcha ta'limini kiriting" name="ru[edu_addition]" value="{{ old('ru.edu_addition') }}">
+                                                    @error('ru.edu_addition')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
-                                            @enderror
+                                            </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group ">
+                                        <label>Mukofot/Sertifikat 1</label>
+                                        <input type="text" name="award_1" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_1') }}">
+                                        @error('award_1')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>Mukofot/Sertifikat 2</label>
+                                        <input type="text" name="award_2" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_2') }}">
+                                        @error('award_2')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>Mukofot/Sertifikat 3</label>
+                                        <input type="text" name="award_3" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_3') }}">
+                                        @error('award_3')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>Mukofot/Sertifikat 4</label>
+                                        <input type="text" name="award_4" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_4') }}">
+                                        @error('award_4')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>Mukofot/Sertifikat 5</label>
+                                        <input type="text" name="award_5" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_5') }}">
+                                        @error('award_5')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group ">
+                                        <label>Ijtimoiy tarmoq (Linkedin)</label>
+                                        <input type="text" name="link_linkedin" class="form-control" placeholder="Linkedin manzilingizni kiriting" value="{{ old('link_linkedin') }}">
+                                        @error('link_linkedin')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    
+                                    <div class="form-group ">
+                                        <label>Ijtimoiy tarmoq (Facebook)</label>
+                                        <input type="text" name="link_facebook" class="form-control" placeholder="Facebook manzilingizni kiriting" value="{{ old('link_facebook') }}">
+                                        @error('link_facebook')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    
+                                    <div class="form-group ">
+                                        <label>Ijtimoiy tarmoq (Fnstagram)</label>
+                                        <input type="text" name="link_instagram" class="form-control" placeholder="Instagram manzilingizni kiriting" value="{{ old('link_instagram') }}">
+                                        @error('link_instagram')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
