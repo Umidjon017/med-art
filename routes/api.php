@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AboutUsController;
+use App\Http\Controllers\Api\DoctorsController;
 use App\Http\Controllers\Api\OurServiceController;
 
 /*
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('about-us', AboutUsController::class)->name('about-us');
 Route::get('our-service', OurServiceController::class)->name('our-service');
+Route::get('doctors', DoctorsController::class)->name('doctors');
