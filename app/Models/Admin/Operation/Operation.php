@@ -21,35 +21,57 @@ class Operation extends Model implements TranslatableContract
     ];
 
     protected $fillable = [
+        'header_image',
         'detail_image',
         'date',
         'link_video',
     ];
 
-    const IMAGE_PATH = 'admin/images/operations/';
+    const IMAGE_HEADER_PATH = 'admin/images/operations/home-image/';
+    const IMAGE_DETAIL_PATH = 'admin/images/operations/details/';
 
-    public static function isPhotoDirectoryExists(): bool
+    public static function isHeaderPhotoDirectoryExists(): bool
     {
-        if (!File::exists(self::IMAGE_PATH))
+        if (!File::exists(self::IMAGE_HEADER_PATH))
         {
-            File::makeDirectory(self::IMAGE_PATH, 0777, true);
+            File::makeDirectory(self::IMAGE_HEADER_PATH, 0777, true);
         }
         return true;
     }
 
-    public function deleteImage(): bool
+    public function deleteHeaderImage(): bool
     {
-        // http://localhost:8000/admin/images/operations/ == 46
-        $expl = substr($this->detail_image, 46);
-        if (File::exists(self::IMAGE_PATH.$expl))
+        // http://localhost:8000/admin/images/operations/home-image/ == 57
+        $expl = substr($this->header_image, 57);
+        if (File::exists(self::IMAGE_HEADER_PATH.$expl))
         {
-            File::delete(self::IMAGE_PATH.$expl);
+            File::delete(self::IMAGE_HEADER_PATH.$expl);
+        }
+        return true;
+    }
+    
+    public static function isDetailPhotoDirectoryExists(): bool
+    {
+        if (!File::exists(self::IMAGE_DETAIL_PATH))
+        {
+            File::makeDirectory(self::IMAGE_DETAIL_PATH, 0777, true);
+        }
+        return true;
+    }
+    
+    public function deleteDetailImage(): bool
+    {
+        // http://localhost:8000/admin/images/operations/details/ == 54
+        $expl = substr($this->detail_image, 54);
+        if (File::exists(self::IMAGE_DETAIL_PATH.$expl))
+        {
+            File::delete(self::IMAGE_DETAIL_PATH.$expl);
         }
         return true;
     }
 
     public function doctors(): BelongsToMany
     {
-        return $this->belongsToMany(DoctorInfo::class, 'doctor_operation', 'doctor_id', 'operation_id');
+        return $this->belongsToMany(DoctorInfo::class, 'doctor_operation', 'operation_id');
     }
 }

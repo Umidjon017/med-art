@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Doctor\DoctorInfo;
 use App\Http\Resources\Admin\Doctors\DoctorsResource;
 use App\Models\Admin\Doctor\Doctor;
 

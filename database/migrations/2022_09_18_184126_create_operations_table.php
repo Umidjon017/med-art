@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('operations', function (Blueprint $table) {
             $table->id();
+            $table->string('header_image')->nullable();
             $table->string('detail_image')->nullable();
             $table->string('date')->nullable();
             $table->string('link_video')->nullable();

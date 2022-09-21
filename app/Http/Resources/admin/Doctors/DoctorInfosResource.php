@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin\Doctors;
 
+use App\Models\Admin\Operation\Operation;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DoctorInfosResource extends JsonResource
@@ -14,6 +15,8 @@ class DoctorInfosResource extends JsonResource
      */
     public function toArray($request)
     {
+        $doctor_operations = Operation::all();
+
         return [
             'id'                =>  $this->id,
             'image'             =>  $this->image,
@@ -41,6 +44,7 @@ class DoctorInfosResource extends JsonResource
             'link_linkedin'     =>  $this->link_linkedin,
             'link_facebook'     =>  $this->link_facebook,
             'link_instagram'    =>  $this->link_instagram,
+            'attended_operations'=> DoctorOperationsResource::collection($this->operations()->get()),
             'created_at'        =>  $this->created_at,
             'updated_at'        =>  $this->updated_at,
         ];

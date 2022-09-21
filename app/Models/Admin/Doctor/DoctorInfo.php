@@ -63,6 +63,6 @@ class DoctorInfo extends Model implements TranslatableContract
 
     public function operations(): BelongsToMany
     {
-        return $this->belongsToMany(Operation::class, 'doctor_operation', 'doctor_id', 'operation_id');
+        return $this->belongsToMany(Operation::class, 'doctor_operation', 'doctor_info_id');
     }
 }
