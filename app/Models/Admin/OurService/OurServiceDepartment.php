@@ -20,13 +20,12 @@ class OurServiceDepartment extends Model implements TranslatableContract
     protected $fillable = [
         'slug',
         'image',
-        'icon',
         'meta_title',
         'meta_description',
         'meta_keywords',
     ];
 
-    const IMAGE_PATH = 'admin/images/our-service/home-image/';
+    const IMAGE_PATH = 'admin/images/our-service/departments/';
 
     public static function isPhotoDirectoryExists(): bool
     {
@@ -39,8 +38,8 @@ class OurServiceDepartment extends Model implements TranslatableContract
 
     public function deleteImage(): bool
     {
-        // http://localhost:8000/admin/images/our-service/home-image/ == 58
-        $expl = substr($this->header_image, 58);
+        // http://localhost:8000/admin/images/our-service/departments/ == 59
+        $expl = substr($this->header_image, 59);
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

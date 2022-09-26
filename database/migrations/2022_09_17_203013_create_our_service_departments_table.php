@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('slug');
             $table->string('image');
-            $table->string('icon');
             $table->string('meta_title');
             $table->string('meta_description');
             $table->string('meta_keywords');
