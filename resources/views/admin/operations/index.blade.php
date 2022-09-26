@@ -60,9 +60,14 @@
                                     <td >{{ strip_tags($item->translate('uz')->title) }}</td>
                                     <td >{{ strip_tags($item->translate('uz')->detail_description) }}</td>
                                     <td >{{ strip_tags($item->translate('uz')->full_description) }}</td>
-
-                                    <td class=""><img src="{{ $item->header_image }}" width="200rem" alt="" srcset=""></td>
-                                    <td class=""><img src="{{ $item->detail_image }}" width="200rem" alt="" srcset=""></td>
+                                    <td style="width='200rem';">
+                                        <img src="{{ $item->header_image }}" alt="Uy rasmi" srcset="">
+                                    </td>
+                                    <td style="width='200rem';">
+                                        @foreach ($images as $image)
+                                            <img src="{{ $image->detail_image }}" width="100%" alt="Detal rasmi" srcset="">
+                                        @endforeach
+                                    </td>
 
                                     <td class="d-flex justify-content-center ">
                                         <a class="btn btn-primary" href="{{route('admin.operations.show', $item->id)}}">

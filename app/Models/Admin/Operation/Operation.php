@@ -6,6 +6,7 @@ use App\Models\Admin\Doctor\DoctorInfo;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
@@ -22,7 +23,6 @@ class Operation extends Model implements TranslatableContract
 
     protected $fillable = [
         'header_image',
-        'detail_image',
         'date',
         'link_video',
     ];
@@ -61,11 +61,15 @@ class Operation extends Model implements TranslatableContract
     
     public function deleteDetailImage(): bool
     {
-        // http://localhost:8000/admin/images/operations/details/ == 54
-        $expl = substr($this->detail_image, 54);
-        if (File::exists(self::IMAGE_DETAIL_PATH.$expl))
+        foreach ($this->images as $image)
         {
-            File::delete(self::IMAGE_DETAIL_PATH.$expl);
+            // http://localhost:8000/admin/images/operations/details/ == 54
+            $expl = substr($image->detail_image, 54);
+            if (File::exists(self::IMAGE_DETAIL_PATH.$expl))
+            {
+                File::delete(self::IMAGE_DETAIL_PATH.$expl);
+            }
+            $image->delete();
         }
         return true;
     }
@@ -73,5 +77,10 @@ class Operation extends Model implements TranslatableContract
     public function doctors(): BelongsToMany
     {
         return $this->belongsToMany(DoctorInfo::class, 'doctor_operation', 'operation_id');
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(OperationImage::class, 'operation_id');
     }
 }

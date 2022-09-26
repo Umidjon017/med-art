@@ -153,7 +153,10 @@
                                         <select name="doctor_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Shifoklarni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
                                             <option value=""> </option>
                                             @foreach ($doctors as $doctor)
-                                                <option value="{{$doctor->id}}" {{ $doctor == $operation->doctors ? 'selected' : '' }}>
+                                                <option value="{{$doctor->id}}" 
+                                                    @foreach ($attended_doctors as $d)
+                                                        {{ $doctor->id === $d->id ? 'selected' : '' }}
+                                                    @endforeach >
                                                     {{$doctor->translate('uz')->full_name}}
                                                 </option>
                                             @endforeach
@@ -165,27 +168,10 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label class="">Detal rasmi</label>
-                                        <div id="image-preview" class="image-preview">
-                                            <label for="image-upload" id="image-label">Detal rasmi</label>
-                                            <input type="file" name="detail_image" id="image-upload" />
-                                        </div>
-                                        @error('detail_image')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-
-                                    <img src="{{ $operation->detail_image }}" alt="">
-                                </div>
-
-                                <div class="col-sm-6 col-md-6 col-lg-6">
-                                    <div class="form-group">
                                         <label class="">Uy rasmi</label>
                                         <div id="image-preview" class="image-preview">
                                             <label for="image-upload" id="image-label">Uy rasmi</label>
-                                            <input type="file" name="header_image" id="image-upload" />
+                                            <input type="file" name="header_image" id="image-upload" accept="image/*" />
                                         </div>
                                         @error('header_image')
                                             <div class="alert alert-danger">
@@ -196,11 +182,30 @@
 
                                     <img src="{{ $operation->header_image }}" alt="">
                                 </div>
+
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="">Detal rasmi</label>
+                                        <div id="image-preview" class="image-preview">
+                                            <label for="image-upload" id="image-label">Detal rasmi</label>
+                                            <input type="file" name="detail_image[]" id="image-upload" multiple accept="image/*" />
+                                        </div>
+                                        @error('detail_image')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    @foreach ($operation_images as $image)
+                                        <img src="{{ $image->detail_image }}" alt=""> <hr>
+                                    @endforeach
+                                </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-5">
                                 <div class="">
-                                    <button class="btn btn-primary"> {{ __("Yaratish") }} </button>
+                                    <button class="btn btn-primary"> {{ __("Saqlash") }} </button>
                                 </div>
                             </div>
                         </div>

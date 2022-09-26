@@ -26,7 +26,6 @@ class StoreOperationRequest extends FormRequest
     {
         return RuleFactory::make([
             'header_image'      =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
-            'detail_image'      =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
             'date'              =>  'sometimes',
             'link_video'        =>  'sometimes',
             '%title%'           =>  'required|string',
@@ -41,9 +40,6 @@ class StoreOperationRequest extends FormRequest
             'header_image.image'    => 'Rasm bo`lishligi kerak!',
             'header_image.mimes'    => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
             
-            'detail_image.image'    => 'Rasm bo`lishligi kerak!',
-            'detail_image.mimes'    => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
-
             'uz.title.required' => 'O`zbekcha ism-sharif to`ldirilishi kerak!',
             'ru.title.required' => 'Ruscha ism-sharif to`ldirilishi kerak!',
 

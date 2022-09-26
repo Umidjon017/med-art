@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Admin\Doctors;
+namespace App\Http\Resources\Admin\Operations;
 
 use App\Models\Admin\Operation\OperationImage;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Admin\Operations\OperationImageResource;
 
-class DoctorOperationsResource extends JsonResource
+class OperationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -28,6 +27,8 @@ class DoctorOperationsResource extends JsonResource
             'title_ru'              =>  $this->translate('ru')->title,
             'detail_description_ru' =>  $this->translate('ru')->detail_description,
             'full_description_ru'   =>  $this->translate('ru')->full_description,
+            'created_at'            =>  $this->created_at,
+            'updated_at'            =>  $this->updated_at,
         ];
     }
 }

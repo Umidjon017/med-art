@@ -15,10 +15,8 @@ class DoctorInfosResource extends JsonResource
      */
     public function toArray($request)
     {
-        $doctor_operations = Operation::all();
-
         return [
-            'id'                =>  $this->id,
+            'doctor_id'         =>  $this->id,
             'image'             =>  $this->image,
             'full_name_uz'      =>  $this->translate('uz')->full_name,
             'biography_uz'      =>  $this->translate('uz')->biography,

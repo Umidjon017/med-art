@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Operation;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Doctor\DoctorInfo;
 use App\Models\Admin\Operation\Operation;
+use App\Models\Admin\Operation\OperationImage;
 use App\Http\Requests\Admin\Operation\StoreOperationRequest;
 use App\Http\Requests\Admin\Operation\UpdateOperationRequest;
 
@@ -18,8 +19,9 @@ class OperationController extends Controller
     public function index()
     {
         $items = Operation::all();
+        $images = OperationImage::all();
 
-        return view('admin.operations.index', compact('items'));
+        return view('admin.operations.index', compact('items', 'images'));
     }
 
     /**
@@ -53,18 +55,23 @@ class OperationController extends Controller
             $url = "http://localhost:8000/admin/images/operations/home-image/".$image_name;
             $data['header_image'] = $url;
         }
-        
+        $operations = Operation::create($data);
+
         if($request->hasFile('detail_image'))
         {
             $files = $request->detail_image;
             $destination = public_path('admin/images/operations/details/');
             Operation::isDetailPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
-            $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/operations/details/".$image_name;
-            $data['detail_image'] = $url;
+        
+            foreach ($files as $file) {
+                $image_name = time().'_'.$file->getClientOriginalName();
+                $file->move($destination, $image_name);
+                $url = "http://localhost:8000/admin/images/operations/details/".$image_name;
+                $operations->images()->create(array(
+                    'detail_image' => $url,
+                ));
+            }
         }
-        $operations = Operation::create($data);
 
         $doctors = $request->doctor_id;
         if ($doctors != '') {
@@ -96,10 +103,11 @@ class OperationController extends Controller
     public function edit($id)
     {
         $operation = Operation::whereId($id)->first();
-        // $our_doctors = $operation->doctors()->get();
         $doctors = DoctorInfo::all();
+        $attended_doctors = $operation->doctors()->get();
+        $operation_images = $operation->images()->get();
 
-        return view('admin.operations.edit', compact('operation', 'doctors', 'our_doctors'));
+        return view('admin.operations.edit', compact('operation', 'doctors', 'attended_doctors', 'operation_images'));
     }
 
     /**
@@ -113,6 +121,7 @@ class OperationController extends Controller
     {
         $model = Operation::findOrFail($id);
         $data = $request->all();
+
         if($request->file('header_image') !== null)
         {
             $model->deleteHeaderImage();
@@ -123,24 +132,24 @@ class OperationController extends Controller
             $url = "http://localhost:8000/admin/images/operations/home-image/".$image_name;
             $data['header_image'] = $url;
         }
-        
-        if($request->file('detail_image') !== null)
-        {
-            $model->deleteDetailImage();
-            $destination = public_path('admin/images/operations/details/');
-            $files = $request->file('detail_image');
-            $image_name = time().'_'.$files->getClientOriginalName();
-            $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/operations/details/".$image_name;
-            $data['detail_image'] = $url;
-        }
         $model->update($data);
 
-        // $doctors = $request->doctor_id;
-        // if ($doctors != '') {
-        //     foreach ($doctors as $doctor) {
-        //     }
-        // }
+        if($request->hasFile('detail_image') !== null)
+        {
+            $model->deleteDetailImage();
+            $files = $request->file('detail_image');
+            $destination = public_path('admin/images/operations/details/');
+        
+            foreach ($files as $file) {
+                $image_name = time().'_'.$file->getClientOriginalName();
+                $file->move($destination, $image_name);
+                $url = "http://localhost:8000/admin/images/operations/details/".$image_name;
+                $model->images()->updateOrCreate([
+                    'detail_image' => $url,
+                ]);
+            }
+        }
+        
         $model->doctors()->sync($request->doctor_id);
 
         return redirect()->route('admin.operations.index')->withSuccess("Ma'lumot tahrirlandi!");
