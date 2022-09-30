@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\OurService;
 
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\OurService\OurServiceDepartment;
 use App\Http\Requests\Admin\OurService\StoreOurServiceDepartmentRequest;
@@ -16,7 +17,9 @@ class OurServiceDepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $items = OurServiceDepartment::all();
+
+        return view('admin.our-srevice.departments.index', compact('items'));
     }
 
     /**
@@ -26,7 +29,7 @@ class OurServiceDepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.our-srevice.departments.create');
     }
 
     /**
@@ -37,7 +40,21 @@ class OurServiceDepartmentController extends Controller
      */
     public function store(StoreOurServiceDepartmentRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->uz['name']);
+        if($request->hasFile('image'))
+        {
+            $files = $request->image;
+            $destination = public_path('admin/images/our-service/departments/');
+            OurServiceDepartment::isPhotoDirectoryExists();
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);
+            $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
+            $data['image'] = $url;
+        }
+        $news = OurServiceDepartment::create($data);
+
+        return redirect()->route('admin.our-service.departments.index')->withSuccess("Ma'lumot qo'shildi!");
     }
 
     /**
@@ -46,9 +63,11 @@ class OurServiceDepartmentController extends Controller
      * @param  \App\Models\Admin\OurService\OurServiceDepartment  $ourServiceDepartment
      * @return \Illuminate\Http\Response
      */
-    public function show(OurServiceDepartment $ourServiceDepartment)
+    public function show($id)
     {
-        //
+        $items = OurServiceDepartment::findOrFail($id);
+        
+        return view('admin.our-srevice.departments.show', compact('items'));
     }
 
     /**
@@ -57,9 +76,11 @@ class OurServiceDepartmentController extends Controller
      * @param  \App\Models\Admin\OurService\OurServiceDepartment  $ourServiceDepartment
      * @return \Illuminate\Http\Response
      */
-    public function edit(OurServiceDepartment $ourServiceDepartment)
+    public function edit($id)
     {
-        //
+        $items = OurServiceDepartment::findOrFail($id);
+
+        return view('admin.our-srevice.departments.edit', compact('items'));
     }
 
     /**
@@ -69,9 +90,23 @@ class OurServiceDepartmentController extends Controller
      * @param  \App\Models\Admin\OurService\OurServiceDepartment  $ourServiceDepartment
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOurServiceDepartmentRequest $request, OurServiceDepartment $ourServiceDepartment)
+    public function update(UpdateOurServiceDepartmentRequest $request, $id)
     {
-        //
+        $model = OurServiceDepartment::findOrFail($id);
+        $data = $request->all();
+        $destination = public_path('admin/images/our-service/departments/');
+        if($request->file('image') !== null)
+        {
+            $model->deleteImage();
+            $files = $request->file('image');
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);            
+            $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
+            $data['image'] = $url;
+        }
+        $model->update($data);
+
+        return redirect()->route('admin.our-service.departments.index')->withSuccess("Ma'lumot tahrirlandi!");
     }
 
     /**
@@ -80,8 +115,12 @@ class OurServiceDepartmentController extends Controller
      * @param  \App\Models\Admin\OurService\OurServiceDepartment  $ourServiceDepartment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OurServiceDepartment $ourServiceDepartment)
+    public function destroy($id)
     {
-        //
+        $model = OurServiceDepartment::findOrFail($id);
+        $model->delete();
+        $model->deleteImage();
+
+        return redirect()->back()->withSuccess("Ma'lumot o'chirildi!");
     }
 }

@@ -122,7 +122,7 @@ class OperationController extends Controller
         $model = Operation::findOrFail($id);
         $data = $request->all();
 
-        if($request->file('header_image') !== null)
+        if($request->file('header_image') != null)
         {
             $model->deleteHeaderImage();
             $destination = public_path('admin/images/operations/home-image/');
@@ -134,7 +134,7 @@ class OperationController extends Controller
         }
         $model->update($data);
 
-        if($request->hasFile('detail_image') !== null)
+        if($request->hasFile('detail_image'))
         {
             $model->deleteDetailImage();
             $files = $request->file('detail_image');
@@ -145,7 +145,17 @@ class OperationController extends Controller
                 $file->move($destination, $image_name);
                 $url = "http://localhost:8000/admin/images/operations/details/".$image_name;
                 $model->images()->updateOrCreate([
+                    'operation_id'=>$model->id,
                     'detail_image' => $url,
+                ]);
+            }
+        } else
+        {
+            $files = $model->images;
+            foreach ($files as $file) {
+                $model->images()->create([
+                    'operation_id'=>$model->id,
+                    'detail_image'=> $file->detail_image,
                 ]);
             }
         }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('doctor_info_id')->nullable()->constrained('doctor_infos')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
             $table->string('full_name');
-            $table->text('biography');
+            $table->longText('biography');
             $table->string('specification');
             $table->string('edu_bachelor')->nullable();
             $table->string('edu_master')->nullable();

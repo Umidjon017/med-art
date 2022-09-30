@@ -140,7 +140,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <div class="">
                                     <button class="btn btn-primary"> {{ __("Saqlash") }} </button>
                                 </div>

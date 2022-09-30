@@ -62,9 +62,11 @@ class AboutusFaqController extends Controller
      * @param  \App\Models\AboutusFaq  $aboutusFaq
      * @return \Illuminate\Http\Response
      */
-    public function edit(AboutusFaq $aboutusFaq)
+    public function edit($id)
     {
-        //
+        $faq = AboutusFaq::findOrFail($id);
+
+        return view('admin.about-us.faqs.edit', compact('faq'));
     }
 
     /**

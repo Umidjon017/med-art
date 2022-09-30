@@ -6,11 +6,14 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Astrotomic\Translatable\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
 class OurServiceDepartment extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
+
+    protected $table = 'our_service_departments';
+    protected $translationForeignKey = 'service_id';
 
     public $translatedAttributes = [
         'name',
@@ -39,7 +42,7 @@ class OurServiceDepartment extends Model implements TranslatableContract
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/our-service/departments/ == 59
-        $expl = substr($this->header_image, 59);
+        $expl = substr($this->image, 59);
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

@@ -9,7 +9,9 @@
                 color: #fff !important;
             }
         </style>
-        <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
+        <link rel="stylesheet" href="{{ asset("assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css") }}">
+        <link rel="stylesheet" href="{{ asset("assets/bundles/bootstrap-daterangepicker/daterangepicker.css") }}">
+        <link rel="stylesheet" href="{{ asset("assets/bundles/jquery-selectric/selectric.css") }}">
     @endsection
 
     @section('content')
@@ -55,7 +57,7 @@
                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                 <div class="form-group">
                                                     <label>Detal izoh (UZ)</label>
-                                                    <textarea name="uz[detail_description]" class="summernote-simple"> {{ old('uz.detail_description') }} </textarea>
+                                                    <textarea name="uz[detail_description]" class="form-control" rows="3" cols="10"> {{ old('uz.detail_description') }} </textarea>
                                                     @error('uz.detail_description')
                                                         <div class="alert alert-danger">
                                                             {{ $message }}
@@ -67,7 +69,7 @@
                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                 <div class="form-group ">
                                                     <label>To'liq izoh (UZ)</label>
-                                                    <textarea name="uz[full_description]" class="summernote-simple"> {{ old('uz.full_description') }} </textarea>
+                                                    <textarea name="uz[full_description]" class="form-control" rows="3" cols="10"> {{ old('uz.full_description') }} </textarea>
                                                     @error('uz.full_description')
                                                         <div class="alert alert-danger">
                                                             {{ $message }}
@@ -94,7 +96,7 @@
                                             <div class="col-sm-12 com-md-6 col-lg-6">
                                                 <div class="form-group ">
                                                     <label>Detal izoh (RU)</label>
-                                                    <textarea name="ru[detail_description]" class="summernote-simple"> {{ old('ru.detail_description') }} </textarea>
+                                                    <textarea name="ru[detail_description]" class="form-control" rows="3" cols="10"> {{ old('ru.detail_description') }} </textarea>
                                                     @error('ru.detail_description')
                                                         <div class="alert alert-danger">
                                                             {{ $message }}
@@ -106,7 +108,7 @@
                                             <div class="col-sm-12 com-md-6 col-lg-6">
                                                 <div class="form-group ">
                                                     <label>To'liq izoh (RU)</label>
-                                                    <textarea name="ru[full_description]" class="summernote-simple"> {{ old('ru.full_description') }} </textarea>
+                                                    <textarea name="ru[full_description]" class="form-control" rows="3" cols="10"> {{ old('ru.full_description') }} </textarea>
                                                     @error('ru.full_description')
                                                         <div class="alert alert-danger">
                                                             {{ $message }}
@@ -123,7 +125,7 @@
                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group ">
                                         <label>Sana</label>
-                                        <input type="date" name="date" class="form-control" placeholder="Sanani kiriting" value="{{ old('date') }}">
+                                        <input type="text" name="date" class="form-control datetimepicker" placeholder="Sanani kiriting" value="{{ old('date') }}">
                                         @error('date')
                                             <div class="alert alert-danger">
                                                 {{ $message }}
@@ -208,10 +210,16 @@
     @section('scripts')
         <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
         <script src="{{ asset('ckeditor/adapters/jquery.js')}}"></script>
-        <script src="{{ asset("/assets/bundles/summernote/summernote-bs4.js") }}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/select2/dist/js/select2.full.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js") }}"></script>
+        <script src="{{ asset("assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js") }}"></script>
+        <script src="{{ asset("assets/bundles/bootstrap-daterangepicker/daterangepicker.js") }}"></script>
+        <script src="{{ asset("assets/bundles/jquery-selectric/jquery.selectric.min.js") }}"></script>
+
+        {{-- <script src="assets/bundles/cleave-js/dist/cleave.min.js"></script>
+        <script src="assets/bundles/cleave-js/dist/addons/cleave-phone.us.js"></script>
+        <script src="assets/bundles/jquery-pwstrength/jquery.pwstrength.min.js"></script> --}}
 
         <script>
             $(function () {

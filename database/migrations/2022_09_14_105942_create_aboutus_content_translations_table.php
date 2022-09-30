@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('aboutus_content_id')->constrained('aboutus_contents')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
             $table->string('title');
-            $table->text('description');
+            $table->longText('description');
             $table->unique(['aboutus_content_id', 'locale']);
         });
     }

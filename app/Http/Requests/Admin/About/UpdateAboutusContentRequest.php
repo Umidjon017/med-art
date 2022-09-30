@@ -27,7 +27,7 @@ class UpdateAboutusContentRequest extends FormRequest
         return RuleFactory::make([
             '%title%'            => 'required|string',
             '%description%'      => 'required|string',
-            'image*'             => 'required|image|mimes:png,jpg,jpeg,gif',
+            'image*'             => 'sometimes|image|mimes:png,jpg,jpeg,gif',
         ]);
 
     }
@@ -40,7 +40,6 @@ class UpdateAboutusContentRequest extends FormRequest
             'uz.description.required' => 'O`zbekcha tavsif to`ldirilishi kerak!',
             'ru.description.required' => 'Ruscha tavsif to`ldirilishi kerak!',
 
-            'image.required'          => 'Rasm tanlanishi kerak!',
             'image.image'             => 'Rasm bo`lishligi kerak!',
             'image.mimes'             => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
         ];

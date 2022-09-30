@@ -11,6 +11,9 @@ class OurServiceFaq extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
+    protected $table = 'our_service_faqs';
+    protected $translationForeignKey = 'service_faq_id';
+
     public $translatedAttributes = [
         'question',
         'answer',

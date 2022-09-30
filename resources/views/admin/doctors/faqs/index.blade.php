@@ -10,7 +10,6 @@
                 color: #fff !important;
             }
         </style>
-        <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
     @endsection
 
     @section('content')
@@ -62,10 +61,12 @@
                     @foreach ($faqs as $faq)
                     <tr class="odd">
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ strip_tags($faq->translate('uz')->question) }}</td>
-                        <td>{{ strip_tags($faq->translate('uz')->answer) }}</td>
+                        <td>{!! $faq->translate('uz')->question !!}</td>
+                        <td>{!! $faq->translate('uz')->answer !!}</td>
                         <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editFAQs{{$faq->id}}"><i class="fas fa-edit"></i></button>
+                            <a href="{{ route('admin.doctors.faqs.edit', $faq->id) }}" class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                            </a>
                             {{-- @can('home-delete') --}}
                             <form action="{{route('admin.doctors.faqs.destroy', $faq->id)}}" method="POST">
                                 @csrf
@@ -77,8 +78,6 @@
                             {{-- @endcan --}}
                         </td>
                     </tr>
-                    @include('admin.doctors.faqs.edit')
-
                    @endforeach
 
                    @include('admin.doctors.faqs.create')
@@ -98,7 +97,6 @@
         <script src="{{ asset("/assets/js/page/datatables.js") }}"></script>
         <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
         <script src="{{ asset('ckeditor/adapters/jquery.js')}}"></script>
-        <script src="{{ asset("/assets/bundles/summernote/summernote-bs4.js") }}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
 
         <script>

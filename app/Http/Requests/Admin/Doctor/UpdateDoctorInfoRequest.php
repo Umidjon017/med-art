@@ -25,7 +25,7 @@ class UpdateDoctorInfoRequest extends FormRequest
     public function rules()
     {
         return RuleFactory::make([
-            'image'             =>  'required|image|mimes:png,jpg,jpeg,gif',
+            'image'             =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
             'award_1'           =>  'sometimes',
             'award_2'           =>  'sometimes',
             'award_3'           =>  'sometimes',
@@ -48,7 +48,6 @@ class UpdateDoctorInfoRequest extends FormRequest
     public function messages()
     {
         return [
-            'image.required'    => 'Rasm tanlanishi kerak!',
             'image.image'       => 'Rasm bo`lishligi kerak!',
             'image.mimes'       => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
 

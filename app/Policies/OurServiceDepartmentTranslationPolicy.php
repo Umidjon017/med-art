@@ -6,7 +6,7 @@ use App\Models\Admin\OurService\OurSerDepTranslation;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class OurSerDepTranslationPolicy
+class OurServiceDepartmentTranslationPolicy
 {
     use HandlesAuthorization;
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Resources\Admin\OurService;
 
+use App\Http\Resources\Admin\FaqResource;
+use App\Models\Admin\OurService\OurServiceFaq;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Admin\OurService\OurServiceDepartment;
 
 class OurServiceResource extends JsonResource
 {
@@ -14,9 +17,16 @@ class OurServiceResource extends JsonResource
      */
     public function toArray($request)
     {
+        $departments = OurServiceDepartment::all();
+        $faqs = OurServiceFaq::all();
+
         return [
             'id' => $this->id,
             'header_image' => $this->header_image,
+            'our_service_departments' => OurServiceDepartmentsResourse::collection($departments),
+            'our_service_faqs'  =>  FaqResource::collection($faqs),
+            'created_at'    =>  $this->created_at,
+            'updated_at'    =>  $this->updated_at,
         ];
     }
 }

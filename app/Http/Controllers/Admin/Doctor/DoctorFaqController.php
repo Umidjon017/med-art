@@ -61,9 +61,11 @@ class DoctorFaqController extends Controller
      * @param  \App\Models\Admin\Doctor\DoctorFaq  $doctorFaq
      * @return \Illuminate\Http\Response
      */
-    public function edit(DoctorFaq $doctorFaq)
+    public function edit($id)
     {
-        //
+        $faq = DoctorFaq::findOrFail($id);
+
+        return view('admin.doctors.faqs.edit', compact('faq'));
     }
 
     /**

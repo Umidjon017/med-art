@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('operation_id')->constrained('operations')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
             $table->string('title');
-            $table->text('detail_description');
-            $table->text('full_description');
+            $table->longText('detail_description');
+            $table->longText('full_description');
             $table->unique(['operation_id', 'locale']);
         });
     }

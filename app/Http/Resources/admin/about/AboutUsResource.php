@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Admin\About;
 
 use App\Models\Admin\About\AboutusFaq;
+use App\Http\Resources\Admin\FaqResource;
 use App\Models\Admin\About\AboutusContent;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -18,11 +19,12 @@ class AboutUsResource extends JsonResource
     {
         $content = AboutusContent::all();
         $faqs = AboutusFaq::all();
+        
         return [
             'id' => $this->id,
             'header_image' => $this->header_image,
             'aboutus_content' => AboutUsContentResource::collection($content),
-            'aboutus_faqs' => AboutUsFaqResource::collection($faqs),
+            'aboutus_faqs' => FaqResource::collection($faqs),
         ];
     }
 }

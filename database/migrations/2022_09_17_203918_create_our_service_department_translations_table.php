@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('our_ser_dep_translations', function (Blueprint $table) {
+        Schema::create('our_service_department_translations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('service_id')->constrained('our_service_departments')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('our_ser_dep_translations');
+        Schema::dropIfExists('our_service_department_translations');
     }
 };

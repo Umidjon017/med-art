@@ -8,7 +8,6 @@
                 color: #fff !important;
             }
         </style>
-        <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
     @endsection
 
     @section('content')
@@ -67,7 +66,7 @@
 
                                         <div class="form-group ">
                                             <label>Biografiyasi (UZ)</label>
-                                            <textarea name="uz[biography]" class="summernote-simple"> {{ old('uz.biography') }} </textarea>
+                                            <textarea name="uz[biography]" class="form-control" cols="100" rows="10"> {{ old('uz.biography') }} </textarea>
                                             @error('uz.biography')
                                                 <div class="alert alert-danger">
                                                     {{ $message }}
@@ -157,7 +156,7 @@
 
                                         <div class="form-group ">
                                             <label>Biografiyasi (RU)</label>
-                                            <textarea name="ru[biography]" class="summernote-simple"> {{ old('ru.biography') }} </textarea>
+                                            <textarea name="ru[biography]" class="form-control" cols="100" rows="10"> {{ old('ru.biography') }} </textarea>
                                             @error('ru.biography')
                                                 <div class="alert alert-danger">
                                                     {{ $message }}
@@ -334,7 +333,6 @@
     @section('scripts')
         <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
         <script src="{{ asset('ckeditor/adapters/jquery.js')}}"></script>
-        <script src="{{ asset("/assets/bundles/summernote/summernote-bs4.js") }}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
 
         <script>

@@ -16,7 +16,9 @@ class OurServiceFaqController extends Controller
      */
     public function index()
     {
-        //
+        $faqs = OurServiceFaq::all();
+
+        return view('admin.our-srevice.faqs.index', compact('faqs'));
     }
 
     /**
@@ -37,7 +39,10 @@ class OurServiceFaqController extends Controller
      */
     public function store(StoreOurServiceFaqRequest $request)
     {
-        //
+        $data = $request->all();
+        $aboutUsFaqs = OurServiceFaq::create($data);
+
+        return redirect()->route('admin.our-service.faqs.edit')->withSuccess("Ma'lumot qo'shildi!");
     }
 
     /**
@@ -57,9 +62,11 @@ class OurServiceFaqController extends Controller
      * @param  \App\Models\Admin\OurService\OurServiceFaq  $ourServiceFaq
      * @return \Illuminate\Http\Response
      */
-    public function edit(OurServiceFaq $ourServiceFaq)
+    public function edit($id)
     {
-        //
+        $faq = OurServiceFaq::findOrFail($id);
+
+        return view('admin.our-srevice.faqs.edit', compact('faq'));
     }
 
     /**
@@ -69,9 +76,13 @@ class OurServiceFaqController extends Controller
      * @param  \App\Models\Admin\OurService\OurServiceFaq  $ourServiceFaq
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOurServiceFaqRequest $request, OurServiceFaq $ourServiceFaq)
+    public function update(UpdateOurServiceFaqRequest $request, $id)
     {
-        //
+        $model = OurServiceFaq::findOrFail($id);
+        $data = $request->all();
+        $model->update($data);
+
+        return redirect()->route('admin.our-service.faqs.index')->withSuccess("Ma'lumot tahrirlandi!");
     }
 
     /**
@@ -80,8 +91,11 @@ class OurServiceFaqController extends Controller
      * @param  \App\Models\Admin\OurService\OurServiceFaq  $ourServiceFaq
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OurServiceFaq $ourServiceFaq)
+    public function destroy($id)
     {
-        //
+        $model = OurServiceFaq::findOrFail($id);
+        $model->delete();
+
+        return redirect()->back()->withSuccess("Ma'lumot o'chirildi!");
     }
 }

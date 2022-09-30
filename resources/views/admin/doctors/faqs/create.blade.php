@@ -35,7 +35,7 @@
 
                         <div class="form-group ">
                             <label>Javob (UZ)</label>
-                            <textarea name="uz[answer]" class="summernote-simple"> {{ old('uz.answer') }} </textarea>
+                            <textarea name="uz[answer]" class="form-control"> {{ old('uz.answer') }} </textarea>
                             @error('uz.answer')
                                 <div class="alert alert-danger">
                                     {{ $message }}
@@ -57,7 +57,7 @@
 
                         <div class="form-group ">
                             <label>Javob (RU)</label>
-                            <textarea name="ru[answer]" class="summernote-simple"> {{ old('ru.answer') }} </textarea>
+                            <textarea name="ru[answer]" class="form-control"> {{ old('ru.answer') }} </textarea>
                             @error('ru.answer')
                                 <div class="alert alert-danger">
                                     {{ $message }}

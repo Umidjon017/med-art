@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\OurService;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Astrotomic\Translatable\Validation\RuleFactory;
 
 class StoreOurServiceDepartmentRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreOurServiceDepartmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,25 @@ class StoreOurServiceDepartmentRequest extends FormRequest
      */
     public function rules()
     {
+        return RuleFactory::make([
+            '%name%'        => 'required|string',
+            '%description%' => 'required|string',
+            'image*'        => 'required|image|mimes:png,jpg,jpeg,gif',
+        ]);
+
+    }
+    public function messages()
+    {
         return [
-            //
+            'uz.name.required'  => 'O`zbekcha sarlovha to`ldirilishi kerak!',
+            'ru.name.required'  => 'Ruscha sarlovha to`ldirilishi kerak!',
+
+            'uz.description.required' => 'O`zbekcha tavsif to`ldirilishi kerak!',
+            'ru.description.required' => 'Ruscha tavsif to`ldirilishi kerak!',
+
+            'image.required'    => 'Rasm tanlanishi kerak!',
+            'image.image'       => 'Rasm bo`lishligi kerak!',
+            'image.mimes'       => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
         ];
     }
 }

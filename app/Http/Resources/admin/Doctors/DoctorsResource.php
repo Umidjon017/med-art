@@ -4,6 +4,7 @@ namespace App\Http\Resources\Admin\Doctors;
 
 use App\Models\Admin\Doctor\DoctorFaq;
 use App\Models\Admin\Doctor\DoctorInfo;
+use App\Http\Resources\Admin\FaqResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DoctorsResource extends JsonResource
@@ -22,7 +23,7 @@ class DoctorsResource extends JsonResource
             'id' => $this->id,
             'header_image' => $this->header_image,
             'doctor_infos' => DoctorInfosResource::collection($doctor_infos),
-            'doctor_faqs' => DoctorFaqsResource::collection($doctor_faqs),
+            'doctor_faqs' => FaqResource::collection($doctor_faqs),
         ];
     }
 }

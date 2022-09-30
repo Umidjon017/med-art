@@ -9,6 +9,8 @@ class OurServiceFaqTranslation extends Model
 {
     use HasFactory;
 
+    protected $table = 'our_service_faq_translations';
+
     protected $fillable = [
         'question',
         'answer',
