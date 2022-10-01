@@ -2,12 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\Doctor\DoctorController;
 use App\Http\Controllers\Admin\About\AboutUsController;
 use App\Http\Controllers\Admin\About\AboutusFaqController;
 use App\Http\Controllers\Admin\About\AboutusContentController;
+use App\Http\Controllers\Admin\Doctor\DoctorController;
 use App\Http\Controllers\Admin\Doctor\DoctorFaqController;
 use App\Http\Controllers\Admin\Doctor\DoctorInfoController;
+use App\Http\Controllers\Admin\Doctor\AwardDoctorController;
 use App\Http\Controllers\Admin\Operation\OperationController;
 use App\Http\Controllers\Admin\OurService\OurServiceController;
 use App\Http\Controllers\Admin\OurService\OurServiceFaqController;
@@ -46,6 +47,7 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
 
     // Doctors
     Route::prefix('doctors')->name('doctors.')->group(function() {
+        Route::resource('award', AwardDoctorController::class);
         Route::resource('home-image', DoctorController::class);
         Route::resource('doctor-infos', DoctorInfoController::class);
         Route::resource('faqs', DoctorFaqController::class);

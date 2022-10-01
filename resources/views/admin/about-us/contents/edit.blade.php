@@ -8,7 +8,6 @@
                 color: #fff !important;
             }
         </style>
-        <link rel="stylesheet" href="/assets/bundles/summernote/summernote-bs4.css">
     @endsection
 
     @section('content')
@@ -67,7 +66,7 @@
 
                                         <div class="form-group ">
                                             <label>Tavsif(UZ)</label>
-                                            <textarea name="uz[description]" class="summernote-simple"> {{ $item->translate('uz')->description }} </textarea>
+                                            <textarea name="uz[description]" class="form-control" cols="30" rows="10"> {{ $item->translate('uz')->description }} </textarea>
                                             @error('uz.description')
                                                 <div class="alert alert-danger">
                                                     {{ $message }}
@@ -89,7 +88,7 @@
 
                                         <div class="form-group ">
                                             <label>Tavsif(RU)</label>
-                                            <textarea name="ru[description]" id="" cols="30" rows="10"> {{ $item->translate('ru')->description }} </textarea>
+                                            <textarea name="ru[description]" class="form-control" cols="30" rows="10"> {{ $item->translate('ru')->description }} </textarea>
                                             @error('ru.description')
                                                 <div class="alert alert-danger">
                                                     {{ $message }}
@@ -155,9 +154,6 @@
     @endsection
 
     @section('scripts')
-        <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
-        <script src="{{ asset('ckeditor/adapters/jquery.js')}}"></script>
-        <script src="{{ asset("/assets/bundles/summernote/summernote-bs4.js") }}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
 
         <script>

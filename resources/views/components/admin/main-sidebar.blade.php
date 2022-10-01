@@ -50,6 +50,9 @@
           <li class="dropdown {{ request()->is('admin/doctors/*') ? 'active' : ''  }}">
             <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Shifokorlar") }}</span></a>
               <ul class="dropdown-menu">
+                <li class="{{ request()->is('admin/doctors/award*') ? 'active' : ''  }}">
+                    <a href="{{ route('admin.doctors.award.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Sertifikatlar") }}</span></a>
+                </li>
                 <li class="{{ request()->is('admin/doctors/home-image*') ? 'active' : ''  }}">
                     <a href="{{ route('admin.doctors.home-image.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Uy rasmi") }}</span></a>
                 </li>

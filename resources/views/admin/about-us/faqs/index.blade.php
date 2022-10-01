@@ -95,8 +95,6 @@
         <script src="{{ asset("/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/jquery-ui/jquery-ui.min.js") }}"></script>
         <script src="{{ asset("/assets/js/page/datatables.js") }}"></script>
-        <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
-        <script src="{{ asset('ckeditor/adapters/jquery.js')}}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
 
         <script>
