@@ -45,7 +45,7 @@
                   <tbody>
                     @foreach ($items as $item)
                     <tr class="odd">
-                        <td><img src="{{ $item->header_image }}" width="400rem" alt="" srcset=""></td>
+                        <td><img src="{{ $item->header_image }}" width="400rem"></td>
                         <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editHomeImage{{$item->id}}"><i class="fas fa-edit"></i></button>
                             {{-- @can('home-delete') --}}

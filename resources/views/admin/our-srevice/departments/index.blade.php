@@ -58,7 +58,7 @@
                                     <td>{!! $item->translateOrNew('uz')->name !!}</td>
                                     <td>{!! $item->translate('uz')->description !!}</td>
 
-                                    <td class=""><img src="{{ $item->image }}" width="200rem" alt="" srcset=""></td>
+                                    <td class=""><img src="{{ $item->image }}" width="200rem"></td>
 
                                     <td class="d-flex justify-content-center ">
                                         <a class="btn btn-primary" href="{{route('admin.our-service.departments.show', $item->id)}}">

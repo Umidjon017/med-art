@@ -1,7 +1,6 @@
 <x-admin-layout>
 
     @section('css')
-            <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
         <style>
             .bg-aqua-active{
                 background-color: #6777ef;
@@ -55,10 +54,10 @@
                                         <div class="box-header"><h5> Ismi, sharifi </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{strip_tags($item->translate('uz')->full_name)}} </h6>
+                                                <h6> {!! $item->translate('uz')->full_name !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{strip_tags($item->translate('ru')->full_name)}} </h6>
+                                                <h6> {!! $item->translate('ru')->full_name !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -67,10 +66,10 @@
                                         <div class="box-header"><h5> Biografiyasi </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{ strip_tags( $item->translate('uz')->biography) }} </h6>
+                                                <h6> {!! $item->translate('uz')->biography !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{ strip_tags($item->translate('ru')->biography) }} </h6>
+                                                <h6> {!! $item->translate('ru')->biography !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -79,10 +78,10 @@
                                         <div class="box-header"><h5> Mutaxasisligi </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{ strip_tags( $item->translate('uz')->specification) }} </h6>
+                                                <h6> {!! $item->translate('uz')->specification !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{ strip_tags($item->translate('ru')->specification) }} </h6>
+                                                <h6> {!! $item->translate('ru')->specification !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -91,10 +90,10 @@
                                         <div class="box-header"><h5> Bakalavr ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{ strip_tags( $item->translate('uz')->edu_bachelor) }} </h6>
+                                                <h6> {!! $item->translate('uz')->edu_bachelor !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{ strip_tags($item->translate('ru')->edu_bachelor) }} </h6>
+                                                <h6> {!! $item->translate('ru')->edu_bachelor !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -103,10 +102,10 @@
                                         <div class="box-header"><h5> Magister ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{ strip_tags( $item->translate('uz')->edu_master) }} </h6>
+                                                <h6> {!! $item->translate('uz')->edu_master !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{ strip_tags($item->translate('ru')->edu_master) }} </h6>
+                                                <h6> {!! $item->translate('ru')->edu_master !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -115,10 +114,10 @@
                                         <div class="box-header"><h5> PHD ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{ strip_tags( $item->translate('uz')->edu_phd) }} </h6>
+                                                <h6> {!! $item->translate('uz')->edu_phd !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{ strip_tags($item->translate('ru')->edu_phd) }} </h6>
+                                                <h6> {!! $item->translate('ru')->edu_phd !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -127,10 +126,10 @@
                                         <div class="box-header"><h5> Asperantura ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{ strip_tags( $item->translate('uz')->edu_asperanture) }} </h6>
+                                                <h6> {!! $item->translate('uz')->edu_asperanture !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{ strip_tags($item->translate('ru')->edu_asperanture) }} </h6>
+                                                <h6> {!! $item->translate('ru')->edu_asperanture !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -139,10 +138,10 @@
                                         <div class="box-header"><h5> Qo'shimcha ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{ strip_tags( $item->translate('uz')->edu_addition) }} </h6>
+                                                <h6> {!! $item->translate('uz')->edu_addition !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{ strip_tags($item->translate('ru')->edu_addition) }} </h6>
+                                                <h6> {!! $item->translate('ru')->edu_addition !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -151,7 +150,7 @@
                                         <div class="box-header"><h5> Mukofot/Sertifikat 1 </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {{strip_tags($item->award_1)}}  </h6>
+                                                <h6>  {!! $item->award_1 !!}  </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -160,7 +159,7 @@
                                         <div class="box-header"><h5> Mukofot/Sertifikat 2 </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {{strip_tags($item->award_2)}}  </h6>
+                                                <h6>  {!! $item->award_2 !!}  </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -169,7 +168,7 @@
                                         <div class="box-header"><h5> Mukofot/Sertifikat 3 </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {{strip_tags($item->award_3)}}  </h6>
+                                                <h6>  {!! $item->award_3 !!}  </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -178,7 +177,7 @@
                                         <div class="box-header"><h5> Mukofot/Sertifikat 4 </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {{strip_tags($item->award_4)}}  </h6>
+                                                <h6>  {!! $item->award_4 !!}  </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -187,7 +186,7 @@
                                         <div class="box-header"><h5> Mukofot/Sertifikat 5 </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {{strip_tags($item->award_5)}}  </h6>
+                                                <h6>  {!! $item->award_5 !!}  </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -196,7 +195,7 @@
                                         <div class="box-header"><h5> Ijtimoiy tarmoq (Linkedin) </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6><a href="{{strip_tags($item->link_linkedin)}}"> Linkedin havolasi </a></h6>
+                                                <h6><a href="{!! $item->link_linkedin !!}"> Linkedin havolasi </a></h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -205,7 +204,7 @@
                                         <div class="box-header"><h5> Ijtimoiy tarmoq (Facebook) </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6><a href="{{strip_tags($item->link_facebook)}}"> Facebook havolasi </a></h6>
+                                                <h6><a href="{!! $item->link_facebook !!}"> Facebook havolasi </a></h6>
                                             </div>
                                         </div>
                                     </div> <hr>
@@ -214,7 +213,7 @@
                                         <div class="box-header"><h5> Ijtimoiy tarmoq (Instagram) </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6><a href="{{strip_tags($item->link_instagram)}}"> Instagram havolasi </a></h6>
+                                                <h6><a href="{!! $item->link_instagram !!}"> Instagram havolasi </a></h6>
                                             </div>
                                         </div>
                                     </div> <hr>

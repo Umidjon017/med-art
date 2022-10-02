@@ -57,15 +57,15 @@
                                 @foreach ($items as $item)
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
-                                    <td >{{ strip_tags($item->translate('uz')->title) }}</td>
-                                    <td >{{ strip_tags($item->translate('uz')->detail_description) }}</td>
-                                    <td >{{ strip_tags($item->translate('uz')->full_description) }}</td>
+                                    <td >{!! $item->translate('uz')->title !!}</td>
+                                    <td >{!! $item->translate('uz')->detail_description !!}</td>
+                                    <td >{!! $item->translate('uz')->full_description !!}</td>
                                     <td style="width='200rem';">
                                         <img src="{{ $item->header_image }}" alt="Uy rasmi" srcset="">
                                     </td>
                                     <td style="width='200rem';">
                                         @foreach ($images as $image)
-                                            <img src="{{ $image->detail_image }}" width="100%" alt="Detal rasmi" srcset="">
+                                            <img src="{{ $image->detail_image }}" width="100%">
                                         @endforeach
                                     </td>
 

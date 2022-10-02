@@ -1,15 +1,4 @@
 <x-admin-layout>
-
-    @section('css')
-            <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
-        <style>
-            .bg-aqua-active{
-                background-color: #6777ef;
-                border-color: transparent !important;
-                color: #fff !important;
-            }
-        </style>
-    @endsection
     
     @section('content')
     <section class="section">

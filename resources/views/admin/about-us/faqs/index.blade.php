@@ -104,7 +104,6 @@
                 theme: 'bootstrap4'
                 })
             })
-            $('textarea').addClass('summernote')
         </script>
         <script>
             var $uzForm = $('#uz-form');

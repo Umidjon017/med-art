@@ -336,8 +336,6 @@
     @endsection
 
     @section('scripts')
-        <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
-        <script src="{{ asset('ckeditor/adapters/jquery.js')}}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
 
         <script>
@@ -347,7 +345,6 @@
                 theme: 'bootstrap4'
                 })
             })
-            $('textarea').addClass('summernote')
         </script>
         <script>
             var $uzForm = $('#uz-form');

@@ -58,7 +58,7 @@
                                     <td >{!! $item->title !!}</td>
                                     <td >{!! $item->description !!}</td>
 
-                                    <td class=""><img src="{{ $item->image }}" width="200rem" alt="" srcset=""></td>
+                                    <td class=""><img src="{{ $item->image }}" width="200rem"></td>
 
                                     <td class="d-flex justify-content-center ">
                                         <a class="btn btn-primary" href="{{route('admin.doctors.award.show', $item->id)}}">

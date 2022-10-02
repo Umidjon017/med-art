@@ -1,7 +1,6 @@
 <x-admin-layout>
 
 @section('css')
-        <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
     <style>
         .bg-aqua-active{
             background-color: #6777ef;
@@ -55,10 +54,10 @@
                                     <div class="box-header"><h5> Sarlovha</h5></div>
                                     <div class="tab-content">
                                         <div class="tab-pane active uz-form">
-                                            <h6> {{strip_tags($item->translate('uz')->title)}} </h6>
+                                            <h6> {!! $item->translate('uz')->title !!} </h6>
                                         </div>
                                         <div class="tab-pane active ru-form d-none">
-                                            <h6> {{strip_tags($item->translate('ru')->title)}} </h6>
+                                            <h6> {!! $item->translate('ru')->title !!} </h6>
                                         </div>
                                     </div>
                                 </div> <hr>
@@ -67,10 +66,10 @@
                                     <div class="box-header"><h5> Tavsif</h5></div>
                                     <div class="tab-content">
                                         <div class="tab-pane active uz-form">
-                                            <h6> {{ strip_tags( $item->translate('uz')->description) }} </h6>
+                                            <h6> {!! $item->translate('uz')->description !!} </h6>
                                         </div>
                                         <div class="tab-pane active ru-form d-none">
-                                            <h6> {{ strip_tags($item->translate('ru')->description) }} </h6>
+                                            <h6> {!! $item->translate('ru')->description !!} </h6>
                                         </div>
                                     </div>
                                 </div> <hr>
@@ -79,7 +78,7 @@
                                     <div class="box-header"><h5> Meta sarlovha </h5></div>
                                     <div class="tab-content">
                                         <div class="tab-pane active">
-                                            <h6>  {{strip_tags($item->meta_title)}}  </h6>
+                                            <h6>  {!! $item->meta_title !!}  </h6>
                                         </div>
                                     </div>
                                 </div> <hr>
@@ -88,7 +87,7 @@
                                     <div class="box-header"><h5> Meta tavsif </h5></div>
                                     <div class="tab-content">
                                         <div class="tab-pane active">
-                                            <h6>  {{strip_tags($item->meta_description)}}  </h6>
+                                            <h6>  {!! $item->meta_description !!}  </h6>
                                         </div>
                                     </div>
                                 </div> <hr>
@@ -97,7 +96,7 @@
                                     <div class="box-header"><h5> Meta kalitso'z (keywords) </h5></div>
                                     <div class="tab-content">
                                         <div class="tab-pane active">
-                                            <h6>  {{strip_tags($item->meta_keywords)}}  </h6>
+                                            <h6>  {!! $item->meta_keywords !!}  </h6>
                                         </div>
                                     </div>
                                 </div> <hr>

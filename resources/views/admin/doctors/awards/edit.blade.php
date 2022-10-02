@@ -1,15 +1,5 @@
 <x-admin-layout>
 
-    @section('css')
-        <style>
-            .bg-aqua-active{
-                background-color: #6777ef;
-                border-color: transparent !important;
-                color: #fff !important;
-            }
-        </style>
-    @endsection
-
     @section('content')
         <section class="section">
         <div class="section-body">

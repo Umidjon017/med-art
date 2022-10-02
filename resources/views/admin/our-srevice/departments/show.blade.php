@@ -1,7 +1,6 @@
 <x-admin-layout>
 
     @section('css')
-            <link rel="stylesheet" href="{{ asset("/assets/bundles/summernote/summernote-bs4.css") }}">
         <style>
             .bg-aqua-active{
                 background-color: #6777ef;
@@ -51,60 +50,60 @@
                         <div class="card-body">
                             <div class="row d-flex justify-content-between">
                                 <div class="col-md-5">        
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Nomi (UZ)</h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{strip_tags($items->translate('uz')->name)}} </h6>
+                                                <h6> {!! $items->translate('uz')->name !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{strip_tags($items->translate('ru')->name)}} </h6>
+                                                <h6> {!! $items->translate('ru')->name !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Tavsif (UZ)</h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {{ strip_tags( $items->translate('uz')->description) }} </h6>
+                                                <h6> {!! $items->translate('uz')->description !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {{ strip_tags($items->translate('ru')->description) }} </h6>
+                                                <h6> {!! $items->translate('ru')->description !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
             
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Meta sarlovha </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {{strip_tags($items->meta_title)}}  </h6>
+                                                <h6>  {!! $items->meta_title !!}  </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
             
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Meta tavsif </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {{strip_tags($items->meta_description)}}  </h6>
+                                                <h6>  {!! $items->meta_description !!}  </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
             
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Meta kalitso'z (keywords) </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {{strip_tags($items->meta_keywords)}}  </h6>
+                                                <h6>  {!! $items->meta_keywords !!}  </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
                                 </div>
     
                                 <div class="col-md-5">
-                                    <div class=" d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center">
                                         <div class="box-header"><h2> Rasmi </h2></div>
                                     </div>
                                     <div class="tab-content">

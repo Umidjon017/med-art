@@ -56,11 +56,11 @@
                                 @foreach ($items as $item)
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
-                                    <td >{{ strip_tags($item->translate('uz')->full_name) }}</td>
-                                    <td >{{ strip_tags($item->translate('uz')->specification) }}</td>
-                                    <td >{{ strip_tags($item->translate('uz')->biography) }}</td>
+                                    <td >{!! $item->translate('uz')->full_name !!}</td>
+                                    <td >{!! $item->translate('uz')->specification !!}</td>
+                                    <td >{!! $item->translate('uz')->biography !!}</td>
 
-                                    <td class=""><img src="{{ $item->image }}" width="200rem" alt="" srcset=""></td>
+                                    <td class=""><img src="{{ $item->image }}" width="200rem"></td>
 
                                     <td class="d-flex justify-content-center ">
                                         <a class="btn btn-primary" href="{{route('admin.doctors.doctor-infos.show', $item->id)}}">
