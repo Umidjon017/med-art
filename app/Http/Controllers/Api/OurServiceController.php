@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\OurService\OurService;
+use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\Admin\OurService\OurServiceResource;
 
-class OurServiceController extends Controller
+class OurServiceController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -17,8 +18,8 @@ class OurServiceController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $services = OurService::all();
+        $services = OurServiceResource::collection(OurService::all());
 
-        return OurServiceResource::collection($services);
+        return $this->sendResponse($services, "Ma'lumotlar muvaffaqiyatli qabul qilindi!");
     }
 }

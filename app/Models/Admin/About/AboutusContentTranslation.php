@@ -10,8 +10,10 @@ class AboutusContentTranslation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
+        'title_1',
+        'description_1',
+        'title_2',
+        'description_2',
     ];
 
     public $timestamps = false;

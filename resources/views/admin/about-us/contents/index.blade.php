@@ -55,12 +55,12 @@
                                 @foreach ($items as $item)
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
-                                    <td >{!! $item->translate('uz')->title !!}</td>
-                                    <td >{!! $item->translate('uz')->description !!}</td>
+                                    <td>{!! $item->translate('uz')->title !!}</td>
+                                    <td>{!! $item->translate('uz')->description !!}</td>
 
-                                    <td class=""><img src="{{ $item->image }}" width="200rem"><td>
+                                    <td><img src="{{ $item->image }}" width="200rem"><td>
 
-                                    <td class="d-flex justify-content-center ">
+                                    <td class="d-flex justify-content-center">
                                         <a class="btn btn-primary" href="{{route('admin.about-us.contents.show', $item->id)}}">
                                             <i class="fas fa-eye"></i>
                                         </a>

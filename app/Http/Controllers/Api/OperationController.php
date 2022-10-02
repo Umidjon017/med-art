@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Operation\Operation;
+use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\Admin\Operations\OperationResource;
 
-class OperationController extends Controller
+class OperationController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -17,8 +18,8 @@ class OperationController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $operations = Operation::all();
+        $operations = OperationResource::collection(Operation::all());
 
-        return OperationResource::collection($operations);
+        return $this->sendResponse($operations, "Ma'lumotlar muvaffaqiyatli qabul qilindi!");
     }
 }

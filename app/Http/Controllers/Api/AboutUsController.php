@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Models\Admin\About\AboutUs;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\Admin\About\AboutUsResource;
 
-class AboutUsController extends Controller
+class AboutUsController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -17,8 +18,8 @@ class AboutUsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $aboutus = AboutUs::all();
+        $aboutus = AboutUsResource::collection(AboutUs::all());
         
-        return AboutUsResource::collection($aboutus);
+        return $this->sendResponse($aboutus, "Ma'lumotlar muvaffaqiyatli qabul qilindi!");
     }
 }

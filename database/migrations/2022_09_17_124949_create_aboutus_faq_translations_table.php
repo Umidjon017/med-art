@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('aboutus_faq_id')->constrained('aboutus_faqs')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
             $table->string('question');
-            $table->text('answer');
+            $table->longText('answer');
             $table->unique(['aboutus_faq_id', 'locale']);
         });
     }

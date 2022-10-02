@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\Admin\Doctors\DoctorsResource;
 use App\Models\Admin\Doctor\Doctor;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\Admin\Doctors\DoctorsResource;
 
-class DoctorsController extends Controller
+class DoctorsController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -17,8 +18,8 @@ class DoctorsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $doctors = Doctor::all();
+        $doctors = DoctorsResource::collection(Doctor::all());
         
-        return DoctorsResource::collection($doctors);
+        return $this->sendResponse($doctors, "Ma'lumotlar muvaffaqiyatli qabul qilindi!");
     }
 }

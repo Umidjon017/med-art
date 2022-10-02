@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Doctor\AwardDoctor;
+use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\Admin\Doctors\AwardDoctorsResource;
 
-class AwardDoctorController extends Controller
+class AwardDoctorController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -16,6 +18,8 @@ class AwardDoctorController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return AwardDoctor::all();
+        $awards = AwardDoctorsResource::collection(AwardDoctor::all());
+
+        return $this->sendResponse($awards, "Ma'lumotlar muvaffaqiyatli qabul qilindi!");
     }
 }
