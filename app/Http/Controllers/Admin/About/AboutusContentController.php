@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\About\AboutusContent;
 use App\Http\Requests\Admin\About\StoreAboutusContentRequest;
 use App\Http\Requests\Admin\About\UpdateAboutusContentRequest;
+use Illuminate\Http\Request;
 
 class AboutusContentController extends Controller
 {
@@ -36,7 +37,7 @@ class AboutusContentController extends Controller
      * @param  \App\Http\Requests\StoreAboutusContentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAboutusContentRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
         if($request->hasFile('image'))

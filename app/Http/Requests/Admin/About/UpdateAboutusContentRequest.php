@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Admin\About;
 
-use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Foundation\Http\FormRequest;
+use Astrotomic\Translatable\Validation\RuleFactory;
 
 class UpdateAboutusContentRequest extends FormRequest
 {
@@ -25,20 +25,28 @@ class UpdateAboutusContentRequest extends FormRequest
     public function rules()
     {
         return RuleFactory::make([
-            '%title%'            => 'required|string',
-            '%description%'      => 'required|string',
-            'image*'             => 'sometimes|image|mimes:png,jpg,jpeg,gif',
+            '%title_1%'         => 'required',
+            '%title_2%'         => 'required',
+            '%description_1%'   => 'required',
+            '%description_2%'   => 'required',
+            'image*'            => 'sometimes|image|mimes:png,jpg,jpeg,gif',
         ]);
 
     }
     public function messages()
     {
         return [
-            'uz.title.required'       => 'O`zbekcha sarlovha to`ldirilishi kerak!',
-            'ru.title.required'       => 'Ruscha sarlovha to`ldirilishi kerak!',
+            'uz.title_1.required'   => 'O`zbekcha sarlovha to`ldirilishi kerak!',
+            'ru.title_1.required'   => 'Ruscha sarlovha to`ldirilishi kerak!',
+            
+            'uz.title_2.required'   => 'O`zbekcha sarlovha to`ldirilishi kerak!',
+            'ru.title_2.required'   => 'Ruscha sarlovha to`ldirilishi kerak!',
+            
+            'uz.description_1.required' => 'O`zbekcha tavsif to`ldirilishi kerak!',
+            'ru.description_1.required' => 'Ruscha tavsif to`ldirilishi kerak!',
 
-            'uz.description.required' => 'O`zbekcha tavsif to`ldirilishi kerak!',
-            'ru.description.required' => 'Ruscha tavsif to`ldirilishi kerak!',
+            'uz.description_2.required' => 'O`zbekcha tavsif to`ldirilishi kerak!',
+            'ru.description_2.required' => 'Ruscha tavsif to`ldirilishi kerak!',
 
             'image.image'             => 'Rasm bo`lishligi kerak!',
             'image.mimes'             => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
