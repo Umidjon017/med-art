@@ -34,17 +34,11 @@ class DoctorInfosResource extends JsonResource
             'edu_phd_ru'        =>  $this->translate('ru')->edu_phd,
             'edu_asperanture_ru'=>  $this->translate('ru')->edu_asperanture,
             'edu_addition_ru'   =>  $this->translate('ru')->edu_addition,
-            'award_1'           =>  $this->award_1,
-            'award_2'           =>  $this->award_2,
-            'award_3'           =>  $this->award_3,
-            'award_4'           =>  $this->award_4,
-            'award_5'           =>  $this->award_5,
             'link_linkedin'     =>  $this->link_linkedin,
             'link_facebook'     =>  $this->link_facebook,
             'link_instagram'    =>  $this->link_instagram,
             'attended_operations'=> DoctorOperationsResource::collection($this->operations()->get()),
-            'created_at'        =>  $this->created_at,
-            'updated_at'        =>  $this->updated_at,
+            'gethered_awards'   =>  AwardDoctorsResource::collection($this->awards()->get()),
         ];
     }
 }

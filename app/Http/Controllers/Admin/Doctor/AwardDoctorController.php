@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Doctor\AwardDoctor;
 use App\Http\Requests\Admin\Doctor\StoreAwardDoctorRequest;
 use App\Http\Requests\Admin\Doctor\UpdateAwardDoctorRequest;
+use App\Models\Admin\Doctor\DoctorInfo;
 use Illuminate\Http\Request;
 
 class AwardDoctorController extends Controller
@@ -18,8 +19,9 @@ class AwardDoctorController extends Controller
     public function index()
     {
         $items = AwardDoctor::all();
+        $doctors = DoctorInfo::all();
 
-        return view('admin.doctors.awards.index', compact('items'));
+        return view('admin.doctors.awards.index', compact('items', 'doctors'));
     }
 
     /**
@@ -51,7 +53,14 @@ class AwardDoctorController extends Controller
             $url = "http://localhost:8000/admin/images/doctors/awards/".$image_name;
             $data['image'] = $url;
         }
-        $news = AwardDoctor::create($data);
+        $awards = AwardDoctor::create($data);
+
+        $doctors = $request->doctor_id;
+        if ($doctors != '') {
+            foreach ($doctors as $doctor) {
+                $awards->doctors()->attach($doctor);
+            }
+        }
 
         return redirect()->route('admin.doctors.award.index')->withSuccess("Ma'lumot qo'shildi!");
     }
@@ -65,8 +74,9 @@ class AwardDoctorController extends Controller
     public function show($id)
     {
         $item = AwardDoctor::findOrFail($id);
+        $awarded_doctors = $item->doctors()->get();
 
-        return view('admin.doctors.awards.show', compact('item'));
+        return view('admin.doctors.awards.show', compact('item', 'awarded_doctors'));
     }
 
     /**
@@ -78,8 +88,10 @@ class AwardDoctorController extends Controller
     public function edit($id)
     {
         $item = AwardDoctor::findOrFail($id);
+        $doctors = DoctorInfo::all();
+        $awarded_doctors = $item->doctors()->get();
 
-        return view('admin.doctors.awards.edit', compact('item'));
+        return view('admin.doctors.awards.edit', compact('item', 'doctors', 'awarded_doctors'));
     }
 
     /**
@@ -104,6 +116,8 @@ class AwardDoctorController extends Controller
             $data['image'] = $url;
         }
         $model->update($data);
+        
+        $model->doctors()->sync($request->doctor_id);
 
         return redirect()->route('admin.doctors.award.index')->withSuccess("Ma'lumot tahrirlandi!");
     }

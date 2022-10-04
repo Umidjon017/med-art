@@ -1,6 +1,7 @@
 <x-admin-layout>
 
     @section('css')
+        <link rel="stylesheet" href="{{ asset('/assets/bundles/select2/dist/css/select2.min.css') }}">
         <!-- DataTables -->
         <link rel="stylesheet" href="{{ asset("/assets/bundles/datatables/datatables.min.css") }}">
         <link rel="stylesheet" href="{{ asset("/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}">
@@ -93,6 +94,7 @@
     @endsection
 
     @section('scripts')
+        <script src="{{ asset("/assets/bundles/select2/dist/js/select2.full.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/datatables/datatables.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/jquery-ui/jquery-ui.min.js") }}"></script>

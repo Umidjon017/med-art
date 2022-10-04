@@ -1,5 +1,9 @@
 <x-admin-layout>
 
+    @section('css')
+        <link rel="stylesheet" href="{{ asset('/assets/bundles/select2/dist/css/select2.min.css') }}">
+    @endsection
+
     @section('content')
         <section class="section">
         <div class="section-body">
@@ -10,7 +14,7 @@
                         <div class="card-header col-sm-12 d-flex justify-content-between">
                             <a href="{{ route('admin.doctors.award.index') }}"><button class="btn btn-warning"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __("Ortga") }} </button></a>
                             
-                            <h4>{{ __("Sertifikatlar/Yutuqlarni tahrirlash") }}</h4>
+                            <h4>{{ __("Mukofotlar/Sertifikatlar tahrirlash") }}</h4>
                         </div>
                     </div>
                     <form action="{{route('admin.doctors.award.update', $item->id)}}" method="post" enctype="multipart/form-data">
@@ -48,6 +52,20 @@
                                             </div>
                                         @enderror
                                     </div>
+
+                                    <div class="form-group ">
+                                        <label>Shifokorlarga biriktirish</label>
+                                        <select name="doctor_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Shifoklarni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                            @foreach ($doctors as $doctor)
+                                                <option value="{{$doctor->id}}" 
+                                                    @foreach ($awarded_doctors as $ad)
+                                                        {{ $doctor->id === $ad->id ? 'selected' : '' }}
+                                                    @endforeach >
+                                                    {{$doctor->translate('uz')->full_name}}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -72,6 +90,7 @@
     @endsection
 
     @section('scripts')
+        <script src="{{ asset("/assets/bundles/select2/dist/js/select2.full.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
     @endsection
 

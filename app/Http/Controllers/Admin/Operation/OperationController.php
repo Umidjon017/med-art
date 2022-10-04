@@ -89,9 +89,13 @@ class OperationController extends Controller
      * @param  \App\Models\Admin\Operation\Operation  $operation
      * @return \Illuminate\Http\Response
      */
-    public function show(Operation $operation)
+    public function show($id)
     {
-        //
+        $item = Operation::whereId($id)->first();
+        $attended_doctors = $item->doctors()->get();
+        $operation_images = $item->images()->get();
+
+        return view('admin.operations.show', compact('item', 'attended_doctors', 'operation_images'));
     }
 
     /**
@@ -149,15 +153,6 @@ class OperationController extends Controller
                     'detail_image' => $url,
                 ]);
             }
-        } else
-        {
-            $files = $model->images;
-            foreach ($files as $file) {
-                $model->images()->create([
-                    'operation_id'=>$model->id,
-                    'detail_image'=> $file->detail_image,
-                ]);
-            }
         }
         
         $model->doctors()->sync($request->doctor_id);
@@ -174,9 +169,9 @@ class OperationController extends Controller
     public function destroy($id)
     {
         $model = Operation::findOrFail($id);
-        $model->delete();
-        $model->deleteHeaderImage();
         $model->deleteDetailImage();
+        $model->deleteHeaderImage();
+        $model->delete();
 
         return redirect()->back()->withSuccess("Ma'lumot o'chirildi!");
     }

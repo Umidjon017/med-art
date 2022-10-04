@@ -5,6 +5,7 @@ namespace App\Models\Admin\Doctor;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class AwardDoctor extends Model
 {
@@ -36,5 +37,10 @@ class AwardDoctor extends Model
             File::delete(self::IMAGE_PATH.$expl);
         }
         return true;
+    }
+
+    public function doctors(): BelongsToMany
+    {
+        return $this->belongsToMany(DoctorInfo::class, 'doctor_award', 'award_doctor_id');
     }
 }

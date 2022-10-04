@@ -1,6 +1,7 @@
 <x-admin-layout>
 
     @section('css')
+        <link rel="stylesheet" href="{{ asset('/assets/bundles/select2/dist/css/select2.min.css') }}">
         <style>
             .bg-aqua-active{
                 background-color: #6777ef;
@@ -237,49 +238,21 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group ">
-                                        <label>Mukofot/Sertifikat 1</label>
-                                        <input type="text" name="award_1" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_1') }}">
-                                        @error('award_1')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                        <label>Operatsiyalarga biriktirish</label>
+                                        <select name="operation_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Operatsiyani tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                            @foreach ($operations as $operation )
+                                                <option value="{{$operation->id}}">{!! $operation->translate('uz')->title !!}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
+
                                     <div class="form-group ">
-                                        <label>Mukofot/Sertifikat 2</label>
-                                        <input type="text" name="award_2" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_2') }}">
-                                        @error('award_2')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group ">
-                                        <label>Mukofot/Sertifikat 3</label>
-                                        <input type="text" name="award_3" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_3') }}">
-                                        @error('award_3')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group ">
-                                        <label>Mukofot/Sertifikat 4</label>
-                                        <input type="text" name="award_4" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_4') }}">
-                                        @error('award_4')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group ">
-                                        <label>Mukofot/Sertifikat 5</label>
-                                        <input type="text" name="award_5" class="form-control" placeholder="Mukofot/Sertifikatingizni kiriting" value="{{ old('award_5') }}">
-                                        @error('award_5')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                        <label>Mukofot/Sertifikatlarga biriktirish</label>
+                                        <select name="award_doctor_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Mukofot/Sertifikatlarni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                            @foreach ($awards as $award )
+                                                <option value="{{$award->id}}">{!! $award->title !!}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
 
@@ -331,6 +304,7 @@
     @endsection
 
     @section('scripts')
+        <script src="{{ asset("/assets/bundles/select2/dist/js/select2.full.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
 
         <script>

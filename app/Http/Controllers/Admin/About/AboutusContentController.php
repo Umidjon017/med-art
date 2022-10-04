@@ -37,7 +37,7 @@ class AboutusContentController extends Controller
      * @param  \App\Http\Requests\StoreAboutusContentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAboutusContentRequest $request)
     {
         $data = $request->all();
         if($request->hasFile('image'))

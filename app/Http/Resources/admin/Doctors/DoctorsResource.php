@@ -23,7 +23,7 @@ class DoctorsResource extends JsonResource
             'id' => $this->id,
             'header_image' => $this->header_image,
             'doctor_infos' => DoctorInfosResource::collection($doctor_infos),
-            'doctor_faqs' => FaqResource::collection($doctor_faqs),
+            'doctor_faqs'  => FaqResource::collection($doctor_faqs),
         ];
     }
 }

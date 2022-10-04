@@ -26,17 +26,12 @@ class UpdateDoctorInfoRequest extends FormRequest
     {
         return RuleFactory::make([
             'image'             =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
-            'award_1'           =>  'sometimes',
-            'award_2'           =>  'sometimes',
-            'award_3'           =>  'sometimes',
-            'award_4'           =>  'sometimes',
-            'award_5'           =>  'sometimes',
             'link_linkedin'     =>  'sometimes',
             'link_facebook'     =>  'sometimes',
             'link_instagram'    =>  'sometimes',
-            '%full_name%'       =>  'required|string',
-            '%biography%'       =>  'required|string',
-            '%specification%'   =>  'required|string',
+            '%full_name%'       =>  'required',
+            '%biography%'       =>  'required',
+            '%specification%'   =>  'required',
             '%edu_bachelor%'    =>  'sometimes',
             '%edu_master%'      =>  'sometimes',
             '%edu_phd%'         =>  'sometimes',
@@ -48,8 +43,8 @@ class UpdateDoctorInfoRequest extends FormRequest
     public function messages()
     {
         return [
-            'image.image'       => 'Rasm bo`lishligi kerak!',
-            'image.mimes'       => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
+            'image.image'   => 'Rasm bo`lishligi kerak!',
+            'image.mimes'   => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
 
             'uz.full_name.required' => 'O`zbekcha ism-sharif to`ldirilishi kerak!',
             'ru.full_name.required' => 'Ruscha ism-sharif to`ldirilishi kerak!',

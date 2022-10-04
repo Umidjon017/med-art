@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Doctor\DoctorInfo;
+use App\Models\Admin\Doctor\AwardDoctor;
+use App\Models\Admin\Operation\Operation;
 use App\Http\Requests\Admin\Doctor\StoreDoctorInfoRequest;
 use App\Http\Requests\Admin\Doctor\UpdateDoctorInfoRequest;
 
@@ -28,7 +30,10 @@ class DoctorInfoController extends Controller
      */
     public function create()
     {
-        return view('admin.doctors.doctor-infos.create');
+        $operations = Operation::all();
+        $awards = AwardDoctor::all();
+
+        return view('admin.doctors.doctor-infos.create', compact('operations', 'awards'));
     }
 
     /**
@@ -52,6 +57,20 @@ class DoctorInfoController extends Controller
         }
         $doctors = DoctorInfo::create($data);
 
+        $operations = $request->operation_id;
+        if ($operations != '') {
+            foreach ($operations as $operation) {
+                $doctors->operations()->attach($operation);
+            }
+        }
+        
+        $awards = $request->award_doctor_id;
+        if ($awards != '') {
+            foreach ($awards as $award) {
+                $doctors->awards()->attach($award);
+            }
+        }
+
         return redirect()->route('admin.doctors.doctor-infos.index')->withSuccess("Ma'lumot qo'shildi");
     }
 
@@ -64,8 +83,10 @@ class DoctorInfoController extends Controller
     public function show($id)
     {
         $item = DoctorInfo::findOrFail($id);
+        $operations = $item->operations()->get();
+        $awards = $item->awards()->get();
 
-        return view('admin.doctors.doctor-infos.show', compact('item'));
+        return view('admin.doctors.doctor-infos.show', compact('item', 'operations', 'awards'));
     }
 
     /**
@@ -77,8 +98,14 @@ class DoctorInfoController extends Controller
     public function edit($id)
     {
         $doctors = DoctorInfo::findOrFail($id);
+        $operations = Operation::all();
+        $attended_operations = $doctors->operations()->get();
+        $awards = AwardDoctor::all();
+        $gethered_awards = $doctors->awards()->get();
 
-        return view('admin.doctors.doctor-infos.edit', compact('doctors'));
+        return view('admin.doctors.doctor-infos.edit', compact(
+            'doctors', 'operations', 'attended_operations', 'awards', 'gethered_awards'
+        ));
     }
 
     /**
@@ -103,6 +130,9 @@ class DoctorInfoController extends Controller
             $data['image'] = $url;
         }
         $model->update($data);
+
+        $model->operations()->sync($request->operation_id);
+        $model->awards()->sync($request->award_doctor_id);
 
         return redirect()->route('admin.doctors.doctor-infos.index')->withSuccess("Ma'lumot tahrirlandi!");
     }

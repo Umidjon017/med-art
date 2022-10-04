@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('award_doctors', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->unique();
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

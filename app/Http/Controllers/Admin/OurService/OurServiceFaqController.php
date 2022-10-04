@@ -42,7 +42,7 @@ class OurServiceFaqController extends Controller
         $data = $request->all();
         $aboutUsFaqs = OurServiceFaq::create($data);
 
-        return redirect()->route('admin.our-service.faqs.edit')->withSuccess("Ma'lumot qo'shildi!");
+        return redirect()->route('admin.our-service.faqs.index')->withSuccess("Ma'lumot qo'shildi!");
     }
 
     /**

@@ -10,7 +10,7 @@
                 </button>
             </div>
             
-            <form action="{{ route('admin.doctors.award.store') }}" method="POST">
+            <form action="{{ route('admin.doctors.award.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
@@ -43,6 +43,16 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
+                            </div>
+
+                            <div class="form-group ">
+                                <label>Shifokorlarga biriktirish</label>
+                                <select name="doctor_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Shifoklarni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                    <option value=""> </option>
+                                    @foreach ($doctors as $doctor )
+                                        <option value="{{$doctor->id}}">{{$doctor->translate('uz')->full_name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

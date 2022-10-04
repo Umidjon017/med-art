@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_infos', function (Blueprint $table) {
+        Schema::create('doctor_award', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('link_linkedin')->nullable();
-            $table->string('link_facebook')->nullable();
-            $table->string('link_instagram')->nullable();
-            $table->timestamps();
+            $table->foreignId('award_doctor_id')->constrained('award_doctors')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('doctor_info_id')->constrained('doctor_infos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_infos');
+        Schema::dropIfExists('doctor_award');
     }
 };

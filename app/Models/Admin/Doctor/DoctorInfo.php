@@ -29,11 +29,6 @@ class DoctorInfo extends Model implements TranslatableContract
 
     protected $fillable = [
         'image',
-        'award_1',
-        'award_2',
-        'award_3',
-        'award_4',
-        'award_5',
         'link_linkedin',
         'link_facebook',
         'link_instagram',
@@ -59,6 +54,11 @@ class DoctorInfo extends Model implements TranslatableContract
             File::delete(self::IMAGE_PATH.$expl);
         }
         return true;
+    }
+
+    public function awards(): BelongsToMany
+    {
+        return $this->belongsToMany(AwardDoctor::class, 'doctor_award', 'doctor_info_id');
     }
 
     public function operations(): BelongsToMany

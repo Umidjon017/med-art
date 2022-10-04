@@ -25,8 +25,8 @@ class UpdateAwardDoctorRequest extends FormRequest
     public function rules()
     {
         return RuleFactory::make([
-            'title'         =>  'required',
-            'image'         =>  'image|mimes:png,jpg,jpeg,gif',
+            'title' =>  'required|unique:award_doctors,title',
+            'image' =>  'image|mimes:png,jpg,jpeg,gif',
         ]);
     }
 
@@ -34,6 +34,7 @@ class UpdateAwardDoctorRequest extends FormRequest
     {
         return [
             'title.required' => 'Nomi to`ldirilishi kerak!',
+            'title.unique'   => 'Bu mukofot/sertifikat allaqachon mavjud!',
             
             'image.image'    => 'Rasm bo`lishligi kerak!',
             'image.mimes'    => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',

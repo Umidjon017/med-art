@@ -47,6 +47,20 @@
                                             </div>
                                         </div>
                                     </div> <hr>
+                                    
+                                    <div class=" d-flex justify-content-between">
+                                        <div class="box-header"><h5> Taqdirlangan shifokorlar </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active">
+                                                <h6>
+                                                    @foreach ($awarded_doctors as $ad)
+                                                        {!! $ad->translate('uz')->full_name !!}
+                                                        {!! $ad === $awarded_doctors->last() ? "" : "<hr/>" !!}
+                                                    @endforeach
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
                                 </div>
     
                                 <div class="col-md-5">

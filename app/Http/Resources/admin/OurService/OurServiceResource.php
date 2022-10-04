@@ -21,12 +21,10 @@ class OurServiceResource extends JsonResource
         $faqs = OurServiceFaq::all();
 
         return [
-            'id' => $this->id,
-            'header_image' => $this->header_image,
-            'our_service_departments' => OurServiceDepartmentsResourse::collection($departments),
-            'our_service_faqs'  =>  FaqResource::collection($faqs),
-            'created_at'    =>  $this->created_at,
-            'updated_at'    =>  $this->updated_at,
+            'our_service_id'            => $this->id,
+            'header_image'              => $this->header_image,
+            'our_service_departments'   => OurServiceDepartmentsResourse::collection($departments),
+            'our_service_faqs'          => FaqResource::collection($faqs),
         ];
     }
 }

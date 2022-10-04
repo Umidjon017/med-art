@@ -147,46 +147,29 @@
                                     </div> <hr>
             
                                     <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Mukofot/Sertifikat 1 </h5></div>
+                                        <div class="box-header"><h5>Qatnashgan operatisiyalar</h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {!! $item->award_1 !!}  </h6>
+                                                <h6>
+                                                    @foreach ($operations as $operation)
+                                                        {!! $operation->translate('uz')->title !!}
+                                                        {!! $operation === $operations->last() ? "" : "<hr/>" !!}
+                                                    @endforeach
+                                                </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
             
                                     <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Mukofot/Sertifikat 2 </h5></div>
+                                        <div class="box-header"><h5>Mukofot/Sertifikarlar</h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                <h6>  {!! $item->award_2 !!}  </h6>
-                                            </div>
-                                        </div>
-                                    </div> <hr>
-            
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Mukofot/Sertifikat 3 </h5></div>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active">
-                                                <h6>  {!! $item->award_3 !!}  </h6>
-                                            </div>
-                                        </div>
-                                    </div> <hr>
-            
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Mukofot/Sertifikat 4 </h5></div>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active">
-                                                <h6>  {!! $item->award_4 !!}  </h6>
-                                            </div>
-                                        </div>
-                                    </div> <hr>
-            
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Mukofot/Sertifikat 5 </h5></div>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active">
-                                                <h6>  {!! $item->award_5 !!}  </h6>
+                                                <h6>
+                                                    @foreach ($awards as $award)
+                                                        {!! $award->title !!}
+                                                        {!! $award === $awards->last() ? "" : "<hr/>" !!}
+                                                    @endforeach
+                                                </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
