@@ -306,7 +306,7 @@
 
                             <div class="form-group">
                                 <div class="">
-                                    <button class="btn btn-primary"> {{ __("Yaratish") }} </button>
+                                    <button class="btn btn-primary"> {{ __("Saqlash") }} </button>
                                 </div>
                             </div>
                         </div>

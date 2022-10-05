@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\About\AboutUsController;
 use App\Http\Controllers\Admin\About\AboutusFaqController;
 use App\Http\Controllers\Admin\About\AboutusContentController;
+use App\Http\Controllers\Admin\Blog\BlogController;
+use App\Http\Controllers\Admin\Blog\BlogInfoController;
 use App\Http\Controllers\Admin\Doctor\DoctorController;
 use App\Http\Controllers\Admin\Doctor\DoctorFaqController;
 use App\Http\Controllers\Admin\Doctor\DoctorInfoController;
@@ -55,6 +57,12 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
 
     // Operations
     Route::resource('operations', OperationController::class);
+
+    // Blogs
+    Route::prefix('blogs')->name('blogs.')->group(function() {
+        Route::resource('home-image', BlogController::class);
+        Route::resource('blog-infos', BlogInfoController::class);
+    });
 });
 
 require __DIR__.'/auth.php';

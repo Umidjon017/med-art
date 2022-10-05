@@ -70,25 +70,17 @@
           <a href="{{ route('admin.operations.index') }}" class="nav-link"><i data-feather="monitor"></i><span>{{ __("Operatsiyalar") }}</span></a>
         </li>
 
-        {{-- @can('product-list') --}}
-          {{-- <li class="dropdown {{ request()->is('admin/product-telephones*') ? 'active' : ''  }}">
-            <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-boxes"></i> <span> {{ __("Telefon Mahsulotlar") }} </span></a>
-              <ul class="dropdown-menu">
-                <li class="{{ request()->is('admin/product-telephones*') ? 'active' : ''  }}">
-                    <a href="{{ route('admin.product-telephones.index') }}" > <i class="fas fa-boxes"></i> <span> {{ __("Telefon mahsulotlari") }} </span></a>
-                </li>
-
-                <li class="{{ request()->is('admin/telephone-memories') ? 'active' : ''  }}">
-                    <a href="{{ route('admin.telephone-memories.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Telefon xotiralari") }}</span></a>
-                </li>
-              </ul>
-          </li> --}}
-        {{-- @endcan --}}
-
-        {{-- <li class="dropdown {{ request()->is('admin/colors*') ? 'active' : ''  }}">
-          <a href="{{ route('admin.colors.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Ranglar") }}</span></a>
-        </li> --}}
-
+        <li class="dropdown {{ request()->is('admin/blogs/*') ? 'active' : ''  }}">
+          <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Bloglar") }}</span></a>
+            <ul class="dropdown-menu">
+              <li class="{{ request()->is('admin/blogs/home-image*') ? 'active' : ''  }}">
+                  <a href="{{ route('admin.blogs.home-image.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Uy rasmi") }}</span></a>
+              </li>
+              <li class="{{ request()->is('admin/blogs/blog-info*') ? 'active' : ''  }}">
+                <a href="{{ route('admin.blogs.blog-infos.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Shifokor ma'lumotlari") }}</span></a>
+            </li>
+            </ul>
+        </li>
         
 
         {{-- @if (Auth::user()->hasAllPermissions(['role-list', 'user-list']))
