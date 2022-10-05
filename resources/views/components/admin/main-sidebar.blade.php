@@ -77,8 +77,20 @@
                   <a href="{{ route('admin.blogs.home-image.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Uy rasmi") }}</span></a>
               </li>
               <li class="{{ request()->is('admin/blogs/blog-info*') ? 'active' : ''  }}">
-                <a href="{{ route('admin.blogs.blog-infos.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Shifokor ma'lumotlari") }}</span></a>
-            </li>
+                <a href="{{ route('admin.blogs.blog-infos.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Bloglar") }}</span></a>
+              </li>
+            </ul>
+        </li>
+        
+        <li class="dropdown {{ request()->is('admin/news/*') ? 'active' : ''  }}">
+          <a href="#" class="menu-toggle nav-link has-dropdown" ><i class="fas fa-list-alt"></i><span>{{ __("Yangiliklar") }}</span></a>
+            <ul class="dropdown-menu">
+              <li class="{{ request()->is('admin/news/home-image*') ? 'active' : ''  }}">
+                  <a href="{{ route('admin.news.home-image.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Uy rasmi") }}</span></a>
+              </li>
+              <li class="{{ request()->is('admin/news/news-info*') ? 'active' : ''  }}">
+                <a href="{{ route('admin.news.news-infos.index') }}" ><i class="fas fa-list-alt"></i><span>{{ __("Yangiliklar") }}</span></a>
+              </li>
             </ul>
         </li>
         

@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\Doctor\DoctorController;
 use App\Http\Controllers\Admin\Doctor\DoctorFaqController;
 use App\Http\Controllers\Admin\Doctor\DoctorInfoController;
 use App\Http\Controllers\Admin\Doctor\AwardDoctorController;
+use App\Http\Controllers\Admin\News\NewsController;
+use App\Http\Controllers\Admin\News\NewsInfosController;
 use App\Http\Controllers\Admin\Operation\OperationController;
 use App\Http\Controllers\Admin\OurService\OurServiceController;
 use App\Http\Controllers\Admin\OurService\OurServiceFaqController;
@@ -62,6 +64,12 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
     Route::prefix('blogs')->name('blogs.')->group(function() {
         Route::resource('home-image', BlogController::class);
         Route::resource('blog-infos', BlogInfoController::class);
+    });
+
+    // News
+    Route::prefix('news')->name('news.')->group(function() {
+        Route::resource('home-image', NewsController::class);
+        Route::resource('news-infos', NewsInfosController::class);
     });
 });
 
