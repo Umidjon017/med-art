@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AboutUsController;
 use App\Http\Controllers\Api\AwardDoctorController;
 use App\Http\Controllers\Api\BlogsController;
 use App\Http\Controllers\Api\DoctorsController;
+use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\OperationController;
 use App\Http\Controllers\Api\OurServiceController;
 
@@ -34,3 +35,4 @@ Route::prefix('doctors')->name('doctors.')->group(function() {
 
 Route::get('operations', OperationController::class)->name('operations');
 Route::get('blogs', BlogsController::class)->name('blogs');
+Route::get('news', NewsController::class)->name('news');

@@ -16,7 +16,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $items = News::all();
+
+        return view('admin.news.home-image.index', compact('items'));
     }
 
     /**
@@ -37,7 +39,20 @@ class NewsController extends Controller
      */
     public function store(StoreNewsRequest $request)
     {
-        //
+        $data = $request->all();
+        if($request->hasFile('header_image'))
+        {
+            $files = $request->header_image;
+            $destination = public_path('admin/images/news/home-image/');
+            News::isPhotoDirectoryExists();
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);
+            $url = "http://localhost:8000/admin/images/news/home-image/".$image_name;
+            $data['header_image'] = $url;
+        }
+        $aboutus = News::create($data);
+
+        return redirect()->route('admin.news.home-image.index')->withSuccess("Uy rasmi qo'shildi");
     }
 
     /**
@@ -69,9 +84,23 @@ class NewsController extends Controller
      * @param  \App\Models\Admin\News\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateNewsRequest $request, News $news)
+    public function update(UpdateNewsRequest $request, $id)
     {
-        //
+        $model = News::findOrFail($id);
+        $data = $request->all();
+        $destination = public_path('admin/images/news/home-image/');
+        if($request->file('header_image') !== null)
+        {
+            $model->deleteImage();
+            $files = $request->file('header_image');
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);
+            $url = "http://localhost:8000/admin/images/news/home-image/".$image_name;
+            $data['header_image'] = $url;
+        }
+        $model->update($data);
+        
+        return redirect()->route('admin.news.home-image.index')->withSuccess('Uy rasmi tahrirlandi!');
     }
 
     /**
@@ -80,8 +109,12 @@ class NewsController extends Controller
      * @param  \App\Models\Admin\News\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        $model = News::findOrFail($id);
+        $model->delete();
+        $model->deleteImage();
+
+        return redirect()->back()->withSuccess("Uy rasmi o'chirildi!");
     }
 }
