@@ -2,13 +2,14 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AboutUsController;
-use App\Http\Controllers\Api\AwardDoctorController;
-use App\Http\Controllers\Api\BlogsController;
-use App\Http\Controllers\Api\DoctorsController;
-use App\Http\Controllers\Api\NewsController;
-use App\Http\Controllers\Api\OperationController;
-use App\Http\Controllers\Api\OurServiceController;
+use App\Http\Controllers\Api\News\NewsController;
+use App\Http\Controllers\Api\Blogs\BlogsController;
+use App\Http\Controllers\Api\AboutUs\AboutUsController;
+use App\Http\Controllers\Api\Doctors\DoctorsController;
+use App\Http\Controllers\Api\Doctors\AwardDoctorController;
+use App\Http\Controllers\Api\Doctors\SingleDoctorController;
+use App\Http\Controllers\Api\Operations\OperationController;
+use App\Http\Controllers\Api\OurServices\OurServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('our-service', OurServiceController::class)->name('our-service');
 
 Route::prefix('doctors')->name('doctors.')->group(function() {
     Route::get('/', DoctorsController::class)->name('doctors');
+    Route::get('single/{id}', SingleDoctorController::class)->name('single');
     Route::get('awards', AwardDoctorController::class)->name('awards');
 });
 

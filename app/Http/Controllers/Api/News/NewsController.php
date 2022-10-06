@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\News;
 
 use Illuminate\Http\Request;
-use App\Models\Admin\Blog\Blog;
+use App\Models\Admin\News\News;
 use App\Http\Controllers\Api\BaseController;
-use App\Http\Resources\Admin\Blogs\BlogsResource;
+use App\Http\Resources\Admin\News\NewsResource;
 
-class BlogsController extends BaseController
+class NewsController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -17,7 +17,7 @@ class BlogsController extends BaseController
      */
     public function __invoke(Request $request)
     {
-        $doctors = BlogsResource::collection(Blog::all());
+        $doctors = NewsResource::collection(News::all());
         
         return $this->sendResponse($doctors, "Ma'lumotlar muvaffaqiyatli qabul qilindi!");
     }

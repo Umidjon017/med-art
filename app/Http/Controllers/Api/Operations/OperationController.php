@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Operations;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Admin\Operation\Operation;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\Admin\Operations\OperationResource;

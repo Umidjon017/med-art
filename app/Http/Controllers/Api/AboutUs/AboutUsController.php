@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\AboutUs;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\About\AboutUs;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\Admin\About\AboutUsResource;
 

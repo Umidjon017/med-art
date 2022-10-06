@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Blogs;
 
 use Illuminate\Http\Request;
-use App\Models\Admin\Doctor\Doctor;
-use App\Http\Controllers\Controller;
+use App\Models\Admin\Blog\Blog;
 use App\Http\Controllers\Api\BaseController;
-use App\Http\Resources\Admin\Doctors\DoctorsResource;
+use App\Http\Resources\Admin\Blogs\BlogsResource;
 
-class DoctorsController extends BaseController
+class BlogsController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -18,7 +17,7 @@ class DoctorsController extends BaseController
      */
     public function __invoke(Request $request)
     {
-        $doctors = DoctorsResource::collection(Doctor::all());
+        $doctors = BlogsResource::collection(Blog::all());
         
         return $this->sendResponse($doctors, "Ma'lumotlar muvaffaqiyatli qabul qilindi!");
     }
