@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\News;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Astrotomic\Translatable\Validation\RuleFactory;
 
 class UpdateNewsInfosRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateNewsInfosRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,25 @@ class UpdateNewsInfosRequest extends FormRequest
      */
     public function rules()
     {
+        return RuleFactory::make([
+            'image'         =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
+            'popularity'    =>  'sometimes',
+            '%title%'       =>  'required',
+            '%full_description%' =>  'required',
+        ]);
+    }
+
+    public function messages()
+    {
         return [
-            //
+            'image.image'   => 'Rasm bo`lishligi kerak!',
+            'image.mimes'   => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
+
+            'uz.title.required' => 'O`zbekcha ism-sharif to`ldirilishi kerak!',
+            'ru.title.required' => 'Ruscha ism-sharif to`ldirilishi kerak!',
+
+            'uz.full_description.required' => 'O`zbekcha biografiya to`ldirilishi kerak!',
+            'ru.full_description.required' => 'Ruscha biografiya to`ldirilishi kerak!',
         ];
     }
 }

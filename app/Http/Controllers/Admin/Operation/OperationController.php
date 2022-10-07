@@ -18,10 +18,9 @@ class OperationController extends Controller
      */
     public function index()
     {
-        $items = Operation::all();
-        $images = OperationImage::all();
+        $items = Operation::with('images')->get();
 
-        return view('admin.operations.index', compact('items', 'images'));
+        return view('admin.operations.index', compact('items'));
     }
 
     /**

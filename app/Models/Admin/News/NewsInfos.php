@@ -12,6 +12,9 @@ class NewsInfos extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
+    protected $table = 'news_infos';
+    protected $translationForeignKey = 'news_info_id';
+
     public $translatedAttributes = [
         'title',
         'full_description',
@@ -20,7 +23,6 @@ class NewsInfos extends Model implements TranslatableContract
     protected $fillable = [
         'image',
         'popularity',
-        'view',
     ];
 
     const IMAGE_PATH = 'admin/images/news/news-infos/';

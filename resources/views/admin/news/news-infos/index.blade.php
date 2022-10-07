@@ -12,8 +12,8 @@
             <div class="card">
                     {{-- @can('news-create') --}}
                         <div class="card-header d-flex justify-content-between">
-                            <h5 align="center">Operatsiyalar jadvali</h5>
-                            <a class="btn btn-primary" href="{{ route('admin.operations.create')}}">Qo'shish</a>
+                            <h5 align="center">Yangiliklar jadvali</h5>
+                            <a class="btn btn-primary" href="{{ route('admin.news.news-infos.create')}}">Qo'shish</a>
                         </div>
                     {{-- @endcan --}}
 
@@ -46,10 +46,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Sarlovha (UZ)</th>
-                                    <th>Detal izohlar (UZ)</th>
-                                    <th>To'liq izohlar (UZ)</th>
-                                    <th>Uy rasmi</th>
-                                    <th>Detal rasmi</th>
+                                    <th>Izoh (UZ)</th>
+                                    <th>Maxsusmi</th>
+                                    <th>Rasmi</th>
                                     <th>Amallar</th>
                                 </tr>
                             </thead>
@@ -58,28 +57,24 @@
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
                                     <td >{!! $item->translate('uz')->title !!}</td>
-                                    <td >{!! $item->translate('uz')->detail_description !!}</td>
                                     <td >{!! $item->translate('uz')->full_description !!}</td>
-                                    <td style="width='200rem';">
-                                        <img src="{{ $item->header_image }}" alt="Uy rasmi" srcset="">
-                                    </td>
-                                    <td style="width='200rem';">
-                                        @foreach ($item->images as $image)
-                                            <img src="{{ $image->detail_image }}" width="100%">
-                                        @endforeach
+                                    <td >{!! $item->popularity == 1 ? 'Ha' : 'Yo`q' !!}</td>
+
+                                    <td class="w-25">
+                                        <img src="{{ $item->image }}" style="100%">
                                     </td>
 
                                     <td class="d-flex justify-content-center ">
-                                        <a class="btn btn-primary" href="{{route('admin.operations.show', $item->id)}}">
+                                        <a class="btn btn-primary" href="{{route('admin.news.news-infos.show', $item->id)}}">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                         {{-- @can('news-edit') --}}
-                                            <a class="btn btn-warning" href="{{route('admin.operations.edit', $item->id)}}">
+                                            <a class="btn btn-warning" href="{{route('admin.news.news-infos.edit', $item->id)}}">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                         {{-- @endcan --}}
                                         {{-- @can('news-delete') --}}
-                                            <form action="{{route('admin.operations.destroy', $item->id)}}" method="post">
+                                            <form action="{{route('admin.news.news-infos.destroy', $item->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">

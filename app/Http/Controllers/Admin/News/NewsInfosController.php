@@ -16,7 +16,9 @@ class NewsInfosController extends Controller
      */
     public function index()
     {
-        //
+        $items = NewsInfos::all();
+
+        return view('admin.news.news-infos.index', compact('items'));
     }
 
     /**
@@ -26,7 +28,7 @@ class NewsInfosController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.news.news-infos.create');
     }
 
     /**
@@ -37,7 +39,23 @@ class NewsInfosController extends Controller
      */
     public function store(StoreNewsInfosRequest $request)
     {
-        //
+        $data = $request->all();
+        // $ip = $request->ip();
+        // $data['view'] = BlogInfo::increment($ip);
+
+        if($request->hasFile('image'))
+        {
+            $files = $request->image;
+            $destination = public_path('admin/images/news/news-infos/');
+            NewsInfos::isPhotoDirectoryExists();
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);
+            $url = "http://localhost:8000/admin/images/news/news-infos/".$image_name;
+            $data['image'] = $url;
+        }
+        $doctors = NewsInfos::create($data);
+
+        return redirect()->route('admin.news.news-infos.index')->withSuccess("Ma'lumot qo'shildi");
     }
 
     /**
@@ -46,9 +64,11 @@ class NewsInfosController extends Controller
      * @param  \App\Models\Admin\News\NewsInfos  $newsInfos
      * @return \Illuminate\Http\Response
      */
-    public function show(NewsInfos $newsInfos)
+    public function show($id)
     {
-        //
+        $item = NewsInfos::findOrFail($id);
+
+        return view('admin.news.news-infos.show', compact('item'));
     }
 
     /**
@@ -57,9 +77,11 @@ class NewsInfosController extends Controller
      * @param  \App\Models\Admin\News\NewsInfos  $newsInfos
      * @return \Illuminate\Http\Response
      */
-    public function edit(NewsInfos $newsInfos)
+    public function edit($id)
     {
-        //
+        $news = NewsInfos::findOrFail($id);
+
+        return view('admin.news.news-infos.edit', compact('news'));
     }
 
     /**
@@ -69,9 +91,23 @@ class NewsInfosController extends Controller
      * @param  \App\Models\Admin\News\NewsInfos  $newsInfos
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateNewsInfosRequest $request, NewsInfos $newsInfos)
+    public function update(UpdateNewsInfosRequest $request, $id)
     {
-        //
+        $model = NewsInfos::findOrFail($id);
+        $data = $request->all();
+        $destination = public_path('admin/images/news/news-infos/');
+        if($request->file('image') !== null)
+        {
+            $model->deleteImage();
+            $files = $request->file('image');
+            $image_name = time().'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);            
+            $url = "http://localhost:8000/admin/images/news/news-infos/".$image_name;
+            $data['image'] = $url;
+        }
+        $model->update($data);
+
+        return redirect()->route('admin.news.news-infos.index')->withSuccess("Ma'lumot tahrirlandi!");
     }
 
     /**
@@ -80,8 +116,12 @@ class NewsInfosController extends Controller
      * @param  \App\Models\Admin\News\NewsInfos  $newsInfos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NewsInfos $newsInfos)
+    public function destroy($id)
     {
-        //
+        $model = NewsInfos::findOrFail($id);
+        $model->delete();
+        $model->deleteImage();
+
+        return redirect()->back()->withSuccess("Ma'lumot o'chirildi!");
     }
 }

@@ -5,9 +5,11 @@ namespace App\Models\Admin\News;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class NewsInfoTranslations extends Model
+class NewsInfosTranslation extends Model
 {
     use HasFactory;
+
+    protected $table = 'news_info_translations';
 
     protected $fillable = [
         'title',

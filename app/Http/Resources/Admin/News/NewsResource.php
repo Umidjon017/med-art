@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin\News;
 
+use App\Models\Admin\News\NewsInfos;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class NewsResource extends JsonResource
@@ -14,13 +15,11 @@ class NewsResource extends JsonResource
      */
     public function toArray($request)
     {
-        // $doctor_infos = DoctorInfo::all();
-        // $doctor_faqs = DoctorFaq::all();
+        $news_infos = NewsInfos::all();
         return [
             'id' => $this->id,
             'header_image' => $this->header_image,
-            // 'doctor_infos' => DoctorInfosResource::collection($doctor_infos),
-            // 'doctor_faqs'  => FaqResource::collection($doctor_faqs),
+            'news_infos' => NewsInfosResource::collection($news_infos),
         ];
     }
 }
