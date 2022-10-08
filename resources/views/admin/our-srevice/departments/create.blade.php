@@ -36,22 +36,41 @@
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                        <label class="">Rasm</label>
-                                        <div id="image-preview" class="image-preview">
-                                            <label for="image-upload" id="image-label">Rasm</label>
-                                            <input type="file" name="image" id="image-upload" />
-                                        </div>
-                                        @error('image')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
+                                <div class="col-sm-6 col-md-7 col-lg-7">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="">Rasm</label>
+                                                <div id="image-preview" class="image-preview">
+                                                    <label for="image-upload" id="image-label">Rasm</label>
+                                                    <input type="file" name="image" id="image-upload" />
+                                                </div>
+                                                @error('image')
+                                                    <div class="alert alert-danger">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
-                                        @enderror
+                                        </div>
+    
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="">Ikon rasmi</label>
+                                                <div id="image-preview" class="image-preview">
+                                                    <label for="image-upload" id="image-label">Ikon rasmi</label>
+                                                    <input type="file" name="icon" id="image-upload" />
+                                                </div>
+                                                @error('icon')
+                                                    <div class="alert alert-danger">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6 col-md-8 col-lg-8">
+                                <div class="col-sm-6 col-md-5 col-lg-5">
                                     <div id="uz-form" >
                                         <div class="form-group ">
                                             <label >Nomi(UZ)</label>
@@ -67,6 +86,16 @@
                                             <label>Tavsif(UZ)</label>
                                             <textarea name="uz[description]" class="form-control"> {{ old('uz.description') }} </textarea>
                                             @error('uz.description')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        
+                                        <div class="form-group ">
+                                            <label> To'liq tavsif (UZ)</label>
+                                            <textarea name="uz[full_description]" class="form-control"> {{ old('uz.full_description') }} </textarea>
+                                            @error('uz.full_description')
                                                 <div class="alert alert-danger">
                                                     {{ $message }}
                                                 </div>
@@ -94,11 +123,21 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                        
+                                        <div class="form-group ">
+                                            <label> To'liq tavsif (RU)</label>
+                                            <textarea name="ru[full_description]" class="form-control"> {{ old('ru.full_description') }} </textarea>
+                                            @error('ru.full_description')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="form-group">
                                         <label>Meta sarlovha (title)</label>
@@ -130,7 +169,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <div class="">

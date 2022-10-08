@@ -26,9 +26,6 @@ class StoreDoctorInfoRequest extends FormRequest
     {
         return RuleFactory::make([
             'image'             =>  'required|image|mimes:png,jpg,jpeg,gif',
-            'link_linkedin'     =>  'sometimes',
-            'link_facebook'     =>  'sometimes',
-            'link_instagram'    =>  'sometimes',
             '%full_name%'       =>  'required',
             '%biography%'       =>  'required',
             '%specification%'   =>  'required',
@@ -37,6 +34,7 @@ class StoreDoctorInfoRequest extends FormRequest
             '%edu_phd%'         =>  'sometimes',
             '%edu_asperanture%' =>  'sometimes',
             '%edu_addition%'    =>  'sometimes',
+            '%description%'    =>  'sometimes',
         ]);
     }
 

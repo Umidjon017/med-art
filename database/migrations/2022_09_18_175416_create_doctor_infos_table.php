@@ -16,9 +16,6 @@ return new class extends Migration
         Schema::create('doctor_infos', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->string('link_linkedin')->nullable();
-            $table->string('link_facebook')->nullable();
-            $table->string('link_instagram')->nullable();
             $table->timestamps();
         });
     }

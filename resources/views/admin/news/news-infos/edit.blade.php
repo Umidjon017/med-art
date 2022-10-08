@@ -85,6 +85,30 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Qo'shimcha tavsif (UZ)</label>
+                                                    <textarea name="uz[description_1]" class="form-control" cols="30" rows="10"> {{ old('uz.description_1') ?: $news->translate('uz')->description_1 }} </textarea>
+                                                    @error('uz.description_1')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Qo'shimcha tavsif (UZ)</label>
+                                                    <textarea name="uz[description_2]" class="form-control" cols="30" rows="10"> {{ old('uz.description_2') ?: $news->translate('uz')->description_2 }} </textarea>
+                                                    @error('uz.description_2')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     
@@ -107,6 +131,30 @@
                                                     <label>Tavsif (RU)</label>
                                                     <textarea name="ru[full_description]" class="form-control" cols="30" rows="10"> {{ old('ru.full_description') ?: $news->translate('ru')->full_description }} </textarea>
                                                     @error('ru.full_description')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Qo'shimcha tavsif (RU)</label>
+                                                    <textarea name="ru[description_1]" class="form-control" cols="30" rows="10"> {{ old('ru.description_1') ?: $news->translate('ru')->description_1 }} </textarea>
+                                                    @error('ru.description_1')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Qo'shimcha tavsif (RU)</label>
+                                                    <textarea name="ru[description_2]" class="form-control" cols="30" rows="10"> {{ old('ru.description_2') ?: $news->translate('ru')->description_2 }} </textarea>
+                                                    @error('ru.description_2')
                                                         <div class="alert alert-danger">
                                                             {{ $message }}
                                                         </div>

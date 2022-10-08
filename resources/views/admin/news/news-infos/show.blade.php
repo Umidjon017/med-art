@@ -73,6 +73,30 @@
                                             </div>
                                         </div>
                                     </div> <hr>
+    
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Qo'shimcha Tavsif </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->description_1 !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->description_1 !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+    
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Qo'shimcha Tavsif </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->description_2 !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->description_2 !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
             
                                     <div class=" d-flex justify-content-between">
                                         <div class="box-header"><h5> Maxsusmi </h5></div>

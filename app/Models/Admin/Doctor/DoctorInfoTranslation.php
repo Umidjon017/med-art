@@ -20,6 +20,7 @@ class DoctorInfoTranslation extends Model
         'edu_phd',
         'edu_asperanture',
         'edu_addition',
+        'description',
     ];
 
     public $timestamps = false;

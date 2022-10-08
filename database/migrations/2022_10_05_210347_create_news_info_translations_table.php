@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('locale');
             $table->string('title');
             $table->longText('full_description');
+            $table->longText('description_1')->nullable();
+            $table->longText('description_2')->nullable();
             $table->unique(['news_info_id', 'locale']);
         });
     }

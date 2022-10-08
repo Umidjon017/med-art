@@ -73,8 +73,20 @@
                                             </div>
                                         </div>
                                     </div> <hr>
-            
+                                    
                                     <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> To'liq tavsif (UZ)</h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $items->translate('uz')->full_description !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $items->translate('ru')->full_description !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+            
+                                    {{-- <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Meta sarlovha </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
@@ -99,18 +111,27 @@
                                                 <h6>  {!! $items->meta_keywords !!}  </h6>
                                             </div>
                                         </div>
-                                    </div> <hr>
+                                    </div> <hr> --}}
                                 </div>
     
                                 <div class="col-md-5">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="box-header"><h2> Ikon rasmi </h2></div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active">
+                                            <img src="{{$items->icon}}" style="width: 100%">
+                                        </div>
+                                    </div>
+
                                     <div class="d-flex justify-content-center">
                                         <div class="box-header"><h2> Rasmi </h2></div>
                                     </div>
                                     <div class="tab-content">
                                         <div class="tab-pane active">
-                                            <img src="{{$items->image}}" width="100%">
+                                            <img src="{{$items->image}}" style="width: 100%">
                                         </div>
-                                    </div> <hr>
+                                    </div>
                                 </div>
                             </div>
                         </div>

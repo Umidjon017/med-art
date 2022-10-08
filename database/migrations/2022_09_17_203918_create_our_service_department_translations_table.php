@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('locale');
             $table->string('name');
             $table->longText('description');
+            $table->longText('full_description')->nullable();
             $table->unique(['service_id', 'locale']);
         });
     }

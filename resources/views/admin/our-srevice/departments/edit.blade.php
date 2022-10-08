@@ -37,7 +37,75 @@
                         @method('PUT')
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div id="uz-form">
+                                        <div class="form-group ">
+                                            <label >Nomi(UZ)</label>
+                                            <input type="text" class="form-control" placeholder="Nomini kiriting" name="uz[name]" value="{{ old('uz.name') ?: $items->translate('uz')->name }}">
+                                            @error('uz.name')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Tavsif(UZ)</label>
+                                            <textarea name="uz[description]" class="form-control"> {{ old('uz.description') ?: $items->translate('uz')->description }} </textarea>
+                                            @error('uz.description')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>To'liq tavsif (UZ)</label>
+                                            <textarea name="uz[full_description]" class="form-control"> {{ old('uz.full_description') ?: $items->translate('uz')->full_description }} </textarea>
+                                            @error('uz.full_description')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+            
+                                    <div id="ru-form" class="d-none">
+                                        <div class="form-group">
+                                            <label>Sarlovha(RU)</label>
+                                            <input type="text" class="form-control" placeholder="Nomini kiriting" name="ru[name]" value="{{ old('ru.name') ?: $items->translate('ru')->name }}">
+                                            @error('ru.name')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Tavsif(RU)</label>
+                                            <textarea name="ru[description]" class="form-control"> {{ old('ru.description') ?: $items->translate('ru')->description }} </textarea>
+                                            @error('ru.description')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>To'liq tavsif (RU)</label>
+                                            <textarea name="ru[full_description]" class="form-control"> {{ old('ru.full_description') ?: $items->translate('ru')->full_description }} </textarea>
+                                            @error('ru.full_description')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-group">
                                         <label class="">Rasm</label>
                                         <div id="image-preview" class="image-preview">
@@ -52,54 +120,23 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6 col-md-8 col-lg-8">
-                                    <div id="uz-form" >
-                                        <div class="form-group ">
-                                            <label >Nomi(UZ)</label>
-                                            <input type="text" class="form-control" placeholder="Nomini kiriting" name="uz[name]" value="{{ old('uz.name') ?: $items->translate('uz')->name }}">
-                                            @error('uz.name')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="">Ikon rasmi</label>
+                                        <div id="image-preview" class="image-preview">
+                                            <label for="image-upload" id="image-label">Ikon rasmi</label>
+                                            <input type="file" name="icon" id="image-upload" />
                                         </div>
-
-                                        <div class="form-group ">
-                                            <label>Tavsif(UZ)</label>
-                                            <textarea name="uz[description]" class="form-control"> {{ old('uz.description') ?: $items->translate('uz')->description }} </textarea>
-                                            @error('uz.description')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-            
-                                    <div id="ru-form" class="d-none">
-                                        <div class="form-group ">
-                                            <label>Sarlovha(RU)</label>
-                                            <input type="text" class="form-control" placeholder="Nomini kiriting" name="ru[name]" value="{{ old('ru.name') ?: $items->translate('ru')->name }}">
-                                            @error('ru.name')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-
-                                        <div class="form-group ">
-                                            <label>Tavsif(RU)</label>
-                                            <textarea name="ru[description]" class="form-control"> {{ old('ru.description') ?: $items->translate('ru')->description }} </textarea>
-                                            @error('ru.description')
-                                                <div class="alert alert-danger">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
+                                        @error('icon')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="form-group">
                                         <label>Meta sarlovha (title)</label>
@@ -131,16 +168,20 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row">
-                                <div class="col-sm-12 col-md-12">
-                                    <img src="{{ $items->image }}" width="600rem">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <img src="{{ $items->image }}" style="width: 80%">
+                                </div>
+
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <img src="{{ $items->icon }}" style="width: 80%">
                                 </div>
                             </div>
 
                             <div class="form-group mt-3">
-                                <div class="">
+                                <div>
                                     <button class="btn btn-primary"> {{ __("Saqlash") }} </button>
                                 </div>
                             </div>

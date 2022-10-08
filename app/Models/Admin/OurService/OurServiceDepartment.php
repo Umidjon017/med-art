@@ -18,11 +18,12 @@ class OurServiceDepartment extends Model implements TranslatableContract
     public $translatedAttributes = [
         'name',
         'description',
+        'full_description',
     ];
 
     protected $fillable = [
-        'slug',
         'image',
+        'icon',
         'meta_title',
         'meta_description',
         'meta_keywords',
@@ -43,6 +44,17 @@ class OurServiceDepartment extends Model implements TranslatableContract
     {
         // http://localhost:8000/admin/images/our-service/departments/ == 59
         $expl = substr($this->image, 59);
+        if (File::exists(self::IMAGE_PATH.$expl))
+        {
+            File::delete(self::IMAGE_PATH.$expl);
+        }
+        return true;
+    }
+    
+    public function deleteIcon(): bool
+    {
+        // http://localhost:8000/admin/images/our-service/departments/ == 59
+        $expl = substr($this->icon, 59);
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

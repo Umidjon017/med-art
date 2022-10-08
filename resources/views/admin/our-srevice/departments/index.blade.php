@@ -48,6 +48,7 @@
                                     <th>Nomi (UZ)</th>
                                     <th>Tavsif (UZ)</th>
                                     <th>Rasmi</th>
+                                    <th>Ikon rasmi</th>
                                     <th>Amallar</th>
                                 </tr>
                             </thead>
@@ -57,8 +58,12 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{!! $item->translateOrNew('uz')->name !!}</td>
                                     <td>{!! $item->translate('uz')->description !!}</td>
-
-                                    <td class=""><img src="{{ $item->image }}" width="200rem"></td>
+                                    <td class="w-25">
+                                        <img src="{{ $item->image }}" style="70%">
+                                    </td>
+                                    <td class="w-25">
+                                        <img src="{{ $item->icon }}" style="70%">
+                                    </td>
 
                                     <td class="d-flex justify-content-center ">
                                         <a class="btn btn-primary" href="{{route('admin.our-service.departments.show', $item->id)}}">

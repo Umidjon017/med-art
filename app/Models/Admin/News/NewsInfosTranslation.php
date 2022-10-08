@@ -14,6 +14,8 @@ class NewsInfosTranslation extends Model
     protected $fillable = [
         'title',
         'full_description',
+        'description_1',
+        'description_2',
     ];
 
     public $timestamps = false;

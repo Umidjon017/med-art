@@ -14,6 +14,7 @@ class OurServiceDepartmentTranslation extends Model
     protected $fillable = [
         'name',
         'description',
+        'full_description',
     ];
 
     public $timestamps = false;

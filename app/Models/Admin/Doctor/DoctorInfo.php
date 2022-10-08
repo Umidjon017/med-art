@@ -25,13 +25,11 @@ class DoctorInfo extends Model implements TranslatableContract
         'edu_phd',
         'edu_asperanture',
         'edu_addition',
+        'description',
     ];
 
     protected $fillable = [
         'image',
-        'link_linkedin',
-        'link_facebook',
-        'link_instagram',
     ];
 
     const IMAGE_PATH = 'admin/images/doctors/doctor-infos/';

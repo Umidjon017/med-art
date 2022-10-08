@@ -41,7 +41,6 @@ class OurServiceDepartmentController extends Controller
     public function store(StoreOurServiceDepartmentRequest $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->uz['name']);
         if($request->hasFile('image'))
         {
             $files = $request->image;
@@ -51,6 +50,17 @@ class OurServiceDepartmentController extends Controller
             $files->move($destination, $image_name);
             $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
             $data['image'] = $url;
+        }
+        
+        if($request->hasFile('icon'))
+        {
+            $files = $request->icon;
+            $destination = public_path('admin/images/our-service/departments/');
+            OurServiceDepartment::isPhotoDirectoryExists();
+            $image_name = time().'_'.'icon'.'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);
+            $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
+            $data['icon'] = $url;
         }
         $news = OurServiceDepartment::create($data);
 
@@ -104,6 +114,15 @@ class OurServiceDepartmentController extends Controller
             $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
             $data['image'] = $url;
         }
+        if($request->file('icon') !== null)
+        {
+            $model->deleteIcon();
+            $files = $request->file('icon');
+            $image_name = time().'_'.'icon'.'_'.$files->getClientOriginalName();
+            $files->move($destination, $image_name);
+            $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
+            $data['icon'] = $url;
+        }
         $model->update($data);
 
         return redirect()->route('admin.our-service.departments.index')->withSuccess("Ma'lumot tahrirlandi!");
@@ -120,6 +139,7 @@ class OurServiceDepartmentController extends Controller
         $model = OurServiceDepartment::findOrFail($id);
         $model->delete();
         $model->deleteImage();
+        $model->deleteIcon();
 
         return redirect()->back()->withSuccess("Ma'lumot o'chirildi!");
     }

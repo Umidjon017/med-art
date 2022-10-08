@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('our_service_departments', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
             $table->string('image');
+            $table->string('icon')->nullable();
             $table->string('meta_title')->nullable();
             $table->longText('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();

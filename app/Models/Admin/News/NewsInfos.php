@@ -18,6 +18,8 @@ class NewsInfos extends Model implements TranslatableContract
     public $translatedAttributes = [
         'title',
         'full_description',
+        'description_1',
+        'description_2',
     ];
 
     protected $fillable = [

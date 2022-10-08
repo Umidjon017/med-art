@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('edu_phd')->nullable();
             $table->string('edu_asperanture')->nullable();
             $table->string('edu_addition')->nullable();
+            $table->longText('description')->nullable();
             $table->unique(['doctor_info_id', 'locale']);
         });
     }

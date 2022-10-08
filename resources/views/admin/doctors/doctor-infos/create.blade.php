@@ -139,6 +139,16 @@
                                                         </div>
                                                     @enderror
                                                 </div>
+
+                                                <div class="form-group ">
+                                                    <label>Qo'shimcha izoh (UZ)</label>
+                                                    <textarea name="uz[description]" class="form-control" cols="100" rows="10"> {{ old('uz.description') }} </textarea>
+                                                    @error('uz.description')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -229,6 +239,16 @@
                                                         </div>
                                                     @enderror
                                                 </div>
+
+                                                <div class="form-group ">
+                                                    <label>Qo'shimcha izoh (RU)</label>
+                                                    <textarea name="ru[description]" class="form-control" cols="100" rows="10"> {{ old('ru.description') }} </textarea>
+                                                    @error('ru.description')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -236,7 +256,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="form-group ">
                                         <label>Operatsiyalarga biriktirish</label>
                                         <select name="operation_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Operatsiyani tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
@@ -255,42 +275,10 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                <div class="col-sm-6 col-md-6 col-lg-6">
-                                    <div class="form-group ">
-                                        <label>Ijtimoiy tarmoq (Linkedin)</label>
-                                        <input type="text" name="link_linkedin" class="form-control" placeholder="Linkedin manzilingizni kiriting" value="{{ old('link_linkedin') }}">
-                                        @error('link_linkedin')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label>Ijtimoiy tarmoq (Facebook)</label>
-                                        <input type="text" name="link_facebook" class="form-control" placeholder="Facebook manzilingizni kiriting" value="{{ old('link_facebook') }}">
-                                        @error('link_facebook')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label>Ijtimoiy tarmoq (Fnstagram)</label>
-                                        <input type="text" name="link_instagram" class="form-control" placeholder="Instagram manzilingizni kiriting" value="{{ old('link_instagram') }}">
-                                        @error('link_instagram')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="">
+                                <div>
                                     <button class="btn btn-primary"> {{ __("Yaratish") }} </button>
                                 </div>
                             </div>
