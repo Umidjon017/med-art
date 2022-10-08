@@ -25,7 +25,7 @@ class NewsInfosResource extends JsonResource
             'description_1_ru'      =>  $this->translate('ru')->description_1,
             'description_2_uz'      =>  $this->translate('uz')->description_2,
             'description_2_ru'      =>  $this->translate('ru')->description_2,
-            'popularity'            =>  $this->popularity,
+            'popularity'            =>  $this->popularity == 1 ? 'Ha' : 'Yo`q',
         ];
     }
 }

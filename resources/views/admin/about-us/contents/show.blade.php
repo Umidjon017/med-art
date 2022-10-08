@@ -51,31 +51,19 @@
                         <div class="row d-flex justify-content-between">
                             <div class="col-md-5">        
                                 <div class=" d-flex justify-content-between">
-                                    <div class="box-header"><h5>Sarlovha 1</h5></div>
+                                    <div class="box-header"><h5>Sarlovha</h5></div>
                                     <div class="tab-content">
                                         <div class="tab-pane active uz-form">
-                                            <h6> {!! $item->translate('uz')->title_1 !!} </h6>
+                                            <h6> {!! $item->translate('uz')->title !!} </h6>
                                         </div>
                                         <div class="tab-pane active ru-form d-none">
-                                            <h6> {!! $item->translate('ru')->title_1 !!} </h6>
-                                        </div>
-                                    </div>
-                                </div> <hr>
-                                
-                                <div class=" d-flex justify-content-between">
-                                    <div class="box-header"><h5>Sarlovha 2</h5></div>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active uz-form">
-                                            <h6> {!! $item->translate('uz')->title_2 !!} </h6>
-                                        </div>
-                                        <div class="tab-pane active ru-form d-none">
-                                            <h6> {!! $item->translate('ru')->title_2 !!} </h6>
+                                            <h6> {!! $item->translate('ru')->title !!} </h6>
                                         </div>
                                     </div>
                                 </div> <hr>
 
                                 <div class=" d-flex justify-content-between">
-                                    <div class="box-header"><h5>Tavsif 2</h5></div>
+                                    <div class="box-header"><h5>Tavsif 1</h5></div>
                                     <div class="tab-content">
                                         <div class="tab-pane active uz-form">
                                             <h6> {!! $item->translate('uz')->description_1 !!} </h6>
@@ -98,7 +86,7 @@
                                     </div>
                                 </div> <hr>
         
-                                <div class=" d-flex justify-content-between">
+                                {{-- <div class=" d-flex justify-content-between">
                                     <div class="box-header"><h5> Meta sarlovha </h5></div>
                                     <div class="tab-content">
                                         <div class="tab-pane active">
@@ -123,7 +111,7 @@
                                             <h6>  {!! $item->meta_keywords !!}  </h6>
                                         </div>
                                     </div>
-                                </div> <hr>
+                                </div> <hr> --}}
                             </div>
 
                             <div class="col-md-5">

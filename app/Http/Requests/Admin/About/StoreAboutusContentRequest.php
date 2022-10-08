@@ -25,8 +25,7 @@ class StoreAboutusContentRequest extends FormRequest
     public function rules()
     {
         return RuleFactory::make([
-            '%title_1%'         => 'required',
-            '%title_2%'         => 'required',
+            '%title%'         => 'required',
             '%description_1%'   => 'required',
             '%description_2%'   => 'required',
             'image*'            => 'required|image|mimes:png,jpg,jpeg,gif',
@@ -36,11 +35,8 @@ class StoreAboutusContentRequest extends FormRequest
     public function messages()
     {
         return [
-            'uz.title_1.required'   => 'O`zbekcha sarlovha to`ldirilishi kerak!',
-            'ru.title_1.required'   => 'Ruscha sarlovha to`ldirilishi kerak!',
-            
-            'uz.title_2.required'   => 'O`zbekcha sarlovha to`ldirilishi kerak!',
-            'ru.title_2.required'   => 'Ruscha sarlovha to`ldirilishi kerak!',
+            'uz.title.required'   => 'O`zbekcha sarlovha to`ldirilishi kerak!',
+            'ru.title.required'   => 'Ruscha sarlovha to`ldirilishi kerak!',
             
             'uz.description_1.required' => 'O`zbekcha tavsif to`ldirilishi kerak!',
             'ru.description_1.required' => 'Ruscha tavsif to`ldirilishi kerak!',

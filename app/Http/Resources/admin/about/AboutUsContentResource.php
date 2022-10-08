@@ -15,12 +15,14 @@ class AboutUsContentResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'image' => $this->image,
-            'title_uz' => $this->translate('uz')->title,
-            'title_ru' => $this->translate('ru')->description,
-            'description_uz' => $this->translate('uz')->title,
-            'description_ru' => $this->translate('ru')->description,
+            'content_id'        => $this->id,
+            'image'             => $this->image,
+            'title_uz'          => $this->translate('uz')->title,
+            'title_ru'          => $this->translate('ru')->title,
+            'description_1_uz'  => $this->translate('uz')->description_1,
+            'description_1_ru'  => $this->translate('ru')->description_1,
+            'description_2_uz'  => $this->translate('uz')->description_2,
+            'description_2_ru'  => $this->translate('ru')->description_2,
         ];
     }
 }

@@ -10,9 +10,8 @@ class AboutusContentTranslation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title_1',
+        'title',
         'description_1',
-        'title_2',
         'description_2',
     ];
 

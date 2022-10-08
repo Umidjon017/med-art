@@ -46,7 +46,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Sarlovha (UZ)</th>
-                                    <th>Tavsif (UZ)</th>
+                                    <th>Tavsif 1 (UZ)</th>
+                                    <th>Tavsif 2 (UZ)</th>
                                     <th>Rasmi</th>
                                     <th>Amallar</th>
                                 </tr>
@@ -55,10 +56,13 @@
                             @foreach ($items as $item)
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{!! $item->translate('uz')->title_1 !!}</td>
+                                    <td>{!! $item->translate('uz')->title !!}</td>
                                     <td>{!! $item->translate('uz')->description_1 !!}</td>
+                                    <td>{!! $item->translate('uz')->description_2 !!}</td>
 
-                                    <td><img src="{{ $item->image }}" style="35%"></td>
+                                    <td class="w-25">
+                                        <img src="{{ $item->image }}" style="70%">
+                                    </td>
 
                                     <td class="d-flex justify-content-center ">
                                         <a class="btn btn-primary" href="{{route('admin.about-us.contents.show', $item->id)}}">

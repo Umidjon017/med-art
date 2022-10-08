@@ -53,105 +53,73 @@
                                 </div>
 
                                 <div class="col-sm-6 col-md-8 col-lg-8">
-                                    <div id="uz-form" >
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group ">
-                                                    <label>Sarlovha 1 (UZ)</label>
-                                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[title_1]" value="{{ $item->translate('uz')->title_1 }}">
-                                                    @error('uz.title_1')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                    <div id="uz-form">
+                                        <div class="form-group ">
+                                            <label>Sarlovha (UZ)</label>
+                                            <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[title]" value="{{ $item->translate('uz')->title }}">
+                                            @error('uz.title')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
                                                 </div>
-        
-                                                <div class="form-group ">
-                                                    <label>Tavsif 1 (UZ)</label>
-                                                    <textarea name="uz[description_1]" class="form-control" cols="30" rows="10"> {{ $item->translate('uz')->description_1 }} </textarea>
-                                                    @error('uz.description_1')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                            @enderror
+                                        </div>
 
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group ">
-                                                    <label>Sarlovha 2 (UZ)</label>
-                                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[title_2]" value="{{ $item->translate('uz')->title_2 }}">
-                                                    @error('uz.title_2')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                        <div class="form-group ">
+                                            <label>Tavsif 1 (UZ)</label>
+                                            <textarea name="uz[description_1]" class="form-control" cols="30" rows="10"> {{ $item->translate('uz')->description_1 }} </textarea>
+                                            @error('uz.description_1')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
                                                 </div>
-        
-                                                <div class="form-group ">
-                                                    <label>Tavsif 2 (UZ)</label>
-                                                    <textarea name="uz[description_2]" class="form-control" cols="30" rows="10"> {{ $item->translate('uz')->description_2 }} </textarea>
-                                                    @error('uz.description_2')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <label>Tavsif 2 (UZ)</label>
+                                            <textarea name="uz[description_2]" class="form-control" cols="30" rows="10"> {{ $item->translate('uz')->description_2 }} </textarea>
+                                            @error('uz.description_2')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
                                                 </div>
-                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
             
                                     <div id="ru-form" class="d-none">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group ">
-                                                    <label>Sarlovha 1 (RU)</label>
-                                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[title_1]" value="{{ $item->translate('ru')->title_1 }}">
-                                                    @error('ru.title_1')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                        <div class="form-group ">
+                                            <label>Sarlovha (RU)</label>
+                                            <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[title]" value="{{ $item->translate('ru')->title }}">
+                                            @error('ru.title')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
                                                 </div>
-        
-                                                <div class="form-group ">
-                                                    <label>Tavsif 1 (RU)</label>
-                                                    <textarea name="ru[description_1]" class="form-control" cols="30" rows="10"> {{ $item->translate('ru')->description_1 }} </textarea>
-                                                    @error('ru.description_1')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                            @enderror
+                                        </div>
 
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group ">
-                                                    <label>Sarlovha 2 (RU)</label>
-                                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[title_2]" value="{{ $item->translate('ru')->title_2 }}">
-                                                    @error('ru.title_2')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                        <div class="form-group ">
+                                            <label>Tavsif 1 (RU)</label>
+                                            <textarea name="ru[description_1]" class="form-control" cols="30" rows="10"> {{ $item->translate('ru')->description_1 }} </textarea>
+                                            @error('ru.description_1')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
                                                 </div>
-        
-                                                <div class="form-group ">
-                                                    <label>Tavsif 2 (RU)</label>
-                                                    <textarea name="ru[description_2]" class="form-control" cols="30" rows="10"> {{ $item->translate('ru')->description_2 }} </textarea>
-                                                    @error('ru.description_2')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <label>Tavsif 2 (RU)</label>
+                                            <textarea name="ru[description_2]" class="form-control" cols="30" rows="10"> {{ $item->translate('ru')->description_2 }} </textarea>
+                                            @error('ru.description_2')
+                                                <div class="alert alert-danger">
+                                                    {{ $message }}
                                                 </div>
-                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="form-group">
                                         <label>Meta sarlovha (title)</label>
@@ -183,11 +151,11 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row">
-                                <div class="col-sm-12 col-md-12">
-                                    <img src="{{ $item->image }}" width="600rem">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <img src="{{ $item->image }}" style="100%">
                                 </div>
                             </div>
 

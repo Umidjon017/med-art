@@ -13,9 +13,8 @@ class AboutusContent extends Model implements TranslatableContract
     use HasFactory, Translatable;
 
     public $translatedAttributes = [
-        'title_1',
+        'title',
         'description_1',
-        'title_2',
         'description_2',
     ];
 
