@@ -4,13 +4,20 @@ namespace App\Models\Admin\OurService;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
-class OurService extends Model
+class OurService extends Model implements TranslatableContract
 {
-    use HasFactory;
+    use HasFactory, Translatable;
 
     protected $table = 'our_services';
+
+    public $translatedAttributes = [
+        'title',
+        'description',
+    ];
 
     protected $fillable = [
         'header_image',

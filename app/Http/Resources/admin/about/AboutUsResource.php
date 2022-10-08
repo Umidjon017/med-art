@@ -21,10 +21,14 @@ class AboutUsResource extends JsonResource
         $faqs = AboutusFaq::all();
         
         return [
-            'id' => $this->id,
-            'header_image' => $this->header_image,
-            'aboutus_content' => AboutUsContentResource::collection($content),
-            'aboutus_faqs' => FaqResource::collection($faqs),
+            'id'                    => $this->id,
+            'header_image'          => $this->header_image,
+            'header_title_uz'       => $this->translate('uz')->title,
+            'header_description_uz' => $this->translate('uz')->description,
+            'header_title_ru'       => $this->translate('ru')->title,
+            'header_description_ru' => $this->translate('ru')->description,
+            'aboutus_content'       => AboutUsContentResource::collection($content),
+            'aboutus_faqs'          => FaqResource::collection($faqs),
         ];
     }
 }

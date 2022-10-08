@@ -71,9 +71,11 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function edit(AboutUs $aboutUs)
+    public function edit($id)
     {
-        //
+        $item = AboutUs::findOrFail($id);
+
+        return view('admin.about-us.home-image.edit', compact('item'));
     }
 
     /**
