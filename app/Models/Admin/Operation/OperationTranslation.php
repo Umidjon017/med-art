@@ -10,6 +10,8 @@ class OperationTranslation extends Model
     use HasFactory;
 
     protected $fillable = [
+        'header_title',
+        'header_description',
         'title',
         'detail_description',
         'full_description',

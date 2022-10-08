@@ -44,7 +44,33 @@
                                 <div class="col-sm-6 col-md-12 col-lg-12">
                                     {{-- Uz form --}}
                                     <div id="uz-form">
-                                        <div class="form-group ">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Uy Sarlovha (UZ)</label>
+                                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[header_title]" value="{{ old('uz.header_title') ?: $operation->translate('uz')->header_title }}">
+                                                    @error('uz.header_title')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Uy izoh (UZ)</label>
+                                                    <textarea name="uz[header_description]" class="form-control" rows="3" cols="10"> {{ old('uz.header_description') ?: $operation->translate('uz')->header_description }} </textarea>
+                                                    @error('uz.header_description')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label>Sarlovha (UZ)</label>
                                             <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[title]" value="{{ old('uz.title') ?: $operation->translate('uz')->title }}">
                                             @error('uz.title')
@@ -68,7 +94,7 @@
                                             </div>
     
                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label>To'liq izoh (UZ)</label>
                                                     <textarea name="uz[full_description]" class="form-control" rows="3" cols="10"> {{ old('uz.full_description') ?: $operation->translate('uz')->full_description }} </textarea>
                                                     @error('uz.full_description')
@@ -83,7 +109,33 @@
             
                                     {{-- Ru form --}}
                                     <div id="ru-form" class="d-none">
-                                        <div class="form-group ">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Uy Sarlovha (RU)</label>
+                                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[header_title]" value="{{ old('ru.header_title') ?: $operation->translate('ru')->header_title }}">
+                                                    @error('ru.header_title')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Uy izoh (RU)</label>
+                                                    <textarea name="ru[header_description]" class="form-control" rows="3" cols="10"> {{ old('ru.header_description') ?: $operation->translate('ru')->header_description }} </textarea>
+                                                    @error('ru.header_description')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label>Sarlovha (RU)</label>
                                             <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[title]" value="{{ old('ru.title') ?: $operation->translate('ru')->title }}">
                                             @error('ru.title')
@@ -107,7 +159,7 @@
                                             </div>
 
                                             <div class="col-sm-12 com-md-6 col-lg-6">
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label>To'liq izoh (RU)</label>
                                                     <textarea name="ru[full_description]" class="form-control" rows="3" cols="10"> {{ old('ru.full_description') ?: $operation->translate('ru')->full_description }} </textarea>
                                                     @error('ru.full_description')

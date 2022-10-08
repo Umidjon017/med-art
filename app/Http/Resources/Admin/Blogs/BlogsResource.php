@@ -17,9 +17,13 @@ class BlogsResource extends JsonResource
     {
         $blog_infos = BlogInfo::all();
         return [
-            'id'            => $this->id,
-            'header_image'  => $this->header_image,
-            'blog_infos'    => BlogInfosResource::collection($blog_infos),
+            'id'                    => $this->id,
+            'header_image'          => $this->header_image,
+            'header_title_uz'       => $this->translate('uz')->header_title,
+            'header_title_ru'       => $this->translate('ru')->header_title,
+            'header_description_uz' => $this->translate('uz')->header_description,
+            'header_description_ru' => $this->translate('ru')->header_description,
+            'blog_infos'            => BlogInfosResource::collection($blog_infos),
         ];
     }
 }

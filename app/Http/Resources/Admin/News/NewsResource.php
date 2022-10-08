@@ -17,9 +17,13 @@ class NewsResource extends JsonResource
     {
         $news_infos = NewsInfos::all();
         return [
-            'id' => $this->id,
-            'header_image' => $this->header_image,
-            'news_infos' => NewsInfosResource::collection($news_infos),
+            'id'                    => $this->id,
+            'header_image'          => $this->header_image,
+            'header_title_uz'       => $this->translate('uz')->header_title,
+            'header_title_ru'       => $this->translate('ru')->header_title,
+            'header_description_uz' => $this->translate('uz')->header_description,
+            'header_description_ru' => $this->translate('ru')->header_description,
+            'news_infos'            => NewsInfosResource::collection($news_infos),
         ];
     }
 }

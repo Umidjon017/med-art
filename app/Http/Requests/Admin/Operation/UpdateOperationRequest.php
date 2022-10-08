@@ -25,12 +25,14 @@ class UpdateOperationRequest extends FormRequest
     public function rules()
     {
         return RuleFactory::make([
-            'header_image'      =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
-            'date'              =>  'sometimes',
-            'link_video'        =>  'sometimes',
-            '%title%'           =>  'required|string',
-            '%detail_description%' =>  'required|string',
-            '%full_description%'   =>  'required|string',
+            'header_image'          =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
+            'date'                  =>  'sometimes',
+            'link_video'            =>  'sometimes',
+            '%header_title%'        =>  'required',
+            '%header_description%'  =>  'required',
+            '%title%'               =>  'required',
+            '%detail_description%'  =>  'required',
+            '%full_description%'    =>  'required',
         ]);
     }
 
@@ -39,6 +41,12 @@ class UpdateOperationRequest extends FormRequest
         return [
             'header_image.image'    => 'Rasm bo`lishligi kerak!',
             'header_image.mimes'    => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
+            
+            'uz.header_title.required' => 'O`zbekcha uy-sarlovhasi to`ldirilishi kerak!',
+            'ru.header_title.required' => 'Ruscha uy-sarlovhasi to`ldirilishi kerak!',
+
+            'uz.header_description.required' => 'O`zbekcha uy-izohi to`ldirilishi kerak!',
+            'ru.header_description.required' => 'Ruscha uy-izohi to`ldirilishi kerak!',
 
             'uz.title.required' => 'O`zbekcha ism-sharif to`ldirilishi kerak!',
             'ru.title.required' => 'Ruscha ism-sharif to`ldirilishi kerak!',

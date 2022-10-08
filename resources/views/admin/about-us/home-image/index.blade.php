@@ -19,7 +19,7 @@
           <div class="card">
             {{-- @can('home-create') --}}
                 <div class="card-header d-flex justify-content-between">
-                    <h5 align="center">{{ __("Uy rasmilari jadvali") }}</h5>
+                    <h5 align="center">{{ __("Uy rasmlari jadvali") }}</h5>
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addHomeImmage">{{ __("Qo'shish") }}</button>
                 </div>
@@ -61,8 +61,8 @@
                   <tbody>
                     @foreach ($items as $item)
                     <tr class="odd">
-                        <td> {{ $item->translate('uz')->title }} </td>
-                        <td> {{ $item->translate('uz')->description }} </td>
+                        <td> {{ $item->translate('uz')->header_title }} </td>
+                        <td> {{ $item->translate('uz')->header_description }} </td>
                         <td class="w-25">
                             <img src="{{ $item->header_image }}" style="width: 100%">
                         </td>

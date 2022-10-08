@@ -10,8 +10,8 @@ class OurServiceTranslation extends Model
     use HasFactory;
 
     public $fillable = [
-        'title',
-        'description',
+        'header_title',
+        'header_description',
     ];
 
     public $timestamps = false;

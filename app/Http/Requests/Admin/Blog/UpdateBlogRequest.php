@@ -25,6 +25,8 @@ class UpdateBlogRequest extends FormRequest
     public function rules()
     {
         return RuleFactory::make([
+            '%header_title%'        => 'required',
+            '%header_description%'  => 'required',
             'header_image*' => 'required|image|mimes:png,jpg,jpeg,gif',
         ]);
 
@@ -32,6 +34,12 @@ class UpdateBlogRequest extends FormRequest
     public function messages()
     {
         return [
+            'uz.header_title.required'   => 'O`zbekcha uy-sarlovha to`ldirilishi kerak!',
+            'ru.header_title.required'   => 'Ruscha uy-sarlovha to`ldirilishi kerak!',
+
+            'uz.header_description.required' => 'O`zbekcha uy-tavsif to`ldirilishi kerak!',
+            'ru.header_description.required' => 'Ruscha uy-tavsif to`ldirilishi kerak!',
+            
             'header_image.required' => 'Rasm tanlanishi kerak!',
             'header_image.image'    => 'Rasm bo`lishligi kerak!',
             'header_image.mimes'    => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',

@@ -4,11 +4,18 @@ namespace App\Models\Admin\News;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
 class News extends Model
 {
-    use HasFactory;
+    use HasFactory, Translatable;
+
+    public $translatedAttributes = [
+        'header_title',
+        'header_description',
+    ];
 
     protected $fillable = [
         'header_image',

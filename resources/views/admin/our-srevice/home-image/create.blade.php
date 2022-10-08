@@ -41,8 +41,8 @@
                             <div id="uz-form">
                                 <div class="form-group">
                                     <label>Sarlovha (UZ)</label>
-                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[title]" value="{{ old('uz.title') }}">
-                                    @error('uz.title')
+                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[header_title]" value="{{ old('uz.header_title') }}">
+                                    @error('uz.header_title')
                                         <div class="alert alert-danger">
                                             {{ $message }}
                                         </div>
@@ -51,8 +51,8 @@
         
                                 <div class="form-group">
                                     <label>Izoh (UZ)</label>
-                                    <textarea name="uz[description]" class="form-control"> {{ old('uz.description') }} </textarea>
-                                    @error('uz.description')
+                                    <textarea name="uz[header_description]" class="form-control"> {{ old('uz.header_description') }} </textarea>
+                                    @error('uz.header_description')
                                         <div class="alert alert-danger">
                                             {{ $message }}
                                         </div>
@@ -63,8 +63,8 @@
                             <div id="ru-form" class="d-none">
                                 <div class="form-group">
                                     <label>Sarlovha (RU)</label>
-                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[title]" value="{{ old('ru.title') }}">
-                                    @error('ru.title')
+                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[header_title]" value="{{ old('ru.header_title') }}">
+                                    @error('ru.header_title')
                                         <div class="alert alert-danger">
                                             {{ $message }}
                                         </div>
@@ -73,8 +73,8 @@
         
                                 <div class="form-group">
                                     <label>Izoh (RU)</label>
-                                    <textarea name="ru[description]" class="form-control"> {{ old('ru.description') }} </textarea>
-                                    @error('ru.description')
+                                    <textarea name="ru[header_description]" class="form-control"> {{ old('ru.header_description') }} </textarea>
+                                    @error('ru.header_description')
                                         <div class="alert alert-danger">
                                             {{ $message }}
                                         </div>

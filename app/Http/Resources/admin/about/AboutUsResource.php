@@ -23,10 +23,10 @@ class AboutUsResource extends JsonResource
         return [
             'id'                    => $this->id,
             'header_image'          => $this->header_image,
-            'header_title_uz'       => $this->translate('uz')->title,
-            'header_description_uz' => $this->translate('uz')->description,
-            'header_title_ru'       => $this->translate('ru')->title,
-            'header_description_ru' => $this->translate('ru')->description,
+            'header_title_uz'       => $this->translate('uz')->header_title,
+            'header_title_ru'       => $this->translate('ru')->header_title,
+            'header_description_uz' => $this->translate('uz')->header_description,
+            'header_description_ru' => $this->translate('ru')->header_description,
             'aboutus_content'       => AboutUsContentResource::collection($content),
             'aboutus_faqs'          => FaqResource::collection($faqs),
         ];

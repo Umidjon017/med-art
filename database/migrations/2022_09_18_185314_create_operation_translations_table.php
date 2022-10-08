@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('operation_id')->constrained('operations')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
+            $table->string('header_title');
+            $table->longText('header_description');
             $table->string('title');
             $table->longText('detail_description');
             $table->longText('full_description');

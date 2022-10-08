@@ -15,8 +15,8 @@ class OurService extends Model implements TranslatableContract
     protected $table = 'our_services';
 
     public $translatedAttributes = [
-        'title',
-        'description',
+        'header_title',
+        'header_description',
     ];
 
     protected $fillable = [

@@ -50,8 +50,32 @@
                         <div class="card-body">
                             <div class="row d-flex justify-content-between">
                                 <div class="col-md-5">        
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Sarlovha (UZ) </h5></div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Uy Sarlovha </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->header_title !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->header_title !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Uy Izoh </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->header_description !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->header_description !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Sarlovha </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
                                                 <h6> {!! $item->translate('uz')->title !!} </h6>
@@ -62,8 +86,8 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Detal izoh (UZ) </h5></div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Detal izoh </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
                                                 <h6> {!! $item->translate('uz')->detail_description !!} </h6>
@@ -74,8 +98,8 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> To'liq izoh (UZ) </h5></div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> To'liq izoh </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
                                                 <h6> {!! $item->translate('uz')->full_description !!} </h6>
@@ -86,7 +110,7 @@
                                         </div>
                                     </div> <hr>
             
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5>Qatnashgan shifokorlar</h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
@@ -100,7 +124,7 @@
                                         </div>
                                     </div> <hr>
             
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Sana </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
@@ -109,7 +133,7 @@
                                         </div>
                                     </div> <hr>
                                     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Video havola </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
@@ -120,7 +144,7 @@
                                 </div>
     
                                 <div class="col-md-5">
-                                    <div class=" d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center">
                                         <div class="box-header"><h2> Uy rasmi </h2></div>
                                     </div>
                                     <div class="tab-content">
@@ -129,7 +153,7 @@
                                         </div>
                                     </div>
 
-                                    <div class=" d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center">
                                         <div class="box-header"><h2> Detal rasmi </h2></div>
                                     </div>
                                     <div class="tab-content">

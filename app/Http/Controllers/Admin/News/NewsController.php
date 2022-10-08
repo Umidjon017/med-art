@@ -72,9 +72,11 @@ class NewsController extends Controller
      * @param  \App\Models\Admin\News\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit($id)
     {
-        //
+        $item = News::findOrFail($id);
+
+        return view('admin.news.home-image.edit', compact('item'));
     }
 
     /**

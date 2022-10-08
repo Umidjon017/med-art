@@ -16,6 +16,8 @@ class Operation extends Model implements TranslatableContract
     use HasFactory, Translatable;
 
     public $translatedAttributes = [
+        'header_title',
+        'header_description',
         'title',
         'detail_description',
         'full_description',

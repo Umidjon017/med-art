@@ -15,8 +15,8 @@ class AboutUs extends Model implements TranslatableContract
     protected $table = 'about_us';
 
     public $translatedAttributes = [
-        'title',
-        'description',
+        'header_title',
+        'header_description',
     ];
 
     protected $fillable = [

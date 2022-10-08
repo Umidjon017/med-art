@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('about_us_id')->constrained('about_us')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
-            $table->string('title');
-            $table->longText('description');
+            $table->string('header_title');
+            $table->longText('header_description');
             $table->unique(['about_us_id', 'locale']);
         });
     }

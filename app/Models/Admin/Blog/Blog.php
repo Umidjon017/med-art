@@ -4,11 +4,18 @@ namespace App\Models\Admin\Blog;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
-class Blog extends Model
+class Blog extends Model implements TranslatableContract
 {
-    use HasFactory;
+    use HasFactory, Translatable;
+
+    public $translatedAttributes = [
+        'header_title',
+        'header_description',
+    ];
 
     protected $fillable = [
         'header_image',

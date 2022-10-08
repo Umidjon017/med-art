@@ -72,9 +72,11 @@ class DoctorController extends Controller
      * @param  \App\Models\Admin\Doctor\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Doctor $doctor)
+    public function edit($id)
     {
-        //
+        $item = Doctor::findOrFail($id);
+
+        return view('admin.doctors.home-image.edit', compact('item'));
     }
 
     /**

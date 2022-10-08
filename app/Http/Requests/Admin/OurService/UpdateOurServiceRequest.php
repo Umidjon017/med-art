@@ -25,20 +25,20 @@ class UpdateOurServiceRequest extends FormRequest
     public function rules()
     {
         return RuleFactory::make([
-            '%title%'       => 'required',
-            '%description%' => 'required',
-            'header_image*' => 'required|image|mimes:png,jpg,jpeg,gif',
+            '%header_title%'        => 'required',
+            '%header_description%'  => 'required',
+            'header_image*'         => 'required|image|mimes:png,jpg,jpeg,gif',
         ]);
     }
     
     public function messages()
     {
         return [
-            'uz.title.required'   => 'O`zbekcha sarlovha to`ldirilishi kerak!',
-            'ru.title.required'   => 'Ruscha sarlovha to`ldirilishi kerak!',
+            'uz.header_title.required'   => 'O`zbekcha uy-sarlovhasi to`ldirilishi kerak!',
+            'ru.header_title.required'   => 'Ruscha uy-sarlovhasi to`ldirilishi kerak!',
 
-            'uz.description.required' => 'O`zbekcha tavsif to`ldirilishi kerak!',
-            'ru.description.required' => 'Ruscha tavsif to`ldirilishi kerak!',
+            'uz.header_description.required' => 'O`zbekcha uy-izohi to`ldirilishi kerak!',
+            'ru.header_description.required' => 'Ruscha uy-izohi to`ldirilishi kerak!',
             
             'header_image.required' => 'Rasm tanlanishi kerak!',
             'header_image.image'    => 'Rasm bo`lishligi kerak!',

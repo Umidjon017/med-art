@@ -20,10 +20,14 @@ class DoctorsResource extends JsonResource
         $doctor_infos = DoctorInfo::all();
         $doctor_faqs = DoctorFaq::all();
         return [
-            'id' => $this->id,
-            'header_image' => $this->header_image,
-            'doctor_infos' => DoctorInfosResource::collection($doctor_infos),
-            'doctor_faqs'  => FaqResource::collection($doctor_faqs),
+            'id'                    => $this->id,
+            'header_image'          => $this->header_image,
+            'header_title_uz'       => $this->translate('uz')->header_title,
+            'header_title_ru'       => $this->translate('ru')->header_title,
+            'header_description_uz' => $this->translate('uz')->header_description,
+            'header_description_ru' => $this->translate('ru')->header_description,
+            'doctor_infos'          => DoctorInfosResource::collection($doctor_infos),
+            'doctor_faqs'           => FaqResource::collection($doctor_faqs),
         ];
     }
 }

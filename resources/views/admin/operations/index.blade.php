@@ -60,12 +60,12 @@
                                     <td >{!! $item->translate('uz')->title !!}</td>
                                     <td >{!! $item->translate('uz')->detail_description !!}</td>
                                     <td >{!! $item->translate('uz')->full_description !!}</td>
-                                    <td style="width='200rem';">
-                                        <img src="{{ $item->header_image }}" alt="Uy rasmi" srcset="">
+                                    <td class="w-25">
+                                        <img src="{{ $item->header_image }}" style="100%">
                                     </td>
-                                    <td style="width='200rem';">
+                                    <td class="w-25">
                                         @foreach ($item->images as $image)
-                                            <img src="{{ $image->detail_image }}" width="100%">
+                                            <img src="{{ $image->detail_image }}" style="100%">
                                         @endforeach
                                     </td>
 

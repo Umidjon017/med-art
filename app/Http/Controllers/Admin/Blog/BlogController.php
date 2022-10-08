@@ -72,9 +72,11 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $item = Blog::findOrFail($id);
+
+        return view('admin.blogs.home-image.edit', compact('item'));
     }
 
     /**

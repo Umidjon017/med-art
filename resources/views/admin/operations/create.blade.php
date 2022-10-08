@@ -41,9 +41,67 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6 col-md-12 col-lg-12">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="">Uy rasmi</label>
+                                                <div id="image-preview" class="image-preview">
+                                                    <label for="image-upload" id="image-label">Uy rasmi</label>
+                                                    <input type="file" name="header_image" id="image-upload" accept="image/*" />
+                                                </div>
+                                                @error('header_image')
+                                                    <div class="alert alert-danger">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="">Detal rasmi</label>
+                                                <div id="image-preview" class="image-preview">
+                                                    <label for="image-upload" id="image-label">Detal rasmi</label>
+                                                    <input type="file" name="detail_image[]" id="image-upload" multiple accept="image/*" />
+                                                </div>
+                                                @error('detail_image')
+                                                    <div class="alert alert-danger">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     {{-- Uz form --}}
                                     <div id="uz-form">
-                                        <div class="form-group ">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Uy Sarlovha (UZ)</label>
+                                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[header_title]" value="{{ old('uz.header_title') }}">
+                                                    @error('uz.header_title')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Uy izoh (UZ)</label>
+                                                    <textarea name="uz[header_description]" class="form-control" rows="3" cols="10"> {{ old('uz.header_description') }} </textarea>
+                                                    @error('uz.header_description')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label>Sarlovha (UZ)</label>
                                             <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="uz[title]" value="{{ old('uz.title') }}">
                                             @error('uz.title')
@@ -54,7 +112,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-sm-12 col-md-6 col-lg-6">                                                
                                                 <div class="form-group">
                                                     <label>Detal izoh (UZ)</label>
                                                     <textarea name="uz[detail_description]" class="form-control" rows="3" cols="10"> {{ old('uz.detail_description') }} </textarea>
@@ -82,7 +140,33 @@
             
                                     {{-- Ru form --}}
                                     <div id="ru-form" class="d-none">
-                                        <div class="form-group ">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Uy Sarlovha (RU)</label>
+                                                    <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[header_title]" value="{{ old('ru.header_title') }}">
+                                                    @error('ru.header_title')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Uy izoh (RU)</label>
+                                                    <textarea name="ru[header_description]" class="form-control" rows="3" cols="10"> {{ old('ru.header_description') }} </textarea>
+                                                    @error('ru.header_description')
+                                                        <div class="alert alert-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label>Sarlovha (RU)</label>
                                             <input type="text" class="form-control" placeholder="Sarlovhani kiriting" name="ru[title]" value="{{ old('ru.title') }}">
                                             @error('ru.title')
@@ -135,7 +219,7 @@
                                 </div>
 
                                 <div class="col-sm-6 col-md-6 col-lg-6">
-                                    <div class="form-group ">
+                                    <div class="form-group">
                                         <label>Video havola</label>
                                         <input type="text" name="link_video" class="form-control" placeholder="Video havolani kiriting" value="{{ old('link_video') }}">
                                         @error('link_video')
@@ -150,38 +234,6 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label class="">Uy rasmi</label>
-                                        <div id="image-preview" class="image-preview">
-                                            <label for="image-upload" id="image-label">Uy rasmi</label>
-                                            <input type="file" name="header_image" id="image-upload" accept="image/*" />
-                                        </div>
-                                        @error('header_image')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-6 col-lg-6">
-                                    <div class="form-group">
-                                        <label class="">Detal rasmi</label>
-                                        <div id="image-preview" class="image-preview">
-                                            <label for="image-upload" id="image-label">Detal rasmi</label>
-                                            <input type="file" name="detail_image[]" id="image-upload" multiple accept="image/*" />
-                                        </div>
-                                        @error('detail_image')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <div class="form-group ">
                                         <label>Shifokorlarga biriktirish</label>
                                         <select name="doctor_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Shifoklarni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
                                             <option value=""> </option>
