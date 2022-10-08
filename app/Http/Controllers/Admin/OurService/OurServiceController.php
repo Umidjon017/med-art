@@ -72,9 +72,11 @@ class OurServiceController extends Controller
      * @param  \App\Models\Admin\OurService  $ourService
      * @return \Illuminate\Http\Response
      */
-    public function edit(OurService $ourService)
+    public function edit($id)
     {
-        //
+        $item = OurService::findOrFail($id);
+
+        return view('admin.our-srevice.home-image.edit', compact('item'));
     }
 
     /**
