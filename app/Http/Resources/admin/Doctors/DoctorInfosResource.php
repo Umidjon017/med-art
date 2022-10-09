@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin\Doctors;
 
+use App\Http\Resources\Admin\OurService\OurServiceDepartmentsForOthersResource;
 use App\Models\Admin\Operation\Operation;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -36,6 +37,7 @@ class DoctorInfosResource extends JsonResource
             'edu_addition_ru'   =>  $this->translate('ru')->edu_addition,
             'description_uz'    =>  $this->translate('uz')->description,
             'description_ru'    =>  $this->translate('ru')->description,
+            'belongs_department'=> OurServiceDepartmentsForOthersResource::collection($this->departments()->get()),
             'attended_operations'=> DoctorOperationsResource::collection($this->operations()->get()),
             'gethered_awards'   =>  AwardDoctorsResource::collection($this->awards()->get()),
         ];

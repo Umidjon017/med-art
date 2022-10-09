@@ -262,6 +262,20 @@
 
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Bo'limga biriktirish</label>
+                                        <select name="our_service_department_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Bo'limni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                            @foreach ($departments as $department )
+                                                <option value="{{$department->id}}"
+                                                    @foreach($department_doctors as $dep_d)
+                                                        {{ $department->id === $dep_d->id ? 'selected' : '' }}
+                                                    @endforeach>
+                                                    {!! $department->translate('uz')->name !!}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
                                     <div class="form-group ">
                                         <label>Operatisiyaga biriktirish</label>
                                         <select name="operation_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Operatsiyani tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">

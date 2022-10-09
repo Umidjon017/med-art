@@ -145,6 +145,20 @@
                                             </div>
                                         </div>
                                     </div> <hr>
+
+                                    <div class=" d-flex justify-content-between">
+                                        <div class="box-header"><h5>Shifokor mansub bo'lim</h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active">
+                                                <h6>
+                                                    @foreach ($departments as $department)
+                                                        {!! $department->translate('uz')->name !!}
+                                                        {!! $department === $departments->last() ? "" : "<hr/>" !!}
+                                                    @endforeach
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
             
                                     <div class=" d-flex justify-content-between">
                                         <div class="box-header"><h5>Qatnashgan operatisiyalar</h5></div>
@@ -170,33 +184,6 @@
                                                         {!! $award === $awards->last() ? "" : "<hr/>" !!}
                                                     @endforeach
                                                 </h6>
-                                            </div>
-                                        </div>
-                                    </div> <hr>
-            
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Ijtimoiy tarmoq (Linkedin) </h5></div>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active">
-                                                <h6><a href="{!! $item->link_linkedin !!}"> Linkedin havolasi </a></h6>
-                                            </div>
-                                        </div>
-                                    </div> <hr>
-            
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Ijtimoiy tarmoq (Facebook) </h5></div>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active">
-                                                <h6><a href="{!! $item->link_facebook !!}"> Facebook havolasi </a></h6>
-                                            </div>
-                                        </div>
-                                    </div> <hr>
-            
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="box-header"><h5> Ijtimoiy tarmoq (Instagram) </h5></div>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active">
-                                                <h6><a href="{!! $item->link_instagram !!}"> Instagram havolasi </a></h6>
                                             </div>
                                         </div>
                                     </div> <hr>

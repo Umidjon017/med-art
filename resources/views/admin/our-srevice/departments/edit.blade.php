@@ -1,6 +1,7 @@
 <x-admin-layout>
 
     @section('css')
+        <link rel="stylesheet" href="{{ asset('/assets/bundles/select2/dist/css/select2.min.css') }}">
         <style>
             .bg-aqua-active{
                 background-color: #6777ef;
@@ -101,6 +102,20 @@
                                             @enderror
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Shifokorlarga biriktirish</label>
+                                        <select name="doctor_info_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Shifokorni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                            @foreach ($doctors as $doctor)
+                                                <option value="{{$doctor->id}}"
+                                                    @foreach($department_doctors as $dep_d)
+                                                        {{ $doctor->id === $dep_d->id ? 'selected' : '' }}
+                                                    @endforeach>
+                                                    {!! $doctor->translate('uz')->full_name !!}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -195,6 +210,7 @@
     @endsection
 
     @section('scripts')
+        <script src="{{ asset("/assets/bundles/select2/dist/js/select2.full.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
 
         <script>

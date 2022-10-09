@@ -3,9 +3,8 @@
 namespace App\Http\Resources\Admin\OurService;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Admin\Doctors\DoctorInfosForOthersResource;
 
-class OurServiceDepartmentsResourse extends JsonResource
+class OurServiceDepartmentsForOthersResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,14 +17,8 @@ class OurServiceDepartmentsResourse extends JsonResource
         return [
             'department_id'         =>  $this->id,
             'image'                 =>  $this->image,
-            'icon'                  =>  $this->icon,
             'name_uz'               =>  $this->translate('uz')->name,
             'name_ru'               =>  $this->translate('ru')->name,
-            'description_uz'        =>  $this->translate('uz')->description,
-            'description_ru'        =>  $this->translate('ru')->description,
-            'full_description_uz'   =>  $this->translate('uz')->full_description,
-            'full_description_ru'   =>  $this->translate('ru')->full_description,
-            'belongs_doctors'       =>  DoctorInfosForOthersResource::collection($this->doctors()->get()),
         ];
     }
 }

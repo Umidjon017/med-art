@@ -1,6 +1,7 @@
 <x-admin-layout>
 
     @section('css')
+    <link rel="stylesheet" href="{{ asset('/assets/bundles/select2/dist/css/select2.min.css') }}">
         <style>
             .bg-aqua-active{
                 background-color: #6777ef;
@@ -72,7 +73,7 @@
 
                                 <div class="col-sm-6 col-md-5 col-lg-5">
                                     <div id="uz-form" >
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label >Nomi(UZ)</label>
                                             <input type="text" class="form-control" placeholder="Nomini kiriting" name="uz[name]" value="{{ old('uz.name') }}">
                                             @error('uz.name')
@@ -82,7 +83,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label>Tavsif(UZ)</label>
                                             <textarea name="uz[description]" class="form-control"> {{ old('uz.description') }} </textarea>
                                             @error('uz.description')
@@ -92,7 +93,7 @@
                                             @enderror
                                         </div>
                                         
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label> To'liq tavsif (UZ)</label>
                                             <textarea name="uz[full_description]" class="form-control"> {{ old('uz.full_description') }} </textarea>
                                             @error('uz.full_description')
@@ -104,7 +105,7 @@
                                     </div>
             
                                     <div id="ru-form" class="d-none">
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label>Sarlovha(RU)</label>
                                             <input type="text" class="form-control" placeholder="Nomini kiriting" name="ru[name]" value="{{ old('ru.name') }}">
                                             @error('ru.name')
@@ -114,7 +115,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label>Tavsif(RU)</label>
                                             <textarea name="ru[description]" class="form-control"> {{ old('ru.description') }} </textarea>
                                             @error('ru.description')
@@ -124,7 +125,7 @@
                                             @enderror
                                         </div>
                                         
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label> To'liq tavsif (RU)</label>
                                             <textarea name="ru[full_description]" class="form-control"> {{ old('ru.full_description') }} </textarea>
                                             @error('ru.full_description')
@@ -133,6 +134,15 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Shifokorlarga biriktirish</label>
+                                        <select name="doctor_info_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Shifokorni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                            @foreach ($doctors as $doctor )
+                                                <option value="{{$doctor->id}}">{!! $doctor->translate('uz')->full_name !!}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -186,6 +196,7 @@
     @endsection
 
     @section('scripts')
+        <script src="{{ asset("/assets/bundles/select2/dist/js/select2.full.min.js") }}"></script>
         <script src="{{ asset("/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js") }}"></script>
 
         <script>

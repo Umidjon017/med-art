@@ -3,7 +3,7 @@
 namespace App\Http\Resources\Admin\Operations;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Admin\Doctors\DoctorInfosForOperationResource;
+use App\Http\Resources\Admin\Doctors\DoctorInfosForOthersResource;
 
 class OperationResource extends JsonResource
 {
@@ -31,7 +31,7 @@ class OperationResource extends JsonResource
             'detail_description_ru' =>  $this->translate('ru')->detail_description,
             'full_description_uz'   =>  $this->translate('uz')->full_description,
             'full_description_ru'   =>  $this->translate('ru')->full_description,
-            'attended_doctors'      =>  DoctorInfosForOperationResource::collection($this->doctors()->get()),
+            'attended_doctors'      =>  DoctorInfosForOthersResource::collection($this->doctors()->get()),
         ];
     }
 }

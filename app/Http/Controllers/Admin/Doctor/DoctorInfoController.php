@@ -8,6 +8,7 @@ use App\Models\Admin\Doctor\AwardDoctor;
 use App\Models\Admin\Operation\Operation;
 use App\Http\Requests\Admin\Doctor\StoreDoctorInfoRequest;
 use App\Http\Requests\Admin\Doctor\UpdateDoctorInfoRequest;
+use App\Models\Admin\OurService\OurServiceDepartment;
 
 class DoctorInfoController extends Controller
 {
@@ -32,8 +33,9 @@ class DoctorInfoController extends Controller
     {
         $operations = Operation::all();
         $awards = AwardDoctor::all();
+        $departments = OurServiceDepartment::all();
 
-        return view('admin.doctors.doctor-infos.create', compact('operations', 'awards'));
+        return view('admin.doctors.doctor-infos.create', compact('operations', 'awards', 'departments'));
     }
 
     /**
@@ -56,6 +58,13 @@ class DoctorInfoController extends Controller
             $data['image'] = $url;
         }
         $doctors = DoctorInfo::create($data);
+
+        $departments = $request->our_service_department_id;
+        if ($departments != '') {
+            foreach ($departments as $department) {
+                $doctors->departments()->attach($department);
+            }
+        }
 
         $operations = $request->operation_id;
         if ($operations != '') {
@@ -83,10 +92,11 @@ class DoctorInfoController extends Controller
     public function show($id)
     {
         $item = DoctorInfo::findOrFail($id);
+        $departments = $item->departments()->get();
         $operations = $item->operations()->get();
         $awards = $item->awards()->get();
 
-        return view('admin.doctors.doctor-infos.show', compact('item', 'operations', 'awards'));
+        return view('admin.doctors.doctor-infos.show', compact('item', 'departments', 'operations', 'awards'));
     }
 
     /**
@@ -102,9 +112,12 @@ class DoctorInfoController extends Controller
         $attended_operations = $doctors->operations()->get();
         $awards = AwardDoctor::all();
         $gethered_awards = $doctors->awards()->get();
+        $departments = OurServiceDepartment::all();
+        $department_doctors = $doctors->departments()->get();
 
         return view('admin.doctors.doctor-infos.edit', compact(
-            'doctors', 'operations', 'attended_operations', 'awards', 'gethered_awards'
+            'doctors', 'operations', 'attended_operations',
+            'awards', 'gethered_awards', 'departments', 'department_doctors'
         ));
     }
 
@@ -131,6 +144,7 @@ class DoctorInfoController extends Controller
         }
         $model->update($data);
 
+        $model->departments()->sync($request->our_service_department_id);
         $model->operations()->sync($request->operation_id);
         $model->awards()->sync($request->award_doctor_id);
 

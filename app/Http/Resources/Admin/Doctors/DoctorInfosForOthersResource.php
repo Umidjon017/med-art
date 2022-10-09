@@ -4,7 +4,7 @@ namespace App\Http\Resources\Admin\Doctors;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class DoctorInfosForOperationResource extends JsonResource
+class DoctorInfosForOthersResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

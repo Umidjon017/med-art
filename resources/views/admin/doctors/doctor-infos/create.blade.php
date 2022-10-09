@@ -55,7 +55,7 @@
                                 <div class="col-sm-6 col-md-7 col-lg-7">
                                     {{-- Uz form --}}
                                     <div id="uz-form">
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label>Ismi, sharifi (UZ)</label>
                                             <input type="text" class="form-control" placeholder="To'liq ismingizni kiriting" name="uz[full_name]" value="{{ old('uz.full_name') }}">
                                             @error('uz.full_name')
@@ -65,7 +65,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label>Biografiyasi (UZ)</label>
                                             <textarea name="uz[biography]" class="form-control" cols="100" rows="10"> {{ old('uz.biography') }} </textarea>
                                             @error('uz.biography')
@@ -75,7 +75,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label> Mutaxasisligi (UZ)</label>
                                             <input type="text" class="form-control" placeholder="Mutaxasisligini kiriting" name="uz[specification]" value="{{ old('uz.specification') }}">
                                             @error('uz.specification')
@@ -98,7 +98,7 @@
                                                     @enderror
                                                 </div>
                                                 
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> Magister ta'lim (UZ)</label>
                                                     <input type="text" class="form-control" placeholder="Magister ta'limini kiriting" name="uz[edu_master]" value="{{ old('uz.edu_master') }}">
                                                     @error('uz.edu_master')
@@ -108,7 +108,7 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> PHD ta'lim (UZ)</label>
                                                     <input type="text" class="form-control" placeholder="PHD ta'limini kiriting" name="uz[edu_phd]" value="{{ old('uz.edu_phd') }}">
                                                     @error('uz.edu_phd')
@@ -120,7 +120,7 @@
                                             </div>
 
                                             <div class="col-sm-12 col-md-6 col-lg-6">                                                
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> Asperantura ta'lim (UZ)</label>
                                                     <input type="text" class="form-control" placeholder="Asperantura ta'limini kiriting" name="uz[edu_asperanture]" value="{{ old('uz.edu_asperanture') }}">
                                                     @error('uz.edu_asperanture')
@@ -130,7 +130,7 @@
                                                     @enderror
                                                 </div>
                                                 
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> Qo'shimcha ta'lim (UZ)</label>
                                                     <input type="text" class="form-control" placeholder="Qo'shimcha ta'limini kiriting" name="uz[edu_addition]" value="{{ old('uz.edu_addition') }}">
                                                     @error('uz.edu_addition')
@@ -140,7 +140,7 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label>Qo'shimcha izoh (UZ)</label>
                                                     <textarea name="uz[description]" class="form-control" cols="100" rows="10"> {{ old('uz.description') }} </textarea>
                                                     @error('uz.description')
@@ -155,7 +155,7 @@
             
                                     {{-- Ru form --}}
                                     <div id="ru-form" class="d-none">
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label >Ismi, sharifi (RU)</label>
                                             <input type="text" class="form-control" placeholder="To'liq ismingizni kiriting" name="ru[full_name]" value="{{ old('ru.full_name') }}">
                                             @error('ru.full_name')
@@ -165,7 +165,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label>Biografiyasi (RU)</label>
                                             <textarea name="ru[biography]" class="form-control" cols="100" rows="10"> {{ old('ru.biography') }} </textarea>
                                             @error('ru.biography')
@@ -175,7 +175,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group ">
+                                        <div class="form-group">
                                             <label> Mutaxasisligi (RU)</label>
                                             <input type="text" class="form-control" placeholder="Mutaxasisligini kiriting" name="ru[specification]" value="{{ old('ru.specification') }}">
                                             @error('ru.specification')
@@ -188,7 +188,7 @@
                                         {{-- Ta'lim --}}
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> Bakalavr ta'lim (RU)</label>
                                                     <input type="text" class="form-control" placeholder="Bakalavr ta'limini kiriting" name="ru[edu_bachelor]" value="{{ old('ru.edu_bachelor') }}">
                                                     @error('ru.edu_bachelor')
@@ -198,7 +198,7 @@
                                                     @enderror
                                                 </div>
                                                 
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> Magister ta'lim (RU)</label>
                                                     <input type="text" class="form-control" placeholder="Magister ta'limini kiriting" name="ru[edu_master]" value="{{ old('ru.edu_master') }}">
                                                     @error('ru.edu_master')
@@ -208,7 +208,7 @@
                                                     @enderror
                                                 </div>
                                                 
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> PHD ta'lim (RU)</label>
                                                     <input type="text" class="form-control" placeholder="PHD ta'limini kiriting" name="ru[edu_phd]" value="{{ old('ru.edu_phd') }}">
                                                     @error('ru.edu_phd')
@@ -220,7 +220,7 @@
                                             </div>
 
                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> Asperantura ta'lim (RU)</label>
                                                     <input type="text" class="form-control" placeholder="Asperantura ta'limini kiriting" name="ru[edu_asperanture]" value="{{ old('ru.edu_asperanture') }}">
                                                     @error('ru.edu_asperanture')
@@ -230,7 +230,7 @@
                                                     @enderror
                                                 </div>
                                                 
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label> Qo'shimcha ta'lim (RU)</label>
                                                     <input type="text" class="form-control" placeholder="Qo'shimcha ta'limini kiriting" name="ru[edu_addition]" value="{{ old('ru.edu_addition') }}">
                                                     @error('ru.edu_addition')
@@ -240,7 +240,7 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label>Qo'shimcha izoh (RU)</label>
                                                     <textarea name="ru[description]" class="form-control" cols="100" rows="10"> {{ old('ru.description') }} </textarea>
                                                     @error('ru.description')
@@ -257,7 +257,16 @@
 
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <div class="form-group ">
+                                    <div class="form-group">
+                                        <label>Bo'limlarga biriktirish</label>
+                                        <select name="our_service_department_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Bo'limni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                            @foreach ($departments as $department )
+                                                <option value="{{$department->id}}">{!! $department->translate('uz')->name !!}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label>Operatsiyalarga biriktirish</label>
                                         <select name="operation_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Operatsiyani tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
                                             @foreach ($operations as $operation )
@@ -266,7 +275,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group ">
+                                    <div class="form-group">
                                         <label>Mukofot/Sertifikatlarga biriktirish</label>
                                         <select name="award_doctor_id[]" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="Mukofot/Sertifikatlarni tanlang" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
                                             @foreach ($awards as $award )

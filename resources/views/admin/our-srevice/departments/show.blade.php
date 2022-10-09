@@ -85,6 +85,20 @@
                                             </div>
                                         </div>
                                     </div> <hr>
+                                    
+                                    <div class=" d-flex justify-content-between">
+                                        <div class="box-header"><h5>Bo'lim shifokorlari</h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active">
+                                                <h6>
+                                                    @foreach ($doctors as $doctor)
+                                                        {!! $doctor->translate('uz')->full_name !!}
+                                                        {!! $doctor === $doctors->last() ? "" : "<hr/>" !!}
+                                                    @endforeach
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
             
                                     {{-- <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Meta sarlovha </h5></div>
