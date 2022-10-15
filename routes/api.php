@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\Operations\SingleOperationController;
 use App\Http\Controllers\Api\OurServices\SingleOurServiceController;
 use App\Http\Controllers\Api\OurServices\LimitOurServicesController;
 use App\Http\Controllers\Api\OurServices\OurServiceController;
+use App\Http\Controllers\Api\Sponsors\SponsorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +74,6 @@ Route::prefix('news')->name('news.')->group(function() {
     Route::get('single/{id}', SingleNewsController::class)->name('single');
     Route::get('limit/{id}', LimitNewsController::class)->name('limit');
 });
+
+// Sponsors
+Route::get('sponsors', SponsorController::class)->name('sponsors');

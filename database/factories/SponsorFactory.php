@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Factories\Admin\News;
+namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Admin\News\NewsTranslation>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Admin\Sponsor\Sponsor>
  */
-class NewsTranslationFactory extends Factory
+class SponsorFactory extends Factory
 {
     /**
      * Define the model's default state.

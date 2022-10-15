@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\Operation\OperationController;
 use App\Http\Controllers\Admin\OurService\OurServiceController;
 use App\Http\Controllers\Admin\OurService\OurServiceFaqController;
 use App\Http\Controllers\Admin\OurService\OurServiceDepartmentController;
+use App\Http\Controllers\Admin\Sponsor\SponsorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,9 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
         Route::resource('home-image', NewsController::class);
         Route::resource('news-infos', NewsInfosController::class);
     });
+
+    // Sponsors
+    Route::resource('sponsors', SponsorController::class);
 });
 
 require __DIR__.'/auth.php';
