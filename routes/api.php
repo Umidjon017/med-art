@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Blogs\BlogsController;
 use App\Http\Controllers\Api\Blogs\SingleBlogController;
 use App\Http\Controllers\Api\AboutUs\AboutUsController;
 use App\Http\Controllers\Api\Blogs\LimitBlogsController;
+use App\Http\Controllers\Api\ContuctUs\ContuctUsController;
 use App\Http\Controllers\Api\Doctors\DoctorsController;
 use App\Http\Controllers\Api\Doctors\AwardDoctorController;
 use App\Http\Controllers\Api\Doctors\LimitDoctorsController;
@@ -77,3 +78,6 @@ Route::prefix('news')->name('news.')->group(function() {
 
 // Sponsors
 Route::get('sponsors', SponsorController::class)->name('sponsors');
+
+// Contuct-us
+Route::post('contuct-us', ContuctUsController::class)->name('contuct-us');

@@ -98,6 +98,10 @@
           <a href="{{ route('admin.sponsors.index') }}" class="nav-link"><i data-feather="monitor"></i><span>{{ __("Homiylar") }}</span></a>
         </li>
         
+        <li class="dropdown {{ request()->is('admin/contuct-us*') ? 'active' : ''  }}">
+          <a href="{{ route('admin.contuct-us.table.index') }}" class="nav-link"><i data-feather="monitor"></i><span>{{ __("Mijozlar") }}</span></a>
+        </li>
+        
 
         {{-- @if (Auth::user()->hasAllPermissions(['role-list', 'user-list']))
             <li class="menu-header"> Xavfsizlik </li>
