@@ -10,8 +10,13 @@ class BlogInfoTranslation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
+        'title_1',
+        'title_2',
+        'description_1',
+        'description_2',
+        'description_3',
+        'description_4',
+        'addition_select',
         'theme',
     ];
 

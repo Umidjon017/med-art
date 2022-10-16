@@ -17,8 +17,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('blog_info_id')->constrained('blog_infos')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale');
-            $table->string('title');
-            $table->longText('description');
+            $table->string('title_1');
+            $table->string('title_2')->nullable();
+            $table->longText('description_1');
+            $table->longText('description_2')->nullable();
+            $table->longText('description_3')->nullable();
+            $table->longText('description_4')->nullable();
+            $table->string('addition_select')->nullable();
             $table->string('theme')->nullable();
             $table->unique(['blog_info_id', 'locale']);
         });

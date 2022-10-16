@@ -45,8 +45,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Sarlovha (UZ)</th>
-                                    <th>Izoh (UZ)</th>
+                                    <th>Sarlovha 1 (UZ)</th>
+                                    <th>Izoh 1 (UZ)</th>
                                     <th>Rasmi</th>
                                     <th>Amallar</th>
                                 </tr>
@@ -55,11 +55,11 @@
                                 @foreach ($items as $item)
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
-                                    <td >{!! $item->translate('uz')->title !!}</td>
-                                    <td >{!! $item->translate('uz')->description !!}</td>
+                                    <td >{!! $item->translate('uz')->title_1 !!}</td>
+                                    <td >{!! $item->translate('uz')->description_1 !!}</td>
 
                                     <td class="w-25">
-                                        <img src="{{ $item->image }}" style="100%">
+                                        <img src="{{ $item->image }}" style="width: 100%">
                                     </td>
 
                                     <td class="d-flex justify-content-center ">

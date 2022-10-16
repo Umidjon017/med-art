@@ -25,11 +25,16 @@ class UpdateBlogInfoRequest extends FormRequest
     public function rules()
     {
         return RuleFactory::make([
-            'image'         =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
-            'link_video'    =>  'sometimes',
-            '%title%'       =>  'required',
-            '%description%' =>  'required',
-            '%theme%'       =>  'sometimes',
+            'image'             =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
+            'link_video'        =>  'sometimes',
+            '%title_1%'         =>  'required',
+            '%title_2%'         =>  'sometimes',
+            '%description_1%'   =>  'required',
+            '%description_2%'   =>  'sometimes',
+            '%description_3%'   =>  'sometimes',
+            '%description_4%'   =>  'sometimes',
+            '%addition_select%' =>  'sometimes',
+            '%theme%'           =>  'sometimes',
         ]);
     }
 
@@ -39,11 +44,11 @@ class UpdateBlogInfoRequest extends FormRequest
             'image.image'   => 'Rasm bo`lishligi kerak!',
             'image.mimes'   => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
 
-            'uz.title.required' => 'O`zbekcha ism-sharif to`ldirilishi kerak!',
-            'ru.title.required' => 'Ruscha ism-sharif to`ldirilishi kerak!',
+            'uz.title_1.required' => 'O`zbekcha ism-sharif to`ldirilishi kerak!',
+            'ru.title_1.required' => 'Ruscha ism-sharif to`ldirilishi kerak!',
 
-            'uz.description.required' => 'O`zbekcha biografiya to`ldirilishi kerak!',
-            'ru.description.required' => 'Ruscha biografiya to`ldirilishi kerak!',
+            'uz.description_1.required' => 'O`zbekcha biografiya to`ldirilishi kerak!',
+            'ru.description_1.required' => 'Ruscha biografiya to`ldirilishi kerak!',
         ];
     }
 }

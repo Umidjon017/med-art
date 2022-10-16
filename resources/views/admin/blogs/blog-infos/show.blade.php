@@ -51,29 +51,89 @@
                             <div class="row d-flex justify-content-between">
                                 <div class="col-md-5">        
                                     <div class="d-flex justify-content-between">
-                                        <div class="box-header"><h5> Sarlovha </h5></div>
+                                        <div class="box-header"><h5> Sarlovha 1 </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {!! $item->translate('uz')->title !!} </h6>
+                                                <h6> {!! $item->translate('uz')->title_1 !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {!! $item->translate('ru')->title !!} </h6>
+                                                <h6> {!! $item->translate('ru')->title_1 !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Sarlovha 2 </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->title_2 !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->title_2 !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
     
                                     <div class="d-flex justify-content-between">
-                                        <div class="box-header"><h5> Tavsif </h5></div>
+                                        <div class="box-header"><h5> Tavsif 1 </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
-                                                <h6> {!! $item->translate('uz')->description !!} </h6>
+                                                <h6> {!! $item->translate('uz')->description_1 !!} </h6>
                                             </div>
                                             <div class="tab-pane active ru-form d-none">
-                                                <h6> {!! $item->translate('ru')->description !!} </h6>
+                                                <h6> {!! $item->translate('ru')->description_1 !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Tavsif 2 </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->description_2 !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->description_2 !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Tavsif 3 </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->description_3 !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->description_3 !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Tavsif 4 </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->description_4 !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->description_4 !!} </h6>
                                             </div>
                                         </div>
                                     </div> <hr>
     
+                                    <div class="d-flex justify-content-between">
+                                        <div class="box-header"><h5> Qo'shimcha ma'lumotlar </h5></div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active uz-form">
+                                                <h6> {!! $item->translate('uz')->addition_select !!} </h6>
+                                            </div>
+                                            <div class="tab-pane active ru-form d-none">
+                                                <h6> {!! $item->translate('ru')->addition_select !!} </h6>
+                                            </div>
+                                        </div>
+                                    </div> <hr>
+                                    
                                     <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Mavzu </h5></div>
                                         <div class="tab-content">

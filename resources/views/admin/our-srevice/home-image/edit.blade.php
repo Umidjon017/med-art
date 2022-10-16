@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="row mb-2">
                         <div class="card-header col-sm-12 d-flex justify-content-between">
-                            <a href="{{ route('admin.about-us.home-image.index') }}"><button class="btn btn-warning"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __("Ortga") }} </button></a>
+                            <a href="{{ route('admin.our-service.home-image.index') }}"><button class="btn btn-warning"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __("Ortga") }} </button></a>
                             
                             <h4>{{ __("Uy rasmini tahrirlang") }}</h4>
 
