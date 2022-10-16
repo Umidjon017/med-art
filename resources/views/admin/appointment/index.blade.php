@@ -13,15 +13,15 @@
           <div class="card-body">
             <ul class="nav nav-pills">
               <li class="nav-item">
-                <a class="nav-link {{ request()->is('admin/contuct-us/table') ? 'active' : ''  }}"
-                  href="{{ route('admin.contuct-us.table.index') }}">
+                <a class="nav-link {{ request()->is('admin/appointments/table') ? 'active' : ''  }}"
+                  href="{{ route('admin.appointments.table.index') }}">
                     {{ __("Barchasi") }}
                     <span class="badge badge-white">{{ count($items) }}</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ request()->is('admin/contuct-us/archived') ? 'active' : ''  }}"
-                  href="{{ route('admin.contuct-us.archived') }}">
+                <a class="nav-link {{ request()->is('admin/appointments/archived') ? 'active' : ''  }}"
+                  href="{{ route('admin.appointments.archived') }}">
                   {{ __("Javob berilganganlar") }}
                   <span class="badge badge-white">{{ count($trashed) }}</span>
                 </a>
@@ -34,7 +34,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
           <div class="card">
             <div class="card-header">
-              <h4>Mijozlar jadvali</h4>
+              <h4>Buyurtmalar jadvali</h4>
             </div>
             <div class="card-body">
                 @if (Session::has('success'))
@@ -64,9 +64,13 @@
                   <thead>
                     <tr>
                       <th>№</th>
+                      <th>Qaysi bo'lim</th>
+                      <th>Qaysi shifokor</th>
                       <th>Ism-sharifi</th>
+                      <th>Email</th>
                       <th>Telefon raqami</th>
                       <th>Sanasi</th>
+                      <th>Buyurtma kelib tushgan sana</th>
                       <th>Amallar</th>
                     </tr>
                   </thead>
@@ -74,12 +78,16 @@
                     @foreach ($items as $item)
                     <tr>
                         <td>{!! $loop->iteration !!}</td>
+                        <td>{!! $item->service->translateOrNew('uz')->name !!}</td>
+                        <td>{!! $item->doctor->translateOrNew('uz')->full_name !!}</td>
                         <td>{!! $item->full_name !!}</td>
+                        <td>{!! $item->email !!}</td>
                         <td>{!! $item->phone_number !!}</td>
+                        <td>{!! $item->date !!}</td>
                         <td>{!! $item->created_at->format('d-M-Y | H:i:s') !!}</td>
                         <td class="d-flex justify-content-center">
                             {{-- @can('news-delete') --}}
-                            <form action="{{route('admin.contuct-us.table.destroy', $item->id)}}" method="post">
+                            <form action="{{route('admin.appointments.table.destroy', $item->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-success">
@@ -88,7 +96,7 @@
                                 </button>
                             </form>
                             
-                            <form action="{{route('admin.contuct-us.forcedelete', $item->id)}}" method="post">
+                            <form action="{{route('admin.appointments.forcedelete', $item->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">

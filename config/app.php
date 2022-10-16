@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Tashkent',
+    'timezone' => env('APP_TIMEZONE', 'Asia/Tashkent'),
     // 'timezone' => date_default_timezone_set('Asia/Tashkent'),
     // 'timezone' =>  date_default_timezone_set('UTC'),
 

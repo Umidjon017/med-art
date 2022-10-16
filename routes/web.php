@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\About\AboutUsController;
 use App\Http\Controllers\Admin\About\AboutusFaqController;
 use App\Http\Controllers\Admin\About\AboutusContentController;
+use App\Http\Controllers\Admin\Appointment\AppointmentController;
 use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\Blog\BlogInfoController;
 use App\Http\Controllers\Admin\Contuct\ContuctUsController;
@@ -90,6 +91,17 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function (){
         Route::get('restore/{id}', [ContuctUsController::class, 'restore'])->name('restore');
         Route::get('archived', [ContuctUsController::class, 'archived'])->name('archived');
         Route::resource('table', ContuctUsController::class)->only([
+            'index', 'show', 'destroy'
+        ]);
+    });
+
+    // Appointment
+    Route::prefix('appointments')->name('appointments.')->controller(AppointmentController::class)->group(function() {
+        Route::delete('forceDelete/{id}', 'forceDelete')->name('forcedelete');
+        Route::get('restoreAll', 'restoreAll')->name('restore.all');
+        Route::get('restore/{id}', 'restore')->name('restore');
+        Route::get('archived', 'archived')->name('archived');
+        Route::resource('table', AppointmentController::class)->only([
             'index', 'show', 'destroy'
         ]);
     });

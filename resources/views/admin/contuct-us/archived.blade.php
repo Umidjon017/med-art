@@ -34,7 +34,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
           <div class="card">
             <div class="card-header">
-              <h4>Mijozlar jadvali</h4>
+              <h4>Javob berilgan mijozlar jadvali</h4>
 
               <a class="btn btn-success" href="{{ route('admin.contuct-us.restore.all') }}">{{ __("Barchasini qaytarish") }}</a>
             </div>
@@ -78,7 +78,6 @@
                         <td>{!! $loop->iteration !!}</td>
                         <td>{!! $item->full_name !!}</td>
                         <td>{!! $item->phone_number !!}</td>
-                        {{-- <td>{!! $item->created_at->format('h:m:s | d-M-Y') !!}</td> --}}
                         <td>{!! $item->created_at->format('d-M-Y | h:i:s') !!}</td>
                         <td class="d-flex justify-content-center">
                             {{-- @can('news-delete') --}}

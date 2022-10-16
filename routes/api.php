@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\News\SingleNewsController;
 use App\Http\Controllers\Api\Blogs\BlogsController;
 use App\Http\Controllers\Api\Blogs\SingleBlogController;
 use App\Http\Controllers\Api\AboutUs\AboutUsController;
+use App\Http\Controllers\Api\Appointments\AppointmentController;
 use App\Http\Controllers\Api\Blogs\LimitBlogsController;
 use App\Http\Controllers\Api\ContuctUs\ContuctUsController;
 use App\Http\Controllers\Api\Doctors\DoctorsController;
@@ -81,3 +82,6 @@ Route::get('sponsors', SponsorController::class)->name('sponsors');
 
 // Contuct-us
 Route::post('contuct-us', ContuctUsController::class)->name('contuct-us');
+
+// Appointment
+Route::post('appointment', AppointmentController::class)->name('appointment');

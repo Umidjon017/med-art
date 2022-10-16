@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin\Operation\Operation;
 use App\Models\Admin\OurService\OurServiceDepartment;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
@@ -68,5 +69,10 @@ class DoctorInfo extends Model implements TranslatableContract
     public function departments(): BelongsToMany
     {
         return $this->belongsToMany(OurServiceDepartment::class, 'department_doctor', 'doctor_info_id');
+    }
+
+    public function appointments(): HasMany
+    {
+        return $this->hasMany(Appointment::class);
     }
 }
