@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\About\AboutusContent;
 use App\Http\Requests\Admin\About\StoreAboutusContentRequest;
 use App\Http\Requests\Admin\About\UpdateAboutusContentRequest;
-use Illuminate\Http\Request;
 
 class AboutusContentController extends Controller
 {
@@ -45,9 +44,9 @@ class AboutusContentController extends Controller
             $files = $request->image;
             $destination = public_path('admin/images/about-us/contents/');
             AboutusContent::isPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.AboutusContent::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/about-us/contents/".$image_name;
+            $url = AboutusContent::imageUrl().$image_name;
             $data['image'] = $url;
         }
         $news = AboutusContent::create($data);
@@ -97,9 +96,9 @@ class AboutusContentController extends Controller
         {
             $model->deleteImage();
             $files = $request->file('image');
-            $image_name = time().'_'.$files->getClientOriginalName();
-            $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/about-us/contents/".$image_name;
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
+            $files->move($destination, $image_name);
+            $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }
         $model->update($data);

@@ -45,9 +45,9 @@ class SponsorController extends Controller
             $files = $request->image;
             $destination = public_path('admin/images/sponsors/');
             Sponsor::isPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.Sponsor::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/sponsors/".$image_name;
+            $url = Sponsor::imageUrl().$image_name;
             $data['image'] = $url;
         }
         $sponsor = Sponsor::create($data);
@@ -93,9 +93,9 @@ class SponsorController extends Controller
         {
             $model->deleteImage();
             $files = $request->file('image');
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/sponsors/".$image_name;
+            $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }
         $model->update($data);

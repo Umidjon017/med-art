@@ -45,9 +45,9 @@ class BlogInfoController extends Controller
             $files = $request->image;
             $destination = public_path('admin/images/blogs/blog-infos/');
             BlogInfo::isPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.BlogInfo::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/blogs/blog-infos/".$image_name;
+            $url = BlogInfo::imageUrl().$image_name;
             $data['image'] = $url;
         }
         $doctors = BlogInfo::create($data);
@@ -97,9 +97,9 @@ class BlogInfoController extends Controller
         {
             $model->deleteImage();
             $files = $request->file('image');
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/blogs/blog-infos/".$image_name;
+            $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }
         $model->update($data);

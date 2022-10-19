@@ -49,9 +49,9 @@ class OurServiceDepartmentController extends Controller
             $files = $request->image;
             $destination = public_path('admin/images/our-service/departments/');
             OurServiceDepartment::isPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.OurServiceDepartment::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
+            $url = OurServiceDepartment::imageUrl().$image_name;
             $data['image'] = $url;
         }
         
@@ -60,9 +60,9 @@ class OurServiceDepartmentController extends Controller
             $files = $request->icon;
             $destination = public_path('admin/images/our-service/departments/');
             OurServiceDepartment::isPhotoDirectoryExists();
-            $image_name = time().'_'.'icon'.'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.OurServiceDepartment::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
+            $url = OurServiceDepartment::imageUrl().$image_name;
             $data['icon'] = $url;
         }
         $departments = OurServiceDepartment::create($data);
@@ -122,18 +122,18 @@ class OurServiceDepartmentController extends Controller
         {
             $model->deleteImage();
             $files = $request->file('image');
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
+            $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }
         if($request->file('icon') !== null)
         {
             $model->deleteIcon();
             $files = $request->file('icon');
-            $image_name = time().'_'.'icon'.'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/our-service/departments/".$image_name;
+            $url = $model->imageUrl().$image_name;
             $data['icon'] = $url;
         }
         $model->update($data);

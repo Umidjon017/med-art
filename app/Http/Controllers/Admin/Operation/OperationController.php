@@ -49,9 +49,9 @@ class OperationController extends Controller
             $files = $request->header_image;
             $destination = public_path('admin/images/operations/home-image/');
             Operation::isHeaderPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.Operation::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/operations/home-image/".$image_name;
+            $url = Operation::imageHeaderUrl().$image_name;
             $data['header_image'] = $url;
         }
         $operations = Operation::create($data);
@@ -63,9 +63,9 @@ class OperationController extends Controller
             Operation::isDetailPhotoDirectoryExists();
         
             foreach ($files as $file) {
-                $image_name = time().'_'.$file->getClientOriginalName();
+                $image_name = time().'_'.Operation::randomImageName().'.'.$file->getClientOriginalExtension();
                 $file->move($destination, $image_name);
-                $url = "http://localhost:8000/admin/images/operations/details/".$image_name;
+                $url = Operation::imageDetailUrl().$image_name;
                 $operations->images()->create(array(
                     'detail_image' => $url,
                 ));
@@ -130,9 +130,9 @@ class OperationController extends Controller
             $model->deleteHeaderImage();
             $destination = public_path('admin/images/operations/home-image/');
             $files = $request->file('header_image');
-            $image_name = time().'_'.$files->getClientOriginalName();
-            $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/operations/home-image/".$image_name;
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
+            $files->move($destination, $image_name);
+            $url = $model->imageHeaderUrl().$image_name;
             $data['header_image'] = $url;
         }
         $model->update($data);
@@ -144,9 +144,9 @@ class OperationController extends Controller
             $destination = public_path('admin/images/operations/details/');
         
             foreach ($files as $file) {
-                $image_name = time().'_'.$file->getClientOriginalName();
+                $image_name = time().'_'.$model->randomImageName().'.'.$file->getClientOriginalExtension();
                 $file->move($destination, $image_name);
-                $url = "http://localhost:8000/admin/images/operations/details/".$image_name;
+                $url = $model->imageDetailUrl().$image_name;
                 $model->images()->updateOrCreate([
                     'operation_id'=>$model->id,
                     'detail_image' => $url,

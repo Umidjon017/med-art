@@ -36,6 +36,27 @@ class AboutusContent extends Model implements TranslatableContract
         return true;
     }
 
+    public static function randomImageName()
+    {
+        // Available alpha caracters
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // generate a pin based on 2 * 7 digits + a random character
+        $pin = uniqid() . mt_rand(1000000, 9999999) . $characters[rand(0, strlen($characters) - 1)];
+
+        // shuffle the result
+        $string = str_shuffle($pin);
+
+        return $string;
+    }
+
+    public static function imageUrl()
+    {
+        $url = url(self::IMAGE_PATH) . '/';
+
+        return $url;
+    }
+
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/about-us/contents/ == 53

@@ -44,10 +44,10 @@ class BlogController extends Controller
         {
             $files = $request->header_image;
             $destination = public_path('admin/images/blogs/home-image');
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.Blog::randomImageName().'.'.$files->getClientOriginalExtension();
             Blog::isPhotoDirectoryExists();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/blogs/home-image/".$image_name;
+            $url = Blog::imageUrl().$image_name;
             $data['header_image'] = $url;
         }
         $blogs = Blog::create($data);
@@ -95,9 +95,9 @@ class BlogController extends Controller
         {
             $model->deleteImage();
             $files = $request->file('header_image');
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/blogs/home-image/".$image_name;
+            $url = $model->imageUrl().$image_name;
             $data['header_image'] = $url;
         }
         $model->update($data);

@@ -44,9 +44,9 @@ class AboutUsController extends Controller
             $files = $request->header_image;
             $destination = public_path('admin/images/about-us/home-image/');
             AboutUs::isPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.AboutUs::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/about-us/home-image/".$image_name;
+            $url = AboutUs::imageUrl().$image_name;
             $data['header_image'] = $url;
         }
         $aboutus = AboutUs::create($data);
@@ -94,9 +94,9 @@ class AboutUsController extends Controller
         {
             $model->deleteImage();
             $files = $request->file('header_image');
-            $image_name = time().'_'.$files->getClientOriginalName();
-            $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/about-us/home-image/".$image_name;
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
+            $files->move($destination, $image_name);
+            $url = $model->imageUrl().$image_name;
             $data['header_image'] = $url;
         }
         $model->update($data);

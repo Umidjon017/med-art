@@ -45,9 +45,9 @@ class OurServiceController extends Controller
             $files = $request->header_image;
             $destination = public_path('admin/images/our-service/home-image/');
             OurService::isPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.OurService::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/our-service/home-image/".$image_name;
+            $url = OurService::imageUrl().$image_name;
             $data['header_image'] = $url;
         }
         $aboutus = OurService::create($data);
@@ -95,9 +95,9 @@ class OurServiceController extends Controller
         {
             $model->deleteImage();
             $files = $request->file('header_image');
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/our-service/home-image/".$image_name;
+            $url = $model->imageUrl().$image_name;
             $data['header_image'] = $url;
         }
         $model->update($data);

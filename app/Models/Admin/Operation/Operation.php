@@ -32,6 +32,34 @@ class Operation extends Model implements TranslatableContract
     const IMAGE_HEADER_PATH = 'admin/images/operations/home-image/';
     const IMAGE_DETAIL_PATH = 'admin/images/operations/details/';
 
+    public static function randomImageName()
+    {
+        // Available alpha caracters
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // generate a pin based on 2 * 7 digits + a random character
+        $pin = uniqid() . mt_rand(1000000, 9999999) . $characters[rand(0, strlen($characters) - 1)];
+
+        // shuffle the result
+        $string = str_shuffle($pin);
+
+        return $string;
+    }
+
+    public static function imageHeaderUrl()
+    {
+        $url = url(self::IMAGE_HEADER_PATH) . '/';
+
+        return $url;
+    }
+
+    public static function imageDetailUrl()
+    {
+        $url = url(self::IMAGE_DETAIL_PATH) . '/';
+
+        return $url;
+    }
+
     public static function isHeaderPhotoDirectoryExists(): bool
     {
         if (!File::exists(self::IMAGE_HEADER_PATH))
