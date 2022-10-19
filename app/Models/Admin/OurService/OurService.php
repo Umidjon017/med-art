@@ -58,7 +58,7 @@ class OurService extends Model implements TranslatableContract
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/our-service/home-image/ == 58
-        $expl = substr($this->header_image, 58);
+        $expl = substr($this->header_image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

@@ -56,7 +56,7 @@ class News extends Model
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/news/home-image/ == 51
-        $expl = substr($this->header_image, 51);
+        $expl = substr($this->header_image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

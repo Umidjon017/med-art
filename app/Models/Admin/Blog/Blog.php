@@ -56,7 +56,7 @@ class Blog extends Model implements TranslatableContract
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/blogs/home-image/ == 52
-        $expl = substr($this->header_image, 52);
+        $expl = substr($this->header_image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

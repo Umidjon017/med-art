@@ -62,7 +62,7 @@ class NewsInfos extends Model implements TranslatableContract
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/news/news-infos/ == 51
-        $expl = substr($this->image, 51);
+        $expl = substr($this->image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

@@ -52,7 +52,7 @@ class AwardDoctor extends Model
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/doctors/awards/ == 50
-        $expl = substr($this->image, 50);
+        $expl = substr($this->image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

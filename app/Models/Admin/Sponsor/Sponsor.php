@@ -50,7 +50,7 @@ class Sponsor extends Model
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/sponsors/ == 44
-        $expl = substr($this->image, 44);
+        $expl = substr($this->image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

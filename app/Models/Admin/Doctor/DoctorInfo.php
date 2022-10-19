@@ -70,7 +70,7 @@ class DoctorInfo extends Model implements TranslatableContract
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/doctors/doctor-infos/ == 56
-        $expl = substr($this->image, 56);
+        $expl = substr($this->image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);
@@ -81,7 +81,7 @@ class DoctorInfo extends Model implements TranslatableContract
     public function deleteCardImage(): bool
     {
         // http://localhost:8000/admin/images/doctors/doctor-infos/ == 56
-        $expl = substr($this->card_image, 56);
+        $expl = substr($this->card_image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

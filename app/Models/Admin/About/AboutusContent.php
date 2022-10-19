@@ -60,7 +60,7 @@ class AboutusContent extends Model implements TranslatableContract
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/about-us/contents/ == 53
-        $expl = substr($this->image, 53);
+        $expl = substr($this->image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);

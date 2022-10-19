@@ -72,7 +72,7 @@ class Operation extends Model implements TranslatableContract
     public function deleteHeaderImage(): bool
     {
         // http://localhost:8000/admin/images/operations/home-image/ == 57
-        $expl = substr($this->header_image, 57);
+        $expl = substr($this->header_image, strlen(self::imageHeaderUrl()));
         if (File::exists(self::IMAGE_HEADER_PATH.$expl))
         {
             File::delete(self::IMAGE_HEADER_PATH.$expl);
@@ -94,7 +94,7 @@ class Operation extends Model implements TranslatableContract
         foreach ($this->images as $image)
         {
             // http://localhost:8000/admin/images/operations/details/ == 54
-            $expl = substr($image->detail_image, 54);
+            $expl = substr($image->detail_image, strlen(self::imageDetailUrl()));
             if (File::exists(self::IMAGE_DETAIL_PATH.$expl))
             {
                 File::delete(self::IMAGE_DETAIL_PATH.$expl);

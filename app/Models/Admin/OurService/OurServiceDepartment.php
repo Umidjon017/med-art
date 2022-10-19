@@ -68,7 +68,7 @@ class OurServiceDepartment extends Model implements TranslatableContract
     public function deleteImage(): bool
     {
         // http://localhost:8000/admin/images/our-service/departments/ == 59
-        $expl = substr($this->image, 59);
+        $expl = substr($this->image, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);
@@ -79,7 +79,7 @@ class OurServiceDepartment extends Model implements TranslatableContract
     public function deleteIcon(): bool
     {
         // http://localhost:8000/admin/images/our-service/departments/ == 59
-        $expl = substr($this->icon, 59);
+        $expl = substr($this->icon, strlen(self::imageUrl()));
         if (File::exists(self::IMAGE_PATH.$expl))
         {
             File::delete(self::IMAGE_PATH.$expl);
