@@ -39,7 +39,7 @@
                             <div class="col-sm-6">
                                 <ul class="nav nav-tabs float-sm-right " >
                                     <li class="nav-item">
-                                        <a class="nav-link " href="#" id="ru-link">Ru</a>
+                                        <a class="nav-link" href="#" id="ru-link">Ru</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link bg-aqua-active" href="#" id="uz-link">Uzb</a>
@@ -50,7 +50,7 @@
                         <div class="card-body">
                             <div class="row d-flex justify-content-between">
                                 <div class="col-md-5">        
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Ismi, sharifi </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
@@ -62,7 +62,7 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Biografiyasi </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
@@ -74,7 +74,7 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Mutaxasisligi </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
@@ -86,7 +86,7 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Bakalavr ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
@@ -98,7 +98,7 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Magister ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
@@ -110,7 +110,7 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> PHD ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
@@ -122,7 +122,7 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Asperantura ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
@@ -134,7 +134,7 @@
                                         </div>
                                     </div> <hr>
     
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5> Qo'shimcha ta'lim </h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active uz-form">
@@ -146,7 +146,7 @@
                                         </div>
                                     </div> <hr>
 
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5>Shifokor mansub bo'lim</h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
@@ -160,7 +160,7 @@
                                         </div>
                                     </div> <hr>
             
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5>Qatnashgan operatisiyalar</h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
@@ -174,7 +174,7 @@
                                         </div>
                                     </div> <hr>
             
-                                    <div class=" d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="box-header"><h5>Mukofot/Sertifikarlar</h5></div>
                                         <div class="tab-content">
                                             <div class="tab-pane active">
@@ -190,12 +190,21 @@
                                 </div>
     
                                 <div class="col-md-5">
-                                    <div class=" d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center">
                                         <div class="box-header"><h2> Rasmi </h2></div>
                                     </div>
                                     <div class="tab-content">
                                         <div class="tab-pane active">
                                             <img src="{{$item->image}}" width="100%">
+                                        </div>
+                                    </div> <hr>
+                                    
+                                    <div class="d-flex justify-content-center">
+                                        <div class="box-header"><h2> Card Rasmi </h2></div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active">
+                                            <img src="{{$item->card_image}}" width="100%">
                                         </div>
                                     </div> <hr>
                                 </div>

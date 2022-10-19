@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('doctor_infos', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('card_image');
             $table->timestamps();
         });
     }

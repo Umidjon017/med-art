@@ -26,6 +26,7 @@ class StoreDoctorInfoRequest extends FormRequest
     {
         return RuleFactory::make([
             'image'             =>  'required|image|mimes:png,jpg,jpeg,gif',
+            'card_image'        =>  'required|image|mimes:png,jpg,jpeg,gif',
             '%full_name%'       =>  'required',
             '%biography%'       =>  'required',
             '%specification%'   =>  'required',
@@ -44,6 +45,10 @@ class StoreDoctorInfoRequest extends FormRequest
             'image.required'    => 'Rasm tanlanishi kerak!',
             'image.image'       => 'Rasm bo`lishligi kerak!',
             'image.mimes'       => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
+            
+            'card_image.required'   => 'Rasm tanlanishi kerak!',
+            'card_image.image'      => 'Rasm bo`lishligi kerak!',
+            'card_image.mimes'      => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
 
             'uz.full_name.required' => 'O`zbekcha ism-sharif to`ldirilishi kerak!',
             'ru.full_name.required' => 'Ruscha ism-sharif to`ldirilishi kerak!',

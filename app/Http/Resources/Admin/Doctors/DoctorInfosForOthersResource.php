@@ -17,6 +17,7 @@ class DoctorInfosForOthersResource extends JsonResource
         return [
             'doctor_id'         =>  $this->id,
             'image'             =>  $this->image,
+            'card_image'        =>  $this->card_image,
             'full_name_uz'      =>  $this->translate('uz')->full_name,
             'full_name_ru'      =>  $this->translate('ru')->full_name,
         ];

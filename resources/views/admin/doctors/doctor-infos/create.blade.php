@@ -50,6 +50,19 @@
                                             </div>
                                         @enderror
                                     </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="">Card Rasm</label>
+                                        <div id="image-preview" class="image-preview">
+                                            <label for="image-upload" id="image-label">Card Rasm</label>
+                                            <input type="file" name="card_image" id="image-upload" />
+                                        </div>
+                                        @error('card_image')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-6 col-md-7 col-lg-7">

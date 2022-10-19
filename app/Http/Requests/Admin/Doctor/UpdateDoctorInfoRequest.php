@@ -26,6 +26,7 @@ class UpdateDoctorInfoRequest extends FormRequest
     {
         return RuleFactory::make([
             'image'             =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
+            'card_image'        =>  'sometimes|image|mimes:png,jpg,jpeg,gif',
             '%full_name%'       =>  'required',
             '%biography%'       =>  'required',
             '%specification%'   =>  'required',
@@ -43,6 +44,9 @@ class UpdateDoctorInfoRequest extends FormRequest
         return [
             'image.image'   => 'Rasm bo`lishligi kerak!',
             'image.mimes'   => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
+            
+            'card_image.image'   => 'Rasm bo`lishligi kerak!',
+            'card_image.mimes'   => 'Rasm: png, jpg, jpeg, gif tipida bo`lishi kerak!',
 
             'uz.full_name.required' => 'O`zbekcha ism-sharif to`ldirilishi kerak!',
             'ru.full_name.required' => 'Ruscha ism-sharif to`ldirilishi kerak!',

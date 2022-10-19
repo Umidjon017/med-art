@@ -52,10 +52,20 @@ class DoctorInfoController extends Controller
             $files = $request->image;
             $destination = public_path('admin/images/doctors/doctor-infos/');
             DoctorInfo::isPhotoDirectoryExists();
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.DoctorInfo::randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);
-            $url = "http://localhost:8000/admin/images/doctors/doctor-infos/".$image_name;
+            $url = DoctorInfo::imageUrl().$image_name;
             $data['image'] = $url;
+        }
+        if($request->hasFile('card_image'))
+        {
+            $files = $request->card_image;
+            $destination = public_path('admin/images/doctors/doctor-infos/');
+            DoctorInfo::isPhotoDirectoryExists();
+            $image_name = time().'_'.DoctorInfo::randomImageName().'.'.$files->getClientOriginalExtension();
+            $files->move($destination, $image_name);
+            $url = DoctorInfo::imageUrl().$image_name;
+            $data['card_image'] = $url;
         }
         $doctors = DoctorInfo::create($data);
 
@@ -137,10 +147,19 @@ class DoctorInfoController extends Controller
         {
             $model->deleteImage();
             $files = $request->file('image');
-            $image_name = time().'_'.$files->getClientOriginalName();
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
             $files->move($destination, $image_name);            
-            $url = "http://localhost:8000/admin/images/doctors/doctor-infos/".$image_name;
+            $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
+        }
+        if($request->file('card_image') !== null)
+        {
+            $model->deleteCardImage();
+            $files = $request->file('card_image');
+            $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
+            $files->move($destination, $image_name);
+            $url = $model->imageUrl().$image_name;
+            $data['card_image'] = $url;
         }
         $model->update($data);
 
@@ -162,6 +181,7 @@ class DoctorInfoController extends Controller
         $model = DoctorInfo::findOrFail($id);
         $model->delete();
         $model->deleteImage();
+        $model->deleteCardImage();
 
         return redirect()->back()->withSuccess("Ma'lumot o'chirildi!");
     }
