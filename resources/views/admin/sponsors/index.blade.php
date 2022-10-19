@@ -39,18 +39,18 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-md">
                     <tr>
-                        <th>#</th>
-                        <th>Nomi</th>
-                        <th>Rasmi</th>
-                        <th>Amallar</th>
+                        <th style="width: 10%">#</th>
+                        <th class="text-center">Nomi</th>
+                        <th class="text-center">Rasmi</th>
+                        <th class="text-center w-25">Amallar</th>
                     </tr>
 
                     @foreach ($items as $item)
                     <tr >
                         <td>{{$loop->iteration}}</td>
                         <td>{{$item->name}}</td>
-                        <td>
-                            <img src="{{$item->image}}"/>
+                        <td style="width: 15%">
+                            <img src="{{$item->image}}" style="width: 100%"/>
                         </td>
                         <td class=" d-flex justify-content-center">
 

@@ -24,6 +24,8 @@ class BlogsResource extends JsonResource
             'header_description_uz' => $this->translate('uz')->header_description,
             'header_description_ru' => $this->translate('ru')->header_description,
             'blog_infos'            => BlogInfosResource::collection($blog_infos),
+            'created_at'            =>  $this->created_at->format('d/m/y'),
+            'updated_at'            =>  $this->updated_at->format('d/m/y'),
         ];
     }
 }

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin\Doctor;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Doctor\DoctorInfo;
 use App\Models\Admin\Doctor\AwardDoctor;
 use App\Http\Requests\Admin\Doctor\StoreAwardDoctorRequest;
 use App\Http\Requests\Admin\Doctor\UpdateAwardDoctorRequest;
-use App\Models\Admin\Doctor\DoctorInfo;
-use Illuminate\Http\Request;
 
 class AwardDoctorController extends Controller
 {
@@ -40,7 +39,7 @@ class AwardDoctorController extends Controller
      * @param  \App\Http\Requests\StoreAwardDoctorRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAwardDoctorRequest $request)
     {
         $data = $request->all();
         if($request->hasFile('image'))

@@ -61,7 +61,7 @@
                                     <td >{!! $item->popularity == 1 ? 'Ha' : 'Yo`q' !!}</td>
 
                                     <td class="w-25">
-                                        <img src="{{ $item->image }}" style="100%">
+                                        <img src="{{ $item->image }}" style="width: 100%">
                                     </td>
 
                                     <td class="d-flex justify-content-center ">

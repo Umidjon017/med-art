@@ -59,10 +59,10 @@
                                     <td>{!! $item->translateOrNew('uz')->name !!}</td>
                                     <td>{!! $item->translate('uz')->description !!}</td>
                                     <td class="w-25">
-                                        <img src="{{ $item->image }}" style="70%">
+                                        <img src="{{ $item->image }}" style="width: 100%">
                                     </td>
-                                    <td class="w-25">
-                                        <img src="{{ $item->icon }}" style="70%">
+                                    <td style="width: 15%">
+                                        <img src="{{ $item->icon }}" style="width: 100%">
                                     </td>
 
                                     <td class="d-flex justify-content-center ">

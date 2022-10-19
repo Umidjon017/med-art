@@ -61,7 +61,7 @@
                                     <td>{!! $item->translate('uz')->description_2 !!}</td>
 
                                     <td class="w-25">
-                                        <img src="{{ $item->image }}" style="70%">
+                                        <img src="{{ $item->image }}" style="width: 70%">
                                     </td>
 
                                     <td class="d-flex justify-content-center ">

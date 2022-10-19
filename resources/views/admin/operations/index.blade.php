@@ -58,14 +58,14 @@
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
                                     <td >{!! $item->translate('uz')->title !!}</td>
-                                    <td >{!! $item->translate('uz')->detail_description !!}</td>
-                                    <td >{!! $item->translate('uz')->full_description !!}</td>
+                                    <td style="width: 30%">{!! $item->translate('uz')->detail_description !!}</td>
+                                    <td style="width: 30%">{!! $item->translate('uz')->full_description !!}</td>
                                     <td class="w-25">
-                                        <img src="{{ $item->header_image }}" style="100%">
+                                        <img src="{{ $item->header_image }}" style="width: 100%">
                                     </td>
                                     <td class="w-25">
                                         @foreach ($item->images as $image)
-                                            <img src="{{ $image->detail_image }}" style="100%">
+                                            <img src="{{ $image->detail_image }}" style="width: 100%">
                                         @endforeach
                                     </td>
 

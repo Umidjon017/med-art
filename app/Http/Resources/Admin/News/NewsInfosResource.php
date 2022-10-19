@@ -26,6 +26,8 @@ class NewsInfosResource extends JsonResource
             'description_2_uz'      =>  $this->translate('uz')->description_2,
             'description_2_ru'      =>  $this->translate('ru')->description_2,
             'popularity'            =>  $this->popularity == 1 ? 'Ha' : 'Yo`q',
+            'created_at'            =>  $this->created_at->format('d/m/y'),
+            'updated_at'            =>  $this->updated_at->format('d/m/y'),
         ];
     }
 }

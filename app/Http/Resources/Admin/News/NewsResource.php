@@ -24,6 +24,8 @@ class NewsResource extends JsonResource
             'header_description_uz' => $this->translate('uz')->header_description,
             'header_description_ru' => $this->translate('ru')->header_description,
             'news_infos'            => NewsInfosResource::collection($news_infos),
+            'created_at'            => $this->created_at->format('d/m/y'),
+            'updated_at'            => $this->updated_at->format('d/m/y'),
         ];
     }
 }
