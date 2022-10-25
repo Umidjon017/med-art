@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Blog;
 
+use Intervention\Image\Facades\Image;
 use App\Models\Admin\Blog\BlogInfo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Blog\StoreBlogInfoRequest;
@@ -46,7 +47,7 @@ class BlogInfoController extends Controller
             $destination = public_path('admin/images/blogs/blog-infos/');
             BlogInfo::isPhotoDirectoryExists();
             $image_name = time().'_'.BlogInfo::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = BlogInfo::imageUrl().$image_name;
             $data['image'] = $url;
         }
@@ -98,7 +99,7 @@ class BlogInfoController extends Controller
             $model->deleteImage();
             $files = $request->file('image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);            
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }

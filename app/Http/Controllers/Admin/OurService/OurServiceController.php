@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\OurService;
 
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\OurService\OurService;
 use App\Http\Requests\Admin\OurService\StoreOurServiceRequest;
@@ -46,7 +47,7 @@ class OurServiceController extends Controller
             $destination = public_path('admin/images/our-service/home-image/');
             OurService::isPhotoDirectoryExists();
             $image_name = time().'_'.OurService::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = OurService::imageUrl().$image_name;
             $data['header_image'] = $url;
         }
@@ -96,7 +97,7 @@ class OurServiceController extends Controller
             $model->deleteImage();
             $files = $request->file('header_image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);            
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = $model->imageUrl().$image_name;
             $data['header_image'] = $url;
         }

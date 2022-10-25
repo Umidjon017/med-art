@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Blog;
 
+use Intervention\Image\Facades\Image;
 use App\Models\Admin\Blog\Blog;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Blog\StoreBlogRequest;
@@ -46,7 +47,7 @@ class BlogController extends Controller
             $destination = public_path('admin/images/blogs/home-image');
             $image_name = time().'_'.Blog::randomImageName().'.'.$files->getClientOriginalExtension();
             Blog::isPhotoDirectoryExists();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = Blog::imageUrl().$image_name;
             $data['header_image'] = $url;
         }
@@ -96,7 +97,7 @@ class BlogController extends Controller
             $model->deleteImage();
             $files = $request->file('header_image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);            
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");      
             $url = $model->imageUrl().$image_name;
             $data['header_image'] = $url;
         }

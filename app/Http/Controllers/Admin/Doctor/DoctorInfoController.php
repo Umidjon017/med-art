@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Doctor;
 
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Doctor\DoctorInfo;
 use App\Models\Admin\Doctor\AwardDoctor;
@@ -53,7 +54,7 @@ class DoctorInfoController extends Controller
             $destination = public_path('admin/images/doctors/doctor-infos/');
             DoctorInfo::isPhotoDirectoryExists();
             $image_name = time().'_'.DoctorInfo::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = DoctorInfo::imageUrl().$image_name;
             $data['image'] = $url;
         }
@@ -63,7 +64,7 @@ class DoctorInfoController extends Controller
             $destination = public_path('admin/images/doctors/doctor-infos/');
             DoctorInfo::isPhotoDirectoryExists();
             $image_name = time().'_'.DoctorInfo::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = DoctorInfo::imageUrl().$image_name;
             $data['card_image'] = $url;
         }
@@ -148,7 +149,7 @@ class DoctorInfoController extends Controller
             $model->deleteImage();
             $files = $request->file('image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);            
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");        
             $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }
@@ -157,7 +158,7 @@ class DoctorInfoController extends Controller
             $model->deleteCardImage();
             $files = $request->file('card_image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = $model->imageUrl().$image_name;
             $data['card_image'] = $url;
         }

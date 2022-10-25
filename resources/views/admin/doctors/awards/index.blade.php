@@ -56,10 +56,10 @@
                             @foreach ($items as $item)
                                 <tr class="odd">
                                     <td>{{$loop->iteration}}</td>
-                                    <td >{!! $item->title !!}</td>
-                                    <td >{!! $item->description !!}</td>
+                                    <td>{!! $item->title !!}</td>
+                                    <td>{!! $item->description !!}</td>
 
-                                    <td class=""><img src="{{ $item->image }}" width="200rem"></td>
+                                    <td><img src="{{ $item->image }}" width="200rem"></td>
 
                                     <td class="d-flex justify-content-center ">
                                         <a class="btn btn-primary" href="{{route('admin.doctors.award.show', $item->id)}}">

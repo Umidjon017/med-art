@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\News;
 
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\News\NewsInfos;
 use App\Http\Requests\Admin\News\StoreNewsInfosRequest;
@@ -49,7 +50,7 @@ class NewsInfosController extends Controller
             $destination = public_path('admin/images/news/news-infos/');
             NewsInfos::isPhotoDirectoryExists();
             $image_name = time().'_'.NewsInfos::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = NewsInfos::imageUrl().$image_name;
             $data['image'] = $url;
         }
@@ -101,7 +102,7 @@ class NewsInfosController extends Controller
             $model->deleteImage();
             $files = $request->file('image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);            
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }

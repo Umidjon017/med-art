@@ -233,7 +233,7 @@
                                         @enderror
                                     </div>
 
-                                    <img src="{{ $operation->header_image }}" alt="">
+                                    <img src="{{ $operation->header_image }}" style="width: 80%">
                                 </div>
 
                                 <div class="col-sm-6 col-md-6 col-lg-6">
@@ -251,14 +251,14 @@
                                     </div>
 
                                     @foreach ($operation_images as $image)
-                                        <img src="{{ $image->detail_image }}" alt="">
+                                        <img src="{{ $image->detail_image }}" style="width: 80%">
                                         {!! $image == $operation_images->last() ? "" : "<hr/>" !!}
                                     @endforeach
                                 </div>
                             </div>
 
                             <div class="form-group mt-5">
-                                <div class="">
+                                <div>
                                     <button class="btn btn-primary"> {{ __("Saqlash") }} </button>
                                 </div>
                             </div>

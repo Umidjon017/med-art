@@ -155,12 +155,12 @@
 
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                    <img src="{{ $item->image }}" style="100%">
+                                    <img src="{{ $item->image }}" style="width: 80%">
                                 </div>
                             </div>
 
                             <div class="form-group mt-3">
-                                <div class="">
+                                <div>
                                     <button class="btn btn-primary"> {{ __("Saqlash") }} </button>
                                 </div>
                             </div>

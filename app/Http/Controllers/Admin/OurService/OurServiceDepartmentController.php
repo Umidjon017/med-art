@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin\OurService;
 
-use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Doctor\DoctorInfo;
 use App\Models\Admin\OurService\OurServiceDepartment;
 use App\Http\Requests\Admin\OurService\StoreOurServiceDepartmentRequest;
 use App\Http\Requests\Admin\OurService\UpdateOurServiceDepartmentRequest;
-use App\Models\Admin\Doctor\DoctorInfo;
 
 class OurServiceDepartmentController extends Controller
 {
@@ -50,7 +50,7 @@ class OurServiceDepartmentController extends Controller
             $destination = public_path('admin/images/our-service/departments/');
             OurServiceDepartment::isPhotoDirectoryExists();
             $image_name = time().'_'.OurServiceDepartment::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = OurServiceDepartment::imageUrl().$image_name;
             $data['image'] = $url;
         }
@@ -61,7 +61,7 @@ class OurServiceDepartmentController extends Controller
             $destination = public_path('admin/images/our-service/departments/');
             OurServiceDepartment::isPhotoDirectoryExists();
             $image_name = time().'_'.OurServiceDepartment::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = OurServiceDepartment::imageUrl().$image_name;
             $data['icon'] = $url;
         }
@@ -123,7 +123,7 @@ class OurServiceDepartmentController extends Controller
             $model->deleteImage();
             $files = $request->file('image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);            
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }
@@ -132,7 +132,7 @@ class OurServiceDepartmentController extends Controller
             $model->deleteIcon();
             $files = $request->file('icon');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = $model->imageUrl().$image_name;
             $data['icon'] = $url;
         }

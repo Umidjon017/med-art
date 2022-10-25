@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Operation;
 
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Doctor\DoctorInfo;
 use App\Models\Admin\Operation\Operation;
@@ -50,7 +51,7 @@ class OperationController extends Controller
             $destination = public_path('admin/images/operations/home-image/');
             Operation::isHeaderPhotoDirectoryExists();
             $image_name = time().'_'.Operation::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = Operation::imageHeaderUrl().$image_name;
             $data['header_image'] = $url;
         }
@@ -64,7 +65,7 @@ class OperationController extends Controller
         
             foreach ($files as $file) {
                 $image_name = time().'_'.Operation::randomImageName().'.'.$file->getClientOriginalExtension();
-                $file->move($destination, $image_name);
+                Image::make($file->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
                 $url = Operation::imageDetailUrl().$image_name;
                 $operations->images()->create(array(
                     'detail_image' => $url,
@@ -131,7 +132,7 @@ class OperationController extends Controller
             $destination = public_path('admin/images/operations/home-image/');
             $files = $request->file('header_image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = $model->imageHeaderUrl().$image_name;
             $data['header_image'] = $url;
         }
@@ -145,7 +146,7 @@ class OperationController extends Controller
         
             foreach ($files as $file) {
                 $image_name = time().'_'.$model->randomImageName().'.'.$file->getClientOriginalExtension();
-                $file->move($destination, $image_name);
+                Image::make($file->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
                 $url = $model->imageDetailUrl().$image_name;
                 $model->images()->updateOrCreate([
                     'operation_id'=>$model->id,

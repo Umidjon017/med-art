@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Doctor;
 
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Doctor\DoctorInfo;
 use App\Models\Admin\Doctor\AwardDoctor;
@@ -48,7 +49,7 @@ class AwardDoctorController extends Controller
             $destination = public_path('admin/images/doctors/awards/');
             AwardDoctor::isPhotoDirectoryExists();
             $image_name = time().'_'.AwardDoctor::randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = AwardDoctor::imageUrl().$image_name;
             $data['image'] = $url;
         }
@@ -110,7 +111,7 @@ class AwardDoctorController extends Controller
             $model->deleteImage();
             $files = $request->file('image');
             $image_name = time().'_'.$model->randomImageName().'.'.$files->getClientOriginalExtension();
-            $files->move($destination, $image_name);            
+            Image::make($files->getRealPath())->save($destination.'/'.$image_name, 50, "jpg");
             $url = $model->imageUrl().$image_name;
             $data['image'] = $url;
         }
