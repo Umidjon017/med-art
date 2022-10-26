@@ -29,6 +29,11 @@
                                             <label for="image-upload" id="image-label">Rasm</label>
                                             <input type="file" name="image" id="image-upload" multiple/>
                                         </div>
+                                        @error('image')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
             
