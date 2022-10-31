@@ -5,17 +5,12 @@ namespace App\Models\Admin\Doctor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class DoctorInfoTranslation extends Model
+class DoctorEduTranslation extends Model
 {
     use HasFactory;
 
-    protected $table = 'doctor_info_translations';
-
     protected $fillable = [
-        'full_name',
-        'biography',
-        'specification',
-        'description',
+        'title',
     ];
 
     public $timestamps = false;

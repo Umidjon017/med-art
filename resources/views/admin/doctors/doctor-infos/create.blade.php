@@ -101,62 +101,11 @@
                                         {{-- Ta'lim --}}
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group">
-                                                    <label> Bakalavr ta'lim (UZ)</label>
-                                                    <input type="text" class="form-control" placeholder="Bakalavr ta'limini kiriting" name="uz[edu_bachelor]" value="{{ old('uz.edu_bachelor') }}">
-                                                    @error('uz.edu_bachelor')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label> Magister ta'lim (UZ)</label>
-                                                    <input type="text" class="form-control" placeholder="Magister ta'limini kiriting" name="uz[edu_master]" value="{{ old('uz.edu_master') }}">
-                                                    @error('uz.edu_master')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label> PHD ta'lim (UZ)</label>
-                                                    <input type="text" class="form-control" placeholder="PHD ta'limini kiriting" name="uz[edu_phd]" value="{{ old('uz.edu_phd') }}">
-                                                    @error('uz.edu_phd')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-12 col-md-6 col-lg-6">                                                
-                                                <div class="form-group">
-                                                    <label> Asperantura ta'lim (UZ)</label>
-                                                    <input type="text" class="form-control" placeholder="Asperantura ta'limini kiriting" name="uz[edu_asperanture]" value="{{ old('uz.edu_asperanture') }}">
-                                                    @error('uz.edu_asperanture')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label> Qo'shimcha ta'lim (UZ)</label>
-                                                    <input type="text" class="form-control" placeholder="Qo'shimcha ta'limini kiriting" name="uz[edu_addition]" value="{{ old('uz.edu_addition') }}">
-                                                    @error('uz.edu_addition')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Qo'shimcha izoh (UZ)</label>
-                                                    <textarea name="uz[description]" class="form-control" cols="100" rows="10"> {{ old('uz.description') }} </textarea>
-                                                    @error('uz.description')
+                                                <div class="form-group" id="dynamicAddRemoveUz">
+                                                    <label> Ta'lim (UZ)</label>
+                                                    <input type="text" class="form-control" placeholder="Ta'limini kiriting" name="uz[moreFields[1][title]]" value="{{ old('uz.moreFields[1][title]') }}">
+                                                    <button type="button" name="uz-add" id="uz-add-btn" class="btn btn-success">Add More</button>
+                                                    @error('uz.moreFields[1][title]')
                                                         <div class="alert alert-danger">
                                                             {{ $message }}
                                                         </div>
@@ -201,62 +150,11 @@
                                         {{-- Ta'lim --}}
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group">
-                                                    <label> Bakalavr ta'lim (RU)</label>
-                                                    <input type="text" class="form-control" placeholder="Bakalavr ta'limini kiriting" name="ru[edu_bachelor]" value="{{ old('ru.edu_bachelor') }}">
-                                                    @error('ru.edu_bachelor')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label> Magister ta'lim (RU)</label>
-                                                    <input type="text" class="form-control" placeholder="Magister ta'limini kiriting" name="ru[edu_master]" value="{{ old('ru.edu_master') }}">
-                                                    @error('ru.edu_master')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label> PHD ta'lim (RU)</label>
-                                                    <input type="text" class="form-control" placeholder="PHD ta'limini kiriting" name="ru[edu_phd]" value="{{ old('ru.edu_phd') }}">
-                                                    @error('ru.edu_phd')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group">
-                                                    <label> Asperantura ta'lim (RU)</label>
-                                                    <input type="text" class="form-control" placeholder="Asperantura ta'limini kiriting" name="ru[edu_asperanture]" value="{{ old('ru.edu_asperanture') }}">
-                                                    @error('ru.edu_asperanture')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label> Qo'shimcha ta'lim (RU)</label>
-                                                    <input type="text" class="form-control" placeholder="Qo'shimcha ta'limini kiriting" name="ru[edu_addition]" value="{{ old('ru.edu_addition') }}">
-                                                    @error('ru.edu_addition')
-                                                        <div class="alert alert-danger">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Qo'shimcha izoh (RU)</label>
-                                                    <textarea name="ru[description]" class="form-control" cols="100" rows="10"> {{ old('ru.description') }} </textarea>
-                                                    @error('ru.description')
+                                                <div class="form-group" id="dynamicAddRemoveRu">
+                                                    <label> Ta'lim (RU)</label>
+                                                    <input type="text" class="form-control" placeholder="Ta'limini kiriting" name="ru[moreFields[1][title]]" value="{{ old('ru.moreFields[1][title]') }}">
+                                                    <button type="button" name="ru-add" id="ru-add-btn" class="btn btn-success">Add More</button>
+                                                    @error('ru.moreFields[1][title]')
                                                         <div class="alert alert-danger">
                                                             {{ $message }}
                                                         </div>
@@ -343,6 +241,26 @@
                 $uzForm.addClass('d-none');
             });
         </script>
+
+    <script type="text/javascript">
+        var i = 1;
+        $("#uz-add-btn").click(function() {
+            ++i;
+            $("#dynamicAddRemoveUz").append('<div class="form-group"><label> Talim (UZ)</label><input type="text" class="form-control" placeholder="Talimini kiriting" name="uz[moreFields['+i+'][title]]" value="{{ old("uz.moreFields['+i+'][title]") }}"><button type="button" class="btn btn-danger remove-div-uz">Remove</button></div>');
+        });
+        $(document).on('click', '.remove-div-uz', function() {  
+            $(this).parent('div').remove();
+        });
+        
+        var r = 1;
+        $("#ru-add-btn").click(function() {
+            ++r;
+            $("#dynamicAddRemoveRu").append('<div class="form-group"><label> Talim (Ru)</label><input type="text" class="form-control" placeholder="Talimini kiriting" name="ru[moreFields['+r+'][title]]" value="{{ old("ru.moreFields['+r+'][title]") }}"><button type="button" class="btn btn-danger remove-div-ru">Remove</button></div>');
+        });
+        $(document).on('click', '.remove-div-ru', function() {  
+            $(this).parent('div').remove();
+        });
+    </script>
     @endsection
 
 </x-admin-layout>

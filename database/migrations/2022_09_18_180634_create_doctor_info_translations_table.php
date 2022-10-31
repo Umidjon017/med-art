@@ -20,11 +20,6 @@ return new class extends Migration
             $table->string('full_name');
             $table->longText('biography');
             $table->string('specification');
-            $table->string('edu_bachelor')->nullable();
-            $table->string('edu_master')->nullable();
-            $table->string('edu_phd')->nullable();
-            $table->string('edu_asperanture')->nullable();
-            $table->string('edu_addition')->nullable();
             $table->longText('description')->nullable();
             $table->unique(['doctor_info_id', 'locale']);
         });

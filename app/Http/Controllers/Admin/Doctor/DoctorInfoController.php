@@ -9,7 +9,9 @@ use App\Models\Admin\Doctor\AwardDoctor;
 use App\Models\Admin\Operation\Operation;
 use App\Http\Requests\Admin\Doctor\StoreDoctorInfoRequest;
 use App\Http\Requests\Admin\Doctor\UpdateDoctorInfoRequest;
+use App\Models\Admin\Doctor\DoctorEdu;
 use App\Models\Admin\OurService\OurServiceDepartment;
+use Illuminate\Support\Arr;
 
 class DoctorInfoController extends Controller
 {
@@ -48,6 +50,8 @@ class DoctorInfoController extends Controller
     public function store(StoreDoctorInfoRequest $request)
     {
         $data = $request->all();
+        dd($data);
+
         if($request->hasFile('image'))
         {
             $files = $request->image;
@@ -70,6 +74,17 @@ class DoctorInfoController extends Controller
         }
         $doctors = DoctorInfo::create($data);
 
+        $removes2 = Arr::only($data, ['uz', 'ru']);
+        foreach ($removes2 as $pro) {
+            // $filtered[] = Arr::only($pro, $tar);
+            $filtered[] = Arr::except($pro, ['full_name', 'biography', 'specification']);
+
+            foreach ($filtered as $key => $value) {
+                $filtered2[] = $value;
+            }
+        }
+        $doctors->edus()->create($filtered2);
+        
         $departments = $request->our_service_department_id;
         if ($departments != '') {
             foreach ($departments as $department) {

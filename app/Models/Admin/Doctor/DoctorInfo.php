@@ -22,11 +22,6 @@ class DoctorInfo extends Model implements TranslatableContract
         'full_name',
         'biography',
         'specification',
-        'edu_bachelor',
-        'edu_master',
-        'edu_phd',
-        'edu_asperanture',
-        'edu_addition',
         'description',
     ];
 
@@ -107,5 +102,10 @@ class DoctorInfo extends Model implements TranslatableContract
     public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class);
+    }
+
+    public function edus(): HasMany
+    {
+        return $this->hasMany(DoctorEdu::class);
     }
 }
